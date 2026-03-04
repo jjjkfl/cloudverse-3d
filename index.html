@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary SEO Meta Tags - Enhanced -->
+    <!-- Primary SEO Meta Tags -->
     <title>Cloudverse Solutions — AI, Cloud & Software Development Company Germany & India</title>
     <meta name="description"
         content="Cloudverse is a premium software development company specializing in AI/ML, Cloud Infrastructure, iOS/Android apps, and Digital Marketing. With offices in Germany and India, we deliver transformative digital solutions.">
@@ -18,7 +18,7 @@
     <link rel="canonical" href="https://cloudversesolution.com/">
     <meta name="theme-color" content="#01b8fd">
 
-    <!-- Open Graph / Facebook - Enhanced -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cloudversesolution.com/">
     <meta property="og:title" content="Cloudverse Solutions — AI, Cloud & Software Development Experts">
@@ -28,7 +28,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://cloudversesolution.com/og-image.jpg">
 
-    <!-- Twitter Card - Enhanced -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cloudverse Solutions — Software Development & AI Company">
     <meta name="twitter:description"
@@ -40,6 +40,59 @@
     <meta name="geo.placename" content="Hanau, Hubli">
     <meta name="geo.position" content="50.126;8.928;15.365;75.124">
 
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What services does Cloudverse offer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Cloudverse offers custom software development, AI/ML solutions, cloud & DevOps infrastructure, iOS and Android app development, Flutter cross-platform development, web application development, and digital marketing services including SEO, Google Ads, and social media marketing."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where are Cloudverse offices located?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Cloudverse has two offices: one in Hanau, Hessen, Germany (Europe) and another in Hubli, Karnataka, India (Asia). We serve clients globally with teams across both locations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What technologies does Cloudverse specialize in?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We specialize in React, Next.js, Node.js, Python, Flutter, Swift, Kotlin, TensorFlow, PyTorch, Docker, Kubernetes, AWS, GCP, Azure, and more. Our team stays at the forefront of modern technology stacks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Cloudverse's Build Operate Transfer (BOT) model?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our BOT model involves setting up a dedicated technology team for your organization, operating it to maturity with full management and KPIs, then seamlessly transferring complete ownership and knowledge to you — risk-free."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <noscript>
+        <style>
+            .reveal-on-scroll,
+            .animate-in {
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+        </style>
+    </noscript>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,9 +103,12 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <!-- Lottie -->
-    <script src="lottie.min.js" defer></script>
-    <script src="app.js" defer></script>
+    <script src="lottie.min.js"></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -61,6 +117,9 @@
 </head>
 
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
     <!-- ============ NAVIGATION ============ -->
     <nav class="navbar" id="navbar" aria-label="Main navigation">
         <div class="nav-container">
@@ -76,14 +135,14 @@
                 <a href="contact.html" class="nav-link nav-link-cta" role="listitem">Contact</a>
             </div>
             <div class="nav-social">
-                <a href="https://twitter.com/cloudverse" target="_blank" rel="noopener noreferrer"
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
                     aria-label="Follow us on Twitter">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path
                             d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                 </a>
-                <a href="https://linkedin.com/company/cloudverse" target="_blank" rel="noopener noreferrer"
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                     aria-label="Connect on LinkedIn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path
@@ -99,514 +158,539 @@
         </div>
     </nav>
 
-    <!-- ============ HERO SECTION ============ -->
-    <section class="hero" id="hero">
-        <div class="hero-glow hero-glow-1"></div>
-        <div class="hero-glow hero-glow-2"></div>
-        <div class="hero-particles" id="heroParticles"></div>
-        <div class="hero-grid">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="hero-title-line animate-in">Innovative Software</span>
-                    <span class="hero-title-line hero-title-accent animate-in" style="animation-delay: 0.15s">for
-                        Transformative</span>
-                    <span class="hero-title-line animate-in" style="animation-delay: 0.3s">Business Growth</span>
-                </h1>
-                <p class="hero-subtitle animate-in" style="animation-delay: 0.45s">Cloudverse harnesses cutting-edge AI,
-                    cloud technology, and expert development to deliver exceptional digital solutions for
-                    forward-thinking businesses worldwide</p>
-                <div class="hero-actions animate-in" style="animation-delay: 0.6s">
-                    <a href="#approach" class="btn btn-primary">
-                        <span>Explore Solutions</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" aria-hidden="true">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                    <a href="contact.html" class="btn btn-ghost">
-                        <span>Schedule Consultation</span>
-                    </a>
-                </div>
-                <div class="hero-trust-badges">
-                    <span class="trust-badge">ISO 27001 Certified</span>
-                    <span class="trust-badge">GDPR Compliant</span>
-                    <span class="trust-badge">7+ Years Excellence</span>
+    <main id="main-content" role="main">
+        <!-- ============ HERO SECTION ============ -->
+        <section class="hero parallax-container" id="hero">
+            <div class="parallax-layer layer-deep" data-speed="0.1">
+                <div class="hero-glow hero-glow-1"></div>
+                <div class="hero-glow hero-glow-2"></div>
+            </div>
+            <div class="parallax-layer layer-back" data-speed="0.3">
+                <div class="hero-particles" id="heroParticles"></div>
+            </div>
+            <div class="parallax-layer layer-mid" data-speed="0.6">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span class="hero-title-line animate-in">Innovative Software</span>
+                            <span class="hero-title-line hero-title-accent animate-in"
+                                style="animation-delay: 0.15s">for Transformative</span>
+                            <span class="hero-title-line animate-in" style="animation-delay: 0.3s">Business
+                                Growth</span>
+                        </h1>
+                        <p class="hero-subtitle animate-in" style="animation-delay: 0.45s">Cloudverse harnesses
+                            cutting-edge AI, cloud technology, and expert development to deliver exceptional digital
+                            solutions for forward-thinking businesses worldwide</p>
+                        <div class="hero-actions animate-in" style="animation-delay: 0.6s">
+                            <a href="#approach" class="btn btn-primary">
+                                <span>Explore Solutions</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" aria-hidden="true">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <a href="contact.html" class="btn btn-ghost">
+                                <span>Schedule Consultation</span>
+                            </a>
+                        </div>
+                        <div class="hero-trust-badges">
+                            <span class="trust-badge">ISO 27001 Certified</span>
+                            <span class="trust-badge">GDPR Compliant</span>
+                            <span class="trust-badge">7+ Years Excellence</span>
+                        </div>
+                    </div>
+                    <div class="hero-atom-wrapper atom-subtle">
+                        <div id="atomAnim" class="atom-lottie" role="img"
+                            aria-label="Animated atom representing innovative technology"></div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-atom-wrapper atom-subtle">
-                <div id="atomAnim" class="atom-lottie" role="img"
-                    aria-label="Animated atom representing innovative technology"></div>
+            <div class="parallax-layer layer-front" data-speed="0.9">
+                <div class="hero-scroll-indicator">
+                    <div class="scroll-line"></div>
+                    <span>Discover the future</span>
+                </div>
             </div>
+        </section>
+
+        <!-- Cinematic Divider -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-glow"></div>
         </div>
-        <div class="hero-scroll-indicator">
-            <div class="scroll-line"></div>
-            <span>Discover the future</span>
+
+        <!-- ============ APPROACH SECTION ============ -->
+        <section class="approach-section parallax-container" id="approach">
+            <div class="parallax-layer layer-deep" data-speed="0.15">
+                <div class="section-glow"></div>
+            </div>
+            <div class="parallax-layer layer-mid" data-speed="0.5">
+                <div class="section-container">
+                    <div class="split-layout reveal-on-scroll">
+                        <div class="split-left">
+                            <span class="section-tag">About Cloudverse</span>
+                            <h2 class="section-title">Empowering Digital <br>Innovators Worldwide</h2>
+                            <div class="location-badges">
+                                <span class="location-badge">🇩🇪 Germany</span>
+                                <span class="location-badge">🇮🇳 India</span>
+                            </div>
+                        </div>
+                        <div class="split-right">
+                            <p class="section-desc-large gradient-scroll-text" id="gradientScrollText">
+                                <span>Cloudverse</span> <span>is</span> <span>committed</span> <span>to</span>
+                                <span>unlocking</span> <span>the</span> <span>true</span> <span>potential</span>
+                                <span>of</span>
+                                <span>technology</span> <span>for</span> <span>your</span> <span>business.</span>
+                                <span>By</span> <span>combining</span> <span>cutting-edge</span> <span>software</span>
+                                <span>development</span> <span>with</span> <span>intuitive</span> <span>design</span>
+                                <span>and</span> <span>seamless</span> <span>integration,</span> <span>we</span>
+                                <span>empower</span> <span>organizations</span> <span>of</span> <span>all</span>
+                                <span>sizes</span> <span>with</span> <span>the</span> <span>tools</span>
+                                <span>they</span>
+                                <span>need</span> <span>to</span> <span>achieve</span> <span>more,</span>
+                                <span>faster.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax-layer layer-front" data-speed="0.8">
+                <div class="floating-elements">
+                    <div class="float-element" style="top: 20%; left: 10%;"></div>
+                    <div class="float-element" style="top: 60%; right: 15%;"></div>
+                    <div class="float-element" style="bottom: 10%; left: 20%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cinematic Divider -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-glow"></div>
         </div>
-    </section>
 
-    <!-- ============ APPROACH SECTION ============ -->
-    <section class="approach-section" id="approach">
-        <div class="section-glow"></div>
-        <div class="section-container">
-            <div class="split-layout reveal-on-scroll">
-                <div class="split-left">
-                    <span class="section-tag">About Cloudverse</span>
-                    <h2 class="section-title">Empowering Digital <br>Innovators Worldwide</h2>
-                    <div class="location-badges">
-                        <span class="location-badge">🇩🇪 Germany</span>
-                        <span class="location-badge">🇮🇳 India</span>
-                    </div>
-                </div>
-                <div class="split-right">
-                    <p class="section-desc-large gradient-scroll-text" id="gradientScrollText">
-                        <span>Cloudverse</span> <span>is</span> <span>committed</span> <span>to</span>
-                        <span>unlocking</span> <span>the</span> <span>true</span> <span>potential</span> <span>of</span>
-                        <span>technology</span> <span>for</span> <span>your</span> <span>business.</span>
-                        <span>By</span> <span>combining</span> <span>cutting-edge</span> <span>software</span>
-                        <span>development</span> <span>with</span> <span>intuitive</span> <span>design</span>
-                        <span>and</span> <span>seamless</span> <span>integration,</span> <span>we</span>
-                        <span>empower</span> <span>organizations</span> <span>of</span> <span>all</span>
-                        <span>sizes</span> <span>with</span> <span>the</span> <span>tools</span> <span>they</span>
-                        <span>need</span> <span>to</span> <span>achieve</span> <span>more,</span> <span>faster.</span>
-                    </p>
-                </div>
+        <!-- ============ PILLARS SECTION ============ -->
+        <section class="pillars-section parallax-container" id="pillars">
+            <div class="parallax-layer layer-deep" data-speed="0.1">
+                <div class="section-glow"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- ============ PILLARS SECTION ============ -->
-    <section class="pillars-section" id="pillars">
-        <div class="section-container">
-            <div class="section-header reveal-on-scroll">
-                <span class="section-tag">Our Approach</span>
-                <h2 class="section-title">Research. Design. Build. Scale.</h2>
-                <p class="section-desc">Discover the new standard in software solutions with industry-leading
-                    technologies and intuitive infrastructure for seamless integration</p>
-            </div>
-            <div class="pillars-grid">
-                <div class="pillar-card reveal-on-scroll">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <circle cx="11" cy="11" r="8" />
-                            <path d="m21 21-4.3-4.3" />
-                        </svg>
+            <div class="parallax-layer layer-mid" data-speed="0.4">
+                <div class="section-container">
+                    <div class="section-header reveal-on-scroll">
+                        <span class="section-tag">Our Approach</span>
+                        <h2 class="section-title">Research. Design. Build. Scale.</h2>
+                        <p class="section-desc">Discover the new standard in software solutions with industry-leading
+                            technologies and intuitive infrastructure for seamless integration</p>
                     </div>
-                    <h3>Research</h3>
-                    <p>Deep-dive market analysis, competitor research, and requirement gathering for data-driven
-                        decisions</p>
-                </div>
-                <div class="pillar-card reveal-on-scroll" style="animation-delay: 0.1s">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M12 20h9" />
-                            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
-                        </svg>
-                    </div>
-                    <h3>Design</h3>
-                    <p>User-centered UI/UX design with intuitive interfaces that delight users and drive engagement</p>
-                </div>
-                <div class="pillar-card reveal-on-scroll" style="animation-delay: 0.2s">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <polyline points="16 18 22 12 16 6" />
-                            <polyline points="8 6 2 12 8 18" />
-                        </svg>
-                    </div>
-                    <h3>Build</h3>
-                    <p>Robust engineering with the latest tech stacks ensuring scalable, performant, and secure
-                        applications</p>
-                </div>
-                <div class="pillar-card reveal-on-scroll" style="animation-delay: 0.3s">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                        </svg>
-                    </div>
-                    <h3>Scale</h3>
-                    <p>Seamless deployment, monitoring, and scaling infrastructure for organizations of all sizes</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ SERVICES SECTION ============ -->
-    <section class="services-section" id="services">
-        <div class="section-container">
-            <div class="section-header reveal-on-scroll">
-                <span class="section-tag">What We Do</span>
-                <h2 class="section-title">Our Core Services</h2>
-            </div>
-
-            <!-- Service 1 -->
-            <div class="feature-block reveal-on-scroll">
-                <div class="feature-number" aria-hidden="true">01</div>
-                <div class="feature-split">
-                    <div class="feature-content">
-                        <h3 class="feature-title">Software<br>Development</h3>
-                        <p class="feature-desc">Custom software, website development, and Build Operate Transfer (BOT)
-                            services tailored to your unique business needs. From concept to delivery, we build
-                            solutions that scale.</p>
-                        <div class="feature-tags">
-                            <span>Custom Software</span>
-                            <span>Web Development</span>
-                            <span>BOT Services</span>
-                        </div>
-                    </div>
-                    <div class="feature-visual">
-                        <div class="feature-graphic graphic-code">
-                            <div class="code-lines">
-                                <span style="--i:0"></span>
-                                <span style="--i:1"></span>
-                                <span style="--i:2"></span>
-                                <span style="--i:3"></span>
-                                <span style="--i:4"></span>
-                                <span style="--i:5"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 2 -->
-            <div class="feature-block feature-block-reverse reveal-on-scroll">
-                <div class="feature-number" aria-hidden="true">02</div>
-                <div class="feature-split">
-                    <div class="feature-content">
-                        <h3 class="feature-title">Customer<br>Experience</h3>
-                        <p class="feature-desc">Personalized, competent, convenient, and proactive service that puts
-                            your customers first. We design experiences that build loyalty and drive growth.</p>
-                        <div class="feature-tags">
-                            <span>Personalized</span>
-                            <span>Proactive</span>
-                            <span>Convenient</span>
-                        </div>
-                    </div>
-                    <div class="feature-visual">
-                        <div class="feature-graphic graphic-ux">
-                            <div class="ux-circles">
-                                <span></span><span></span><span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="feature-block reveal-on-scroll">
-                <div class="feature-number" aria-hidden="true">03</div>
-                <div class="feature-split">
-                    <div class="feature-content">
-                        <h3 class="feature-title">Digital<br>Marketing</h3>
-                        <p class="feature-desc">SEO optimization, Google & Facebook Ads management, and comprehensive
-                            social media marketing to amplify your brand reach and drive conversions.</p>
-                        <div class="feature-tags">
-                            <span>SEO</span>
-                            <span>Google & Facebook Ads</span>
-                            <span>Social Media</span>
-                        </div>
-                    </div>
-                    <div class="feature-visual">
-                        <div class="feature-graphic graphic-chart">
-                            <div class="chart-bars">
-                                <span style="--h:40%"></span>
-                                <span style="--h:65%"></span>
-                                <span style="--h:45%"></span>
-                                <span style="--h:80%"></span>
-                                <span style="--h:55%"></span>
-                                <span style="--h:90%"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 4 -->
-            <div class="feature-block feature-block-reverse reveal-on-scroll">
-                <div class="feature-number" aria-hidden="true">04</div>
-                <div class="feature-split">
-                    <div class="feature-content">
-                        <h3 class="feature-title">AI &<br>Machine Learning</h3>
-                        <p class="feature-desc">Data analytics, NLP, personalized marketing, and virtual assistants
-                            powered by cutting-edge AI to give your business a competitive edge.</p>
-                        <div class="feature-tags">
-                            <span>Analytics</span>
-                            <span>NLP</span>
-                            <span>Virtual AI</span>
-                        </div>
-                    </div>
-                    <div class="feature-visual">
-                        <div class="feature-graphic graphic-neural">
-                            <div class="neural-dots">
-                                <span style="--x:20%;--y:30%"></span>
-                                <span style="--x:50%;--y:20%"></span>
-                                <span style="--x:80%;--y:35%"></span>
-                                <span style="--x:30%;--y:60%"></span>
-                                <span style="--x:60%;--y:55%"></span>
-                                <span style="--x:75%;--y:70%"></span>
-                                <span style="--x:40%;--y:80%"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 5 -->
-            <div class="feature-block reveal-on-scroll">
-                <div class="feature-number" aria-hidden="true">05</div>
-                <div class="feature-split">
-                    <div class="feature-content">
-                        <h3 class="feature-title">Frameworks &<br>Versatile Apps</h3>
-                        <p class="feature-desc">Web, mobile, software, and data science frameworks to build robust,
-                            scalable applications that adapt across different categories and situations.</p>
-                        <div class="feature-tags">
-                            <span>Web</span>
-                            <span>Mobile</span>
-                            <span>Data Science</span>
-                            <span>Adaptive</span>
-                        </div>
-                    </div>
-                    <div class="feature-visual">
-                        <div class="feature-graphic graphic-grid">
-                            <div class="grid-cells">
-                                <span></span><span></span><span></span>
-                                <span></span><span></span><span></span>
-                                <span></span><span></span><span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 6 -->
-            <div class="feature-block feature-block-reverse reveal-on-scroll">
-                <div class="feature-number" aria-hidden="true">06</div>
-                <div class="feature-split">
-                    <div class="feature-content">
-                        <h3 class="feature-title">Cloud &<br>DevOps</h3>
-                        <p class="feature-desc">Seamless cloud infrastructure, CI/CD pipelines, and DevOps automation to
-                            ensure your applications run reliably at any scale.</p>
-                        <div class="feature-tags">
-                            <span>Cloud</span>
-                            <span>CI/CD</span>
-                            <span>Infrastructure</span>
-                        </div>
-                    </div>
-                    <div class="feature-visual">
-                        <div class="feature-graphic graphic-cloud">
-                            <div class="cloud-shape" aria-hidden="true">
-                                <svg viewBox="0 0 100 60" fill="none" stroke="currentColor" stroke-width="1">
-                                    <path
-                                        d="M25 50 C10 50 0 40 5 30 C5 15 20 10 30 15 C35 5 50 0 60 10 C70 5 85 10 85 25 C95 25 100 35 90 45 C95 55 80 55 75 50 Z" />
+                    <div class="pillars-grid">
+                        <div class="pillar-card reveal-on-scroll" data-speed="0.7">
+                            <div class="pillar-icon" aria-hidden="true">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="m21 21-4.3-4.3" />
                                 </svg>
                             </div>
+                            <h3>Research</h3>
+                            <p>Deep-dive market analysis, competitor research, and requirement gathering for data-driven
+                                decisions</p>
+                        </div>
+                        <div class="pillar-card reveal-on-scroll" data-speed="0.75" style="animation-delay: 0.1s">
+                            <div class="pillar-icon" aria-hidden="true">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M12 20h9" />
+                                    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                                </svg>
+                            </div>
+                            <h3>Design</h3>
+                            <p>User-centered UI/UX design with intuitive interfaces that delight users and drive
+                                engagement</p>
+                        </div>
+                        <div class="pillar-card reveal-on-scroll" data-speed="0.8" style="animation-delay: 0.2s">
+                            <div class="pillar-icon" aria-hidden="true">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <polyline points="16 18 22 12 16 6" />
+                                    <polyline points="8 6 2 12 8 18" />
+                                </svg>
+                            </div>
+                            <h3>Build</h3>
+                            <p>Robust engineering with the latest tech stacks ensuring scalable, performant, and secure
+                                applications</p>
+                        </div>
+                        <div class="pillar-card reveal-on-scroll" data-speed="0.85" style="animation-delay: 0.3s">
+                            <div class="pillar-icon" aria-hidden="true">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                                </svg>
+                            </div>
+                            <h3>Scale</h3>
+                            <p>Seamless deployment, monitoring, and scaling infrastructure for organizations of all
+                                sizes</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="parallax-layer layer-front" data-speed="0.9">
+                <div class="grid-overlay"></div>
+            </div>
+        </section>
 
-    <!-- ============ PRODUCTS SECTION ============ -->
-    <section class="products-section" id="products">
-        <div class="section-glow"></div>
-        <div class="section-container">
-            <div class="section-header reveal-on-scroll">
-                <span class="section-tag">Specializations</span>
-                <h2 class="section-title">Expertise Across Platforms</h2>
-                <p class="section-desc">Click on any specialization to explore our comprehensive solutions</p>
-            </div>
-        </div>
-        <div class="arc-stage">
-            <div class="arc-ring" id="arcRing">
-                <div class="arc-card" data-href="product-ios.html" data-index="0">
-                    <div class="arc-card-inner">
-                        <div class="arc-card-front">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5" aria-hidden="true">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-                                <path
-                                    d="M15.5 8.5c0 1.38-1.12 2.5-2.5 2.5S10.5 9.88 10.5 8.5 11.62 6 13 6s2.5 1.12 2.5 2.5z" />
-                            </svg>
-                            <h3>iOS</h3>
-                            <p>Native Apple Development</p>
-                        </div>
-                    </div>
+        <!-- ============ SERVICES SECTION ============ -->
+        <section class="services-section" id="services">
+            <div class="section-container">
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-tag">What We Do</span>
+                    <h2 class="section-title">Our Core Services</h2>
                 </div>
-                <div class="arc-card" data-href="product-android.html" data-index="1">
-                    <div class="arc-card-inner">
-                        <div class="arc-card-front">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5" aria-hidden="true">
-                                <rect x="5" y="2" width="14" height="20" rx="2" />
-                                <line x1="12" y1="18" x2="12" y2="18" />
-                            </svg>
-                            <h3>Android</h3>
-                            <p>Android App Development</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="arc-card" data-href="product-web.html" data-index="2">
-                    <div class="arc-card-inner">
-                        <div class="arc-card-front">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5" aria-hidden="true">
-                                <circle cx="12" cy="12" r="10" />
-                                <line x1="2" y1="12" x2="22" y2="12" />
-                                <path
-                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                            </svg>
-                            <h3>Web Apps</h3>
-                            <p>Full-Stack Applications</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="arc-card" data-href="product-flutter.html" data-index="3">
-                    <div class="arc-card-inner">
-                        <div class="arc-card-front">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5" aria-hidden="true">
-                                <polygon points="12 2 22 12 12 22 2 12" />
-                                <line x1="12" y1="2" x2="12" y2="22" />
-                                <line x1="2" y1="12" x2="22" y2="12" />
-                            </svg>
-                            <h3>Flutter</h3>
-                            <p>Cross-Platform Dev</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="arc-card" data-href="product-devops.html" data-index="4">
-                    <div class="arc-card-inner">
-                        <div class="arc-card-front">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5" aria-hidden="true">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                            </svg>
-                            <h3>DevOps</h3>
-                            <p>Cloud & Infrastructure</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="arc-card" data-href="product-ai.html" data-index="5">
-                    <div class="arc-card-inner">
-                        <div class="arc-card-front">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5" aria-hidden="true">
-                                <path d="M12 2a4 4 0 0 0-4 4c0 2 2 3 2 6h4c0-3 2-4 2-6a4 4 0 0 0-4-4z" />
-                                <rect x="9" y="14" width="6" height="4" rx="1" />
-                                <path d="M10 18v1a2 2 0 0 0 4 0v-1" />
-                            </svg>
-                            <h3>AI & ML</h3>
-                            <p>Intelligent Solutions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 3D Page Transition Overlay -->
-        <div class="page-transition-overlay" id="pageTransition">
-            <div class="transition-glow"></div>
-        </div>
-    </section>
 
-    <!-- ============ PROCESS SECTION ============ -->
-    <section class="process-section" id="process">
-        <div class="section-container">
-            <div class="section-header reveal-on-scroll">
-                <span class="section-tag">How We Work</span>
-                <h2 class="section-title">Unprecedented Velocity.<br>Impeccable Reliability.</h2>
-            </div>
-            <div class="process-timeline">
-                <div class="process-step reveal-on-scroll">
-                    <div class="process-number" aria-hidden="true">01</div>
-                    <div class="process-content">
-                        <h3>Research</h3>
-                        <p>App development idea, competitor analysis, feature listing, and market analysis.</p>
+                <!-- Service 1 -->
+                <div class="feature-block parallax-container reveal-on-scroll">
+                    <div class="parallax-layer layer-deep" data-speed="0.2">
+                        <div class="feature-number" aria-hidden="true">01</div>
                     </div>
-                </div>
-                <div class="process-step reveal-on-scroll">
-                    <div class="process-number" aria-hidden="true">02</div>
-                    <div class="process-content">
-                        <h3>Wireframing</h3>
-                        <p>Sketching the app structure to understand functionality and features.</p>
-                    </div>
-                </div>
-                <div class="process-step reveal-on-scroll">
-                    <div class="process-number" aria-hidden="true">03</div>
-                    <div class="process-content">
-                        <h3>UI/UX Design</h3>
-                        <p>Icon placement, color combinations, information architecture, and workflow design.</p>
-                    </div>
-                </div>
-                <div class="process-step reveal-on-scroll">
-                    <div class="process-number" aria-hidden="true">04</div>
-                    <div class="process-content">
-                        <h3>Development</h3>
-                        <p>Coding, bug fixing, tech stack selection, and milestone tracking.</p>
-                    </div>
-                </div>
-                <div class="process-step reveal-on-scroll">
-                    <div class="process-number" aria-hidden="true">05</div>
-                    <div class="process-content">
-                        <h3>Testing</h3>
-                        <p>Usability, compatibility, security, interface, stress, and performance testing.</p>
-                    </div>
-                </div>
-                <div class="process-step reveal-on-scroll">
-                    <div class="process-number" aria-hidden="true">06</div>
-                    <div class="process-content">
-                        <h3>Deployment</h3>
-                        <p>Deployed on respective platforms and web servers with zero downtime.</p>
-                    </div>
-                </div>
-                <div class="process-step reveal-on-scroll">
-                    <div class="process-number" aria-hidden="true">07</div>
-                    <div class="process-content">
-                        <h3>Support</h3>
-                        <p>Continuous feature updates and functionality improvements for better UX.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ CTA SECTION ============ -->
-    <section class="cta-section" id="cta">
-        <canvas id="particleCanvas"></canvas>
-        <div class="cta-wrapper" id="ctaWrapper">
-            <!-- Slide 1: Hero CTA -->
-            <div class="cta-slide cta-slide-hero">
-                <h2 class="cta-title">Ready to Become<br>Digitally Empowered?</h2>
-                <p class="cta-subtitle">Let's explore how Cloudverse can accelerate your digital transformation journey
-                </p>
-                <div class="hexagon-btn" id="hexagonTrigger">
-                    <div id="lottieHexagon"></div>
-                    <span class="hexagon-label">Start Conversation</span>
-                </div>
-            </div>
-            <!-- Slide 2: Contact Form -->
-            <div class="cta-slide cta-slide-form">
-                <div class="form-content">
-                    <h2 class="form-title">Get in Touch</h2>
-                    <form class="form-grid" id="contactForm">
-                        <input type="text" placeholder="* Full Name" required aria-label="Full name">
-                        <input type="text" placeholder="* Subject" required aria-label="Subject">
-                        <input type="email" placeholder="* Email Address" required aria-label="Email address">
-                        <input type="text" placeholder="Company" aria-label="Company name">
-                        <input type="tel" placeholder="Phone Number" aria-label="Phone number">
-                        <textarea placeholder="* Message" required aria-label="Your message"></textarea>
-                        <div class="form-actions">
-                            <button type="submit" class="submit-btn">Send Message</button>
-                            <button type="button" class="back-btn" id="formBack">← Back</button>
+                    <div class="parallax-layer layer-mid" data-speed="0.6">
+                        <div class="feature-split">
+                            <div class="feature-content">
+                                <h3 class="feature-title">Software<br>Development</h3>
+                                <p class="feature-desc">Custom software, website development, and Build Operate Transfer
+                                    (BOT) services tailored to your unique business needs. From concept to delivery, we
+                                    build solutions that scale.</p>
+                                <div class="feature-tags">
+                                    <span>Custom Software</span>
+                                    <span>Web Development</span>
+                                    <span>BOT Services</span>
+                                </div>
+                            </div>
+                            <div class="feature-visual">
+                                <div class="feature-graphic graphic-code">
+                                    <div class="code-lines">
+                                        <span style="--i:0"></span>
+                                        <span style="--i:1"></span>
+                                        <span style="--i:2"></span>
+                                        <span style="--i:3"></span>
+                                        <span style="--i:4"></span>
+                                        <span style="--i:5"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="feature-block feature-block-reverse parallax-container reveal-on-scroll">
+                    <div class="parallax-layer layer-deep" data-speed="0.2">
+                        <div class="feature-number" aria-hidden="true">02</div>
+                    </div>
+                    <div class="parallax-layer layer-mid" data-speed="0.6">
+                        <div class="feature-split">
+                            <div class="feature-content">
+                                <h3 class="feature-title">Customer<br>Experience</h3>
+                                <p class="feature-desc">Personalized, competent, convenient, and proactive service that
+                                    puts your customers first. We design experiences that build loyalty and drive
+                                    growth.</p>
+                                <div class="feature-tags">
+                                    <span>Personalized</span>
+                                    <span>Proactive</span>
+                                    <span>Convenient</span>
+                                </div>
+                            </div>
+                            <div class="feature-visual">
+                                <div class="feature-graphic graphic-ux">
+                                    <div class="ux-circles">
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="feature-block parallax-container reveal-on-scroll">
+                    <div class="parallax-layer layer-deep" data-speed="0.2">
+                        <div class="feature-number" aria-hidden="true">03</div>
+                    </div>
+                    <div class="parallax-layer layer-mid" data-speed="0.6">
+                        <div class="feature-split">
+                            <div class="feature-content">
+                                <h3 class="feature-title">Digital<br>Marketing</h3>
+                                <p class="feature-desc">SEO optimization, Google & Facebook Ads management, and
+                                    comprehensive social media marketing to amplify your brand reach and drive
+                                    conversions.</p>
+                                <div class="feature-tags">
+                                    <span>SEO</span>
+                                    <span>Google & Facebook Ads</span>
+                                    <span>Social Media</span>
+                                </div>
+                            </div>
+                            <div class="feature-visual">
+                                <div class="feature-graphic graphic-chart">
+                                    <div class="chart-bars">
+                                        <span style="--h:40%"></span>
+                                        <span style="--h:65%"></span>
+                                        <span style="--h:45%"></span>
+                                        <span style="--h:80%"></span>
+                                        <span style="--h:55%"></span>
+                                        <span style="--h:90%"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="feature-block feature-block-reverse parallax-container reveal-on-scroll">
+                    <div class="parallax-layer layer-deep" data-speed="0.2">
+                        <div class="feature-number" aria-hidden="true">04</div>
+                    </div>
+                    <div class="parallax-layer layer-mid" data-speed="0.6">
+                        <div class="feature-split">
+                            <div class="feature-content">
+                                <h3 class="feature-title">AI &<br>Machine Learning</h3>
+                                <p class="feature-desc">Data analytics, NLP, personalized marketing, and virtual
+                                    assistants powered by cutting-edge AI to give your business a competitive edge.</p>
+                                <div class="feature-tags">
+                                    <span>Analytics</span>
+                                    <span>NLP</span>
+                                    <span>Virtual AI</span>
+                                </div>
+                            </div>
+                            <div class="feature-visual">
+                                <div class="feature-graphic graphic-neural">
+                                    <div class="neural-dots">
+                                        <span style="--x:20%;--y:30%"></span>
+                                        <span style="--x:50%;--y:20%"></span>
+                                        <span style="--x:80%;--y:35%"></span>
+                                        <span style="--x:30%;--y:60%"></span>
+                                        <span style="--x:60%;--y:55%"></span>
+                                        <span style="--x:75%;--y:70%"></span>
+                                        <span style="--x:40%;--y:80%"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="feature-block parallax-container reveal-on-scroll">
+                    <div class="parallax-layer layer-deep" data-speed="0.2">
+                        <div class="feature-number" aria-hidden="true">05</div>
+                    </div>
+                    <div class="parallax-layer layer-mid" data-speed="0.6">
+                        <div class="feature-split">
+                            <div class="feature-content">
+                                <h3 class="feature-title">Frameworks &<br>Versatile Apps</h3>
+                                <p class="feature-desc">Web, mobile, software, and data science frameworks to build
+                                    robust, scalable applications that adapt across different categories and situations.
+                                </p>
+                                <div class="feature-tags">
+                                    <span>Web</span>
+                                    <span>Mobile</span>
+                                    <span>Data Science</span>
+                                    <span>Adaptive</span>
+                                </div>
+                            </div>
+                            <div class="feature-visual">
+                                <div class="feature-graphic graphic-grid">
+                                    <div class="grid-cells">
+                                        <span></span><span></span><span></span>
+                                        <span></span><span></span><span></span>
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="feature-block feature-block-reverse parallax-container reveal-on-scroll">
+                    <div class="parallax-layer layer-deep" data-speed="0.2">
+                        <div class="feature-number" aria-hidden="true">06</div>
+                    </div>
+                    <div class="parallax-layer layer-mid" data-speed="0.6">
+                        <div class="feature-split">
+                            <div class="feature-content">
+                                <h3 class="feature-title">Cloud &<br>DevOps</h3>
+                                <p class="feature-desc">Seamless cloud infrastructure, CI/CD pipelines, and DevOps
+                                    automation to ensure your applications run reliably at any scale.</p>
+                                <div class="feature-tags">
+                                    <span>Cloud</span>
+                                    <span>CI/CD</span>
+                                    <span>Infrastructure</span>
+                                </div>
+                            </div>
+                            <div class="feature-visual">
+                                <div class="feature-graphic graphic-cloud">
+                                    <div class="cloud-shape" aria-hidden="true">
+                                        <svg viewBox="0 0 100 60" fill="none" stroke="currentColor" stroke-width="1">
+                                            <path
+                                                d="M25 50 C10 50 0 40 5 30 C5 15 20 10 30 15 C35 5 50 0 60 10 C70 5 85 10 85 25 C95 25 100 35 90 45 C95 55 80 55 75 50 Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <!-- ============ PRODUCTS SECTION - NEW CAROUSEL ============ -->
+        <!-- ============ PRODUCTS SECTION - FIXED CAROUSEL ============ -->
+        <section id="products" style="position: relative; width: 100%; overflow: hidden; padding: 100px 0 80px;">
+            <div class="section-container" style="max-width: var(--container-width); margin: 0 auto; padding: 0 40px;">
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-tag">Specializations</span>
+                    <h2 class="section-title">Everything in orbit.</h2>
+                    <p class="section-desc">Click the active card to explore. Use arrows to browse.</p>
+                </div>
+            </div>
+
+            <div style="position: relative; width: 100%; margin-top: 40px;">
+                <!-- Carousel container -->
+                <div class="arch-scene"
+                    style="position: relative; width: 100%; height: 500px; perspective: 1400px; perspective-origin: 50% 0%; overflow: visible;">
+                    <div class="arch-stage" id="archStage"
+                        style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1400px; height: 500px; transform-style: preserve-3d;">
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="arch-nav"
+                    style="display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 40px; position: relative; z-index: 10;">
+                    <button class="arch-btn" id="archPrev"
+                        style="width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #fff; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); backdrop-filter: blur(12px);">←</button>
+                    <div class="arch-dots" id="archDots" style="display: flex; align-items: center; gap: 7px;"></div>
+                    <button class="arch-btn" id="archNext"
+                        style="width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.14); color: #fff; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); backdrop-filter: blur(12px);">→</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Detail Overlay -->
+        <div id="ppage">
+            <div class="pp-nav">
+                <button class="pp-back" id="ppBackBtn">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                    Back
+                </button>
+                <div class="pp-site-name">Cloud<b>verse</b></div>
+                <button class="pp-cta-btn" id="ppContactBtn">Get Started</button>
+            </div>
+            <div id="ppContent"></div>
         </div>
-    </section>
+
+        <!-- ============ PROCESS SECTION ============ -->
+        <section class="process-section parallax-container" id="process">
+            <div class="parallax-layer layer-deep" data-speed="0.15">
+                <div class="section-glow"></div>
+            </div>
+            <div class="parallax-layer layer-mid" data-speed="0.5">
+                <div class="section-container">
+                    <div class="section-header reveal-on-scroll">
+                        <span class="section-tag">How We Work</span>
+                        <h2 class="section-title">Unprecedented Velocity.<br>Impeccable Reliability.</h2>
+                    </div>
+                    <div class="process-timeline">
+                        <div class="process-step reveal-on-scroll">
+                            <div class="process-number" aria-hidden="true">01</div>
+                            <div class="process-content">
+                                <h3>Research</h3>
+                                <p>App development idea, competitor analysis, feature listing, and market analysis.</p>
+                            </div>
+                        </div>
+                        <div class="process-step reveal-on-scroll">
+                            <div class="process-number" aria-hidden="true">02</div>
+                            <div class="process-content">
+                                <h3>Wireframing</h3>
+                                <p>Sketching the app structure to understand functionality and features.</p>
+                            </div>
+                        </div>
+                        <div class="process-step reveal-on-scroll">
+                            <div class="process-number" aria-hidden="true">03</div>
+                            <div class="process-content">
+                                <h3>UI/UX Design</h3>
+                                <p>Icon placement, color combinations, information architecture, and workflow design.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="process-step reveal-on-scroll">
+                            <div class="process-number" aria-hidden="true">04</div>
+                            <div class="process-content">
+                                <h3>Development</h3>
+                                <p>Coding, bug fixing, tech stack selection, and milestone tracking.</p>
+                            </div>
+                        </div>
+                        <div class="process-step reveal-on-scroll">
+                            <div class="process-number" aria-hidden="true">05</div>
+                            <div class="process-content">
+                                <h3>Testing</h3>
+                                <p>Usability, compatibility, security, interface, stress, and performance testing.</p>
+                            </div>
+                        </div>
+                        <div class="process-step reveal-on-scroll">
+                            <div class="process-number" aria-hidden="true">06</div>
+                            <div class="process-content">
+                                <h3>Deployment</h3>
+                                <p>Deployed on respective platforms and web servers with zero downtime.</p>
+                            </div>
+                        </div>
+                        <div class="process-step reveal-on-scroll">
+                            <div class="process-number" aria-hidden="true">07</div>
+                            <div class="process-content">
+                                <h3>Support</h3>
+                                <p>Continuous feature updates and functionality improvements for better UX.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CTA SECTION ============ -->
+        <section class="cta-section" id="cta">
+            <canvas id="particleCanvas"></canvas>
+            <div class="cta-wrapper" id="ctaWrapper">
+                <!-- Slide 1: Hero CTA -->
+                <div class="cta-slide cta-slide-hero">
+                    <h2 class="cta-title">Ready to Become<br>Digitally Empowered?</h2>
+                    <p class="cta-subtitle">Let's explore how Cloudverse can accelerate<br>your digital transformation
+                    </p>
+                    <div class="hexagon-btn" id="hexagonTrigger" role="button" aria-label="Start a conversation">
+                        <div id="lottieHexagon"></div>
+                        <span class="hexagon-label">Let's Talk</span>
+                    </div>
+                </div>
+                <!-- Slide 2: Contact Form -->
+                <div class="cta-slide cta-slide-form">
+                    <div class="form-content">
+                        <h2 class="form-title">Get in Touch</h2>
+                        <form class="form-grid" id="contactForm">
+                            <input type="text" placeholder="* Full Name" required aria-label="Full name">
+                            <input type="text" placeholder="* Subject" required aria-label="Subject">
+                            <input type="email" placeholder="* Email Address" required aria-label="Email address">
+                            <input type="text" placeholder="Company" aria-label="Company name">
+                            <input type="tel" placeholder="Phone Number" aria-label="Phone number">
+                            <textarea placeholder="* Message" required aria-label="Your message"></textarea>
+                            <div class="form-actions">
+                                <button type="submit" class="submit-btn">Send Message</button>
+                                <button type="button" class="back-btn" id="formBack">← Back</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- ============ FOOTER ============ -->
     <footer class="footer" id="footer">
@@ -639,7 +723,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 Cloudverse LLP. All rights reserved. ISO 27001 Certified | GDPR Compliant</p>
+                <p>© 2024 Cloudverse LLP. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
@@ -710,6 +794,438 @@
         ]
     }
     </script>
+
+    <!-- Product Carousel Script -->
+    <script>
+        /* ══════════════════════════════════════════════════════
+           PRODUCTS DATA - Customized for Cloudverse
+           ══════════════════════════════════════════════════════ */
+        const PRODUCTS = [
+            {
+                icon: '💻', name: 'Software Development',
+                desc: 'Custom enterprise software tailored to your exact workflows.',
+                color: '#01b8fd',
+                full: 'We build bespoke software that integrates seamlessly with your operations. Every line of code is crafted for performance, security and infinite scalability.',
+                stats: ['50+', '99.9%', '24/7'], statLabels: ['Projects Delivered', 'Uptime SLA', 'Support'],
+                features: [
+                    { e: '🏗', t: 'Custom ERP & CRM', d: 'Tailored to your exact business logic' },
+                    { e: '🔌', t: 'API Design', d: 'RESTful & GraphQL with full documentation' },
+                    { e: '☁️', t: 'Cloud-Native', d: 'AWS, GCP, Azure from day one' },
+                    { e: '🔒', t: 'Security', d: 'SOC2 compliant architecture' },
+                ],
+                tags: ['Node.js', 'Python', 'Go', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes'],
+                ctaText: 'Ready to build something powerful?'
+            },
+            {
+                icon: '🌐', name: 'Web Development',
+                desc: 'High-performance web apps with cutting-edge stacks.',
+                color: '#01b8fd',
+                full: 'React, Next.js, Node.js — blazing-fast, SEO-optimized accessible web experiences that delight users and convert visitors.',
+                stats: ['<100ms', '98/100', '∞'], statLabels: ['Load Time', 'Lighthouse Score', 'Scalability'],
+                features: [
+                    { e: '⚛️', t: 'React & Next.js', d: 'SSR, SSG and ISR rendering patterns' },
+                    { e: '🎨', t: 'UI/UX Design', d: 'Pixel-perfect Figma to production' },
+                    { e: '🔍', t: 'SEO', d: 'Technical and content SEO strategy' },
+                    { e: '📈', t: 'Analytics', d: 'GA4, Mixpanel, Amplitude' },
+                ],
+                tags: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'MongoDB', 'Vercel'],
+                ctaText: 'Launch your next web experience.'
+            },
+            {
+                icon: '📱', name: 'Mobile Apps',
+                desc: 'Native iOS, Android and cross-platform Flutter apps.',
+                color: '#01b8fd',
+                full: 'Your app on every device. We design and develop mobile-first experiences users love, backed by robust backends and real-time analytics.',
+                stats: ['5M+', '4.9★', '8 Wks'], statLabels: ['Downloads', 'App Store Rating', 'Avg Launch'],
+                features: [
+                    { e: '🍎', t: 'iOS (Swift)', d: 'Native performance and gestures' },
+                    { e: '🤖', t: 'Android (Kotlin)', d: 'Material 3 design system' },
+                    { e: '💙', t: 'Flutter', d: 'One codebase, all platforms' },
+                    { e: '🔔', t: 'Push & Real-time', d: 'Firebase, OneSignal' },
+                ],
+                tags: ['Flutter', 'Swift', 'Kotlin', 'Firebase', 'Dart', 'Fastlane'],
+                ctaText: 'Your app idea deserves to ship.'
+            },
+            {
+                icon: '🧠', name: 'AI & Machine Learning',
+                desc: 'Data-driven intelligence that automates and personalizes.',
+                color: '#01b8fd',
+                full: 'From NLP chatbots to predictive analytics and computer vision, we integrate AI to create intelligent, self-improving systems.',
+                stats: ['95%', '3x', '<50ms'], statLabels: ['Model Accuracy', 'Revenue Uplift', 'Inference'],
+                features: [
+                    { e: '💬', t: 'NLP & Chatbots', d: 'GPT-powered conversational AI' },
+                    { e: '📊', t: 'Predictive Analytics', d: 'Forecast demand and churn' },
+                    { e: '👁️', t: 'Computer Vision', d: 'Object detection and OCR' },
+                    { e: '🎯', t: 'Personalization', d: 'ML-driven recommendations' },
+                ],
+                tags: ['Python', 'TensorFlow', 'PyTorch', 'LangChain', 'OpenAI', 'FastAPI'],
+                ctaText: 'Make your product intelligently adaptive.'
+            },
+            {
+                icon: '📊', name: 'Digital Marketing',
+                desc: 'SEO, paid ads and social media to drive measurable growth.',
+                color: '#01b8fd',
+                full: 'Full-funnel strategies from organic search dominance to precision paid campaigns on Google, Meta and Instagram that drive real ROI.',
+                stats: ['300%', '12x', '48hr'], statLabels: ['Avg ROI', 'ROAS', 'Campaign Setup'],
+                features: [
+                    { e: '🔍', t: 'SEO Strategy', d: 'Technical, on-page and link building' },
+                    { e: '💰', t: 'Google Ads', d: 'Search, Display and Shopping' },
+                    { e: '📘', t: 'Meta Ads', d: 'Facebook and Instagram funnels' },
+                    { e: '📱', t: 'Social Media', d: 'Content strategy and scheduling' },
+                ],
+                tags: ['Google Ads', 'Meta Ads', 'SEMrush', 'Ahrefs', 'HubSpot', 'GA4'],
+                ctaText: 'Start growing your digital presence.'
+            },
+            {
+                icon: '⚙️', name: 'DevOps & CI/CD',
+                desc: 'Automated pipelines, cloud infra, zero-downtime deploys.',
+                color: '#01b8fd',
+                full: 'We set up and maintain the infrastructure backbone of your application — reliability, security and blazing-fast delivery cycles.',
+                stats: ['99.99%', '0 min', '<5min'], statLabels: ['Uptime', 'Downtime/Deploy', 'Deploy Time'],
+                features: [
+                    { e: '🐳', t: 'Docker & Kubernetes', d: 'Containerized microservices' },
+                    { e: '🔄', t: 'CI/CD Pipelines', d: 'GitHub Actions, GitLab CI/CD' },
+                    { e: '📡', t: 'Monitoring', d: 'Grafana, Prometheus, PagerDuty' },
+                    { e: '🔐', t: 'Security Scanning', d: 'SAST, DAST and Vault secrets' },
+                ],
+                tags: ['Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'Prometheus', 'AWS'],
+                ctaText: 'Build infrastructure that never sleeps.'
+            },
+            {
+                icon: '🔄', name: 'Build Operate Transfer',
+                desc: 'We build your team, operate it, and hand it over fully.',
+                color: '#01b8fd',
+                full: 'A complete outsourcing model — we set up your dedicated tech team, operate it to maturity, then seamlessly transfer full ownership to you.',
+                stats: ['100%', '12mo', '0%'], statLabels: ['Knowledge Transfer', 'Timeline', 'Handover Risk'],
+                features: [
+                    { e: '👥', t: 'Team Setup & Hiring', d: 'Recruit, train and onboard talent' },
+                    { e: '🏃', t: 'Day-to-Day Ops', d: 'Management, KPIs and reporting' },
+                    { e: '📚', t: 'Documentation', d: 'Technical and process knowledge base' },
+                    { e: '🤝', t: 'Smooth Handover', d: 'Transition training and support' },
+                ],
+                tags: ['Agile', 'Scrum', 'JIRA', 'Confluence', 'Slack', 'OKRs', 'ISO 27001'],
+                ctaText: 'Own your technology team, risk-free.'
+            }
+        ];
+
+
+        /* ══════════════════════════════════════════════════════
+           CAROUSEL ENGINE
+           ══════════════════════════════════════════════════════ */
+
+        // Arc geometry
+        const ARC_RADIUS = 480;   // px — distance from centre to card centres
+        const ARC_DEGREES = 22;    // deg — angular gap between adjacent cards
+
+        let currentIdx = 3;   // which card starts centred (0-based)
+        const stage = document.getElementById('archStage');
+        const dotsEl = document.getElementById('archDots');
+
+        function buildCarousel() {
+            stage.innerHTML = '';
+            dotsEl.innerHTML = '';
+
+            PRODUCTS.forEach((p, i) => {
+                // ── card ──
+                const card = document.createElement('div');
+                card.className = 'pc' + (i === currentIdx ? ' active' : '');
+                card.dataset.idx = i;
+                card.innerHTML =
+                    '<div class="pi">' +
+                    '<div class="p-shine"></div>' +
+                    '<div class="p-icon">' + p.icon + '</div>' +
+                    '<div class="p-name">' + p.name + '</div>' +
+                    '<div class="p-desc">' + p.desc + '</div>' +
+                    '<div class="p-cta">Tap to explore →</div>' +
+                    '</div>';
+
+                card.addEventListener('click', () => {
+                    const idx = +card.dataset.idx;
+                    if (idx === currentIdx) openProduct(card, idx);
+                    else setActive(idx);
+                });
+                stage.appendChild(card);
+
+                // ── dot ──
+                const dot = document.createElement('div');
+                dot.className = 'ad' + (i === currentIdx ? ' active' : '');
+                dot.addEventListener('click', () => setActive(i));
+                dotsEl.appendChild(dot);
+            });
+
+            positionCards(false);   // initial placement — no animation
+        }
+
+        function positionCards(animated) {
+            stage.querySelectorAll('.pc').forEach((card, i) => {
+                const offset = i - currentIdx;
+                const rad = offset * ARC_DEGREES * Math.PI / 180;
+
+                // Semi-circle: centre card at top, sides arc down
+                const x = Math.sin(rad) * ARC_RADIUS;
+                const y = ARC_RADIUS * (1 - Math.cos(rad));
+
+                const scale = Math.max(0.42, 1 - Math.abs(offset) * 0.10);
+                const opacity = Math.max(0.12, 1 - Math.abs(offset) * 0.16);
+                const rotY = -offset * 12;
+                const blur = Math.abs(offset) > 2 ? (Math.abs(offset) - 2) * 2 : 0;
+                const dur = animated ? '.72s cubic-bezier(.16,1,.3,1)' : '0s';
+
+                card.style.cssText =
+                    'position:absolute;width:220px;height:285px;' +
+                    'left:calc(50% - 110px);top:20px;' +
+                    'transform:' +
+                    'translateX(' + x + 'px) ' +
+                    'translateY(' + y + 'px) ' +
+                    'scale(' + scale + ') ' +
+                    'rotateY(' + rotY + 'deg);' +
+                    'opacity:' + opacity + ';' +
+                    'z-index:' + (100 - Math.abs(offset)) + ';' +
+                    'filter:blur(' + blur + 'px);' +
+                    'transition:transform ' + dur + ',opacity ' + dur + ',filter ' + dur + ';';
+
+                card.className = 'pc' + (i === currentIdx ? ' active' : '');
+            });
+
+            dotsEl.querySelectorAll('.ad').forEach((d, i) =>
+                d.className = 'ad' + (i === currentIdx ? ' active' : '')
+            );
+        }
+
+        function setActive(idx) {
+            currentIdx = ((idx % PRODUCTS.length) + PRODUCTS.length) % PRODUCTS.length;
+            positionCards(true);
+        }
+
+        // Button listeners
+        document.getElementById('archPrev').addEventListener('click', () => setActive(currentIdx - 1));
+        document.getElementById('archNext').addEventListener('click', () => setActive(currentIdx + 1));
+
+        buildCarousel();
+
+
+        /* ══════════════════════════════════════════════════════
+           PRODUCT DETAIL PAGE — HTML BUILDER
+           ══════════════════════════════════════════════════════ */
+        function buildProductPage(p) {
+            const c = p.color;
+            return (
+                '<div class="pp-hero" style="background:radial-gradient(ellipse 80% 60% at 50% 45%,' + c + '1a,transparent 65%),#000">' +
+                '<div class="pp-orb" style="width:500px;height:500px;top:0;right:-100px;background:' + c + '15;filter:blur(80px)"></div>' +
+                '<div class="pp-orb" style="width:300px;height:300px;bottom:0;left:-50px;background:' + c + '0d;filter:blur(60px)"></div>' +
+                '<div class="pp-icon-wrap">' +
+                '<div class="pp-ring pp-r1" style="border-color:' + c + '30"></div>' +
+                '<div class="pp-ring pp-r2" style="border-color:' + c + '20"></div>' +
+                '<div class="pp-ring pp-r3" style="border-color:' + c + '12"></div>' +
+                '<span class="pp-big-icon">' + p.icon + '</span>' +
+                '</div>' +
+                '<h1 class="pp-title">' + p.name + '</h1>' +
+                '<p class="pp-sub">' + p.full + '</p>' +
+                '<div class="pp-hero-actions">' +
+                '<button class="btn-primary" style="background:' + c + ';box-shadow:0 0 40px ' + c + '66" onclick="closePP()">Start Project</button>' +
+                '<button class="btn-ghost" onclick="closePP()">Back to Services</button>' +
+                '</div>' +
+                '<div class="pp-stats">' +
+                p.stats.map((s, i) =>
+                    '<div class="pp-stat">' +
+                    '<div class="pp-stat-n">' + s + '</div>' +
+                    '<div class="pp-stat-l">' + p.statLabels[i] + '</div>' +
+                    '</div>'
+                ).join('') +
+                '</div>' +
+                '</div>' +
+
+                '<div class="pp-content">' +
+                '<div class="pp-grid">' +
+                '<div>' +
+                '<div class="pp-section-label">What We Deliver</div>' +
+                '<h2 class="pp-h2">Built for scale.<br>Designed to last.</h2>' +
+                '<p class="pp-p">' + p.full + '</p>' +
+                '<ul class="pp-feat-list">' +
+                p.features.map(f =>
+                    '<li><span>' + f.e + '</span>' +
+                    '<div><strong>' + f.t + '</strong><br>' +
+                    '<span style="color:var(--cv-muted);font-size:13px;line-height:1.5">' + f.d + '</span></div></li>'
+                ).join('') +
+                '</ul>' +
+                '</div>' +
+                '<div class="pp-visual">' +
+                '<div class="pp-orb" style="width:300px;height:300px;background:' + c + '1a;top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(50px)"></div>' +
+                '<div class="pp-3d-card" style="border-color:' + c + '40;background:linear-gradient(135deg,' + c + '18,' + c + '06)">' +
+                '<div style="font-size:76px">' + p.icon + '</div>' +
+                '<h3 style="text-align:center;font-size:20px">' + p.name + '</h3>' +
+                '<p style="text-align:center;color:var(--cv-muted);font-size:13px;line-height:1.6">' + p.desc + '</p>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+
+                '<div>' +
+                '<div class="pp-section-label">Technology Stack</div>' +
+                '<h2 class="pp-h2" style="margin-bottom:28px">Tools we master.</h2>' +
+                '<div class="pp-tech-tags">' +
+                p.tags.map(t => '<div class="pp-tag" style="border-color:' + c + '22">' + t + '</div>').join('') +
+                '</div>' +
+                '</div>' +
+
+                '<div class="pp-cta-strip" style="background:linear-gradient(135deg,' + c + '14,' + c + '06);border-color:' + c + '28">' +
+                '<h3>' + p.ctaText + '</h3>' +
+                '<p>Let us discuss your project and chart a clear path to success.</p>' +
+                '<button class="btn-primary" style="font-size:17px;padding:16px 44px;background:' + c + ';box-shadow:0 0 40px ' + c + '55" onclick="closePP()">Schedule a Call</button>' +
+                '</div>' +
+                '</div>'
+            );
+        }
+
+
+        /* ══════════════════════════════════════════════════════
+           PRODUCT PAGE OPEN / CLOSE — 3D TRANSITION
+           ══════════════════════════════════════════════════════ */
+
+        // 3D tilt helper
+        function addTilt(sel, factor = 16) {
+            document.querySelectorAll(sel).forEach(el => {
+                el.addEventListener('mousemove', e => {
+                    const r = el.getBoundingClientRect();
+                    const x = (e.clientX - r.left) / r.width - .5;
+                    const y = (e.clientY - r.top) / r.height - .5;
+                    el.style.transform = 'perspective(900px) rotateY(' + (x * factor) + 'deg) rotateX(' + (-y * factor) + 'deg) translateZ(14px) scale(1.02)';
+                });
+                el.addEventListener('mouseleave', () => el.style.transform = '');
+            });
+        }
+
+        let ppOpen = false, ppFromCard = null;
+
+        function openProduct(cardEl, idx) {
+            if (ppOpen) return;
+            ppOpen = true;
+
+            const p = PRODUCTS[idx];
+            const pp = document.getElementById('ppage');
+            const content = document.getElementById('ppContent');
+
+            content.innerHTML = buildProductPage(p);
+            gsap.set(content, { opacity: 0, y: 50, scale: .97 });
+            pp.scrollTop = 0;
+
+            // Measure the card position to start the clip-path from there
+            const pi = cardEl.querySelector('.pi');
+            const r = pi.getBoundingClientRect();
+            const vw = innerWidth, vh = innerHeight;
+            const ct = (r.top / vh * 100).toFixed(2) + '%';
+            const cr = ((1 - r.right / vw) * 100).toFixed(2) + '%';
+            const cb = ((1 - r.bottom / vh) * 100).toFixed(2) + '%';
+            const cl = (r.left / vw * 100).toFixed(2) + '%';
+            const cx = r.left + r.width / 2;
+            const cy = r.top + r.height / 2;
+
+            // Light-burst ripple at card centre
+            const rip = document.createElement('div');
+            rip.className = 'pp-transition-ripple';
+            Object.assign(rip.style, {
+                left: cx + 'px', top: cy + 'px',
+                width: '8px', height: '8px',
+                marginLeft: '-4px', marginTop: '-4px',
+                background: 'radial-gradient(circle,rgba(0,220,255,.95),rgba(1,184,253,.6) 40%,transparent 70%)',
+                boxShadow: '0 0 36px 16px rgba(1,184,253,.6)',
+                transform: 'scale(1)'
+            });
+            document.body.appendChild(rip);
+
+            // Card flash
+            gsap.to(pi, {
+                boxShadow: '0 0 0 2px rgba(1,184,253,.7), 0 0 90px rgba(1,184,253,.45)',
+                duration: .2, ease: 'power2.out', yoyo: true, repeat: 1
+            });
+
+            // Page starts as card-sized clip, then expands
+            gsap.set(pp, { opacity: 1, clipPath: 'inset(' + ct + ' ' + cr + ' ' + cb + ' ' + cl + ' round 24px)' });
+            pp.style.pointerEvents = 'all';
+            document.body.style.overflow = 'hidden';
+
+            const tl = gsap.timeline();
+            tl.to(rip, { scale: 500, opacity: 0, duration: .85, ease: 'power3.in' }, 0);
+            tl.to(pp, { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: .8, ease: 'expo.inOut' }, 0.08);
+            tl.add(() => {
+                pp.classList.add('open');
+                document.body.style.overflow = '';
+                rip.remove();
+                gsap.to(content, { opacity: 1, y: 0, scale: 1, duration: .55, ease: 'power3.out' });
+                setTimeout(() => {
+                    addTilt('.pp-3d-card', 18);
+                    addTilt('.pp-stat', 12);
+                    addTilt('.pp-tag', 8);
+                    addTilt('.pp-feat-list li', 10);
+                }, 120);
+            }, .82);
+
+            ppFromCard = cardEl;
+        }
+
+        function closePP() {
+            if (!ppOpen) return;
+            const pp = document.getElementById('ppage');
+            const content = document.getElementById('ppContent');
+            document.body.style.overflow = 'hidden';
+
+            let ct = '40%', cr = '40%', cb = '40%', cl = '40%';
+            let cx = innerWidth / 2, cy = innerHeight / 2;
+
+            if (ppFromCard) {
+                const r = ppFromCard.querySelector('.pi').getBoundingClientRect();
+                const vw = innerWidth, vh = innerHeight;
+                ct = (r.top / vh * 100).toFixed(2) + '%';
+                cr = ((1 - r.right / vw) * 100).toFixed(2) + '%';
+                cb = ((1 - r.bottom / vh) * 100).toFixed(2) + '%';
+                cl = (r.left / vw * 100).toFixed(2) + '%';
+                cx = r.left + r.width / 2;
+                cy = r.top + r.height / 2;
+            }
+
+            // Implosion ripple
+            const rip = document.createElement('div');
+            rip.className = 'pp-transition-ripple';
+            Object.assign(rip.style, {
+                left: cx + 'px', top: cy + 'px',
+                width: '8px', height: '8px',
+                marginLeft: '-4px', marginTop: '-4px',
+                background: 'radial-gradient(circle,rgba(1,184,253,.9),rgba(1,184,253,.5) 40%,transparent 70%)',
+                transform: 'scale(500)',
+                opacity: '0',
+                zIndex: '8600'
+            });
+            document.body.appendChild(rip);
+
+            const tl = gsap.timeline({
+                onComplete() {
+                    gsap.set(pp, { opacity: 0 });
+                    pp.style.pointerEvents = 'none';
+                    pp.classList.remove('open');
+                    document.body.style.overflow = '';
+                    ppOpen = false;
+                    ppFromCard = null;
+                    rip.remove();
+                }
+            });
+            tl.to(content, { opacity: 0, y: -30, scale: .97, duration: .22, ease: 'power2.in' }, 0);
+            tl.to(rip, { scale: 1, opacity: .8, duration: .45, ease: 'expo.in' }, 0.15);
+            tl.to(rip, { opacity: 0, duration: .2, ease: 'power2.out' }, 0.55);
+            tl.to(pp, { clipPath: 'inset(' + ct + ' ' + cr + ' ' + cb + ' ' + cl + ' round 24px)', duration: .78, ease: 'expo.inOut' }, 0.18);
+        }
+
+        // Wire up back button
+        document.getElementById('ppBackBtn').addEventListener('click', closePP);
+
+        // Contact button - smooth scroll to contact form
+        document.getElementById('ppContactBtn').addEventListener('click', () => {
+            closePP();
+            setTimeout(() => document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' }), 400);
+        });
+
+        // Make close function global for onclick handlers
+        window.closePP = closePP;
+    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>
