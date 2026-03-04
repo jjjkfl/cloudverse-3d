@@ -240,6 +240,21 @@ section {
     will-change: transform, opacity, filter;
 }
 
+/* Inside parallax layers, transform-style:preserve-3d breaks IntersectionObserver.
+   Force visibility so content is always shown.
+   Also covers elements that are themselves parallax-containers with reveal-on-scroll,
+   and section-headers inside services/products sections. */
+.parallax-layer .reveal-on-scroll,
+.parallax-container>.reveal-on-scroll,
+.parallax-container.reveal-on-scroll,
+.services-section>.section-container>.section-header.reveal-on-scroll,
+.feature-block.reveal-on-scroll,
+#products .section-header.reveal-on-scroll {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
 .reveal-on-scroll.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -316,6 +331,7 @@ section {
     z-index: 2;
     transform: translateZ(0);
     opacity: 1;
+    pointer-events: auto;
 }
 
 .layer-front {
@@ -670,7 +686,7 @@ section {
 .hero-grid {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 clamp(24px, 5vw, 60px);
+    padding: var(--nav-height) clamp(24px, 5vw, 60px) 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
@@ -2384,8 +2400,8 @@ section {
 /* Hexagon Button */
 .hexagon-btn {
     position: relative;
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -2406,27 +2422,41 @@ section {
     filter: drop-shadow(0 0 30px var(--accent-glow));
 }
 
+/* Tint the Lottie SVG so it's not pure white — allows text contrast */
+#lottieHexagon svg path,
+#lottieHexagon svg polygon,
+#lottieHexagon svg rect {
+    fill: rgba(1, 184, 253, 0.25) !important;
+    stroke: rgba(1, 184, 253, 0.8) !important;
+}
+
 .hexagon-label {
-    position: relative;
+    position: absolute;
     z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #fff;
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     pointer-events: none;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
+    background: rgba(1, 184, 253, 0.2);
+    padding: 10px 16px;
+    border-radius: 6px;
     box-shadow: none;
     transition: all 0.4s ease;
-    text-shadow: 0 0 20px rgba(1, 184, 253, 0.6), 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 20px rgba(1, 184, 253, 0.8), 0 2px 8px rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
 }
 
 .hexagon-btn:hover .hexagon-label {
-    color: var(--accent-primary);
+    color: #fff;
+    background: rgba(1, 184, 253, 0.35);
     text-shadow: 0 0 30px rgba(1, 184, 253, 0.9), 0 0 60px rgba(1, 184, 253, 0.4);
-    transform: scale(1.1);
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 /* Contact Form Slide */
@@ -2947,12 +2977,13 @@ section {
     }
 
     .hexagon-btn {
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
     }
 
     .hexagon-label {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
         letter-spacing: 1.5px;
+        padding: 8px 12px;
     }
 }
