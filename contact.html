@@ -182,7 +182,6 @@
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Simple validation
             const firstName = document.getElementById('firstName').value.trim();
             const lastName = document.getElementById('lastName').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -205,14 +204,11 @@
             btn.style.background = 'linear-gradient(135deg, #00b894, #00cec9)';
             btn.disabled = true;
 
-            // Simulate form submission
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.style.background = '';
                 btn.disabled = false;
                 e.target.reset();
-
-                // Show success message (you'd normally send to server)
                 alert('Thank you! We\'ll get back to you within 24 hours.');
             }, 2000);
         });
