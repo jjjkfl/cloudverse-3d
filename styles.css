@@ -1041,6 +1041,20 @@ section {
     text-align: center;
     margin-bottom: clamp(60px, 8vw, 100px);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-header .section-title {
+    display: block;
+    text-align: center;
+}
+
+.section-header .section-tag {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ======================
@@ -2369,8 +2383,6 @@ section {
     line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 20px;
-    opacity: 0;
-    animation: ctaTitleIn 1.2s var(--ease-out-expo) forwards;
 }
 
 @keyframes ctaTitleIn {
@@ -2392,8 +2404,6 @@ section {
     color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 60px;
-    opacity: 0;
-    animation: ctaTitleIn 1.2s var(--ease-out-expo) 0.2s forwards;
     max-width: 600px;
 }
 
@@ -2407,8 +2417,6 @@ section {
     align-items: center;
     justify-content: center;
     transition: transform 0.6s var(--ease-out-expo);
-    opacity: 0;
-    animation: ctaTitleIn 1.2s var(--ease-out-expo) 0.4s forwards;
 }
 
 .hexagon-btn:hover {
@@ -2438,25 +2446,23 @@ section {
     transform: translate(-50%, -50%);
     color: #fff;
     font-weight: 700;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     pointer-events: none;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    background: rgba(1, 184, 253, 0.2);
-    padding: 10px 16px;
-    border-radius: 6px;
+    background: none;
+    padding: 0;
+    border-radius: 0;
     box-shadow: none;
     transition: all 0.4s ease;
     text-shadow: 0 0 20px rgba(1, 184, 253, 0.8), 0 2px 8px rgba(0, 0, 0, 0.8);
     white-space: nowrap;
-    backdrop-filter: blur(4px);
 }
 
 .hexagon-btn:hover .hexagon-label {
     color: #fff;
-    background: rgba(1, 184, 253, 0.35);
     text-shadow: 0 0 30px rgba(1, 184, 253, 0.9), 0 0 60px rgba(1, 184, 253, 0.4);
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, -50%) scale(1.08);
 }
 
 /* Contact Form Slide */
@@ -2982,8 +2988,7 @@ section {
     }
 
     .hexagon-label {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
         letter-spacing: 1.5px;
-        padding: 8px 12px;
     }
 }
