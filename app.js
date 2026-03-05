@@ -12,21 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initSmoothScroll();
     initScrollProgress();
-
-    // Initialize GSAP-powered effects when available
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-        initGSAPScrollEffects();
-    } else {
-        // Fallback: basic intersection observer reveals
-        initBasicScrollReveal();
-        initGradientScrollText();
-    }
-
-    // Initialize carousel if elements exist
-    if (document.getElementById('archStage')) {
-        initProductCarousel();
-    }
+    initGSAPScrollEffects();
+    initProductCarousel();
 });
 
 // ---- Custom Cursor Effect ----
@@ -193,6 +180,13 @@ function initSmoothScroll() {
 // GSAP CINEMATIC SCROLL EFFECTS
 // ========================================
 function initGSAPScrollEffects() {
+    // Add class to html to signify GSAP is handling reveals 
+    // (disables CSS .reveal-on-scroll hiding)
+    document.documentElement.classList.add('gsap-active');
+
+    // Register ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
     // Set defaults
     gsap.defaults({ ease: 'power3.out' });
 
@@ -504,61 +498,6 @@ function initGSAPScrollEffects() {
     initMouseParallax();
 }
 
-// ---- Fallback: Basic Scroll Reveal ----
-function initBasicScrollReveal() {
-    const elements = document.querySelectorAll('.reveal-on-scroll');
-    if (!elements.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    elements.forEach(el => observer.observe(el));
-}
-
-// ---- Gradient Scroll Text (fallback without GSAP) ----
-function initGradientScrollText() {
-    const container = document.getElementById('gradientScrollText');
-    if (!container) return;
-
-    const words = container.querySelectorAll('span');
-    if (!words.length) return;
-
-    function updateWords() {
-        const rect = container.getBoundingClientRect();
-        const windowH = window.innerHeight;
-        const startTrigger = windowH * 0.8;
-        const endTrigger = windowH * 0.2;
-
-        const progress = Math.min(1, Math.max(0,
-            (startTrigger - rect.top) / (startTrigger - endTrigger)
-        ));
-
-        const totalWords = words.length;
-        const litCount = Math.floor(progress * totalWords);
-
-        words.forEach((word, i) => {
-            if (i < litCount) {
-                word.classList.add('lit');
-            } else {
-                word.classList.remove('lit');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', updateWords, { passive: true });
-    window.addEventListener('resize', updateWords);
-    updateWords();
-}
-
 // ---- Mouse-based 3D Parallax ----
 function initMouseParallax() {
     const cards = document.querySelectorAll('.pillar-card, .feature-graphic');
@@ -655,7 +594,7 @@ function initMobileMenu() {
 }
 
 /* ==========================================
-   PRODUCT CAROUSEL
+   PRODUCT CAROUSEL - FIXED
    ========================================== */
 
 function initProductCarousel() {
@@ -855,10 +794,8 @@ function initProductCarousel() {
         positionCards(true);
     }
 
-    // Build carousel
     buildCarousel();
 
-    // Button listeners
     const prevBtn = document.getElementById('archPrev');
     const nextBtn = document.getElementById('archNext');
 
@@ -878,12 +815,10 @@ function initProductCarousel() {
         });
     }
 
-    // Handle window resize
     window.addEventListener('resize', function () {
         positionCards(false);
     });
 
-    // Product detail page functions
     function buildProductPage(p) {
         const c = p.color;
         return (
@@ -899,8 +834,8 @@ function initProductCarousel() {
             '<h1 class="pp-title">' + p.name + '</h1>' +
             '<p class="pp-sub">' + p.full + '</p>' +
             '<div class="pp-hero-actions">' +
-            '<button class="btn-primary" style="background:' + c + ';box-shadow:0 0 40px ' + c + '66" onclick="window.closePP ? window.closePP() : closePP()">Start Project</button>' +
-            '<button class="btn-ghost" onclick="window.closePP ? window.closePP() : closePP()">Back to Services</button>' +
+            '<button class="btn-primary" style="background:' + c + ';box-shadow:0 0 40px ' + c + '66" onclick="closePP()">Start Project</button>' +
+            '<button class="btn-ghost" onclick="closePP()">Back to Services</button>' +
             '</div>' +
             '<div class="pp-stats">' +
             p.stats.map((s, i) =>
@@ -922,7 +857,7 @@ function initProductCarousel() {
             p.features.map(f =>
                 '<li><span>' + f.e + '</span>' +
                 '<div><strong>' + f.t + '</strong><br>' +
-                '<span style="color:var(--cv-muted);font-size:13px;line-height:1.5">' + f.d + '</span></div></li>'
+                '<span style="color:var(--text-secondary);font-size:13px;line-height:1.5">' + f.d + '</span></div></li>'
             ).join('') +
             '</ul>' +
             '</div>' +
@@ -931,7 +866,7 @@ function initProductCarousel() {
             '<div class="pp-3d-card" style="border-color:' + c + '40;background:linear-gradient(135deg,' + c + '18,' + c + '06)">' +
             '<div style="font-size:76px">' + p.icon + '</div>' +
             '<h3 style="text-align:center;font-size:20px">' + p.name + '</h3>' +
-            '<p style="text-align:center;color:var(--cv-muted);font-size:13px;line-height:1.6">' + p.desc + '</p>' +
+            '<p style="text-align:center;color:var(--text-secondary);font-size:13px;line-height:1.6">' + p.desc + '</p>' +
             '</div>' +
             '</div>' +
             '</div>' +
@@ -947,7 +882,7 @@ function initProductCarousel() {
             '<div class="pp-cta-strip" style="background:linear-gradient(135deg,' + c + '14,' + c + '06);border-color:' + c + '28">' +
             '<h3>' + p.ctaText + '</h3>' +
             '<p>Let us discuss your project and chart a clear path to success.</p>' +
-            '<button class="btn-primary" style="font-size:17px;padding:16px 44px;background:' + c + ';box-shadow:0 0 40px ' + c + '55" onclick="window.closePP ? window.closePP() : closePP()">Schedule a Call</button>' +
+            '<button class="btn-primary" style="font-size:17px;padding:16px 44px;background:' + c + ';box-shadow:0 0 40px ' + c + '55" onclick="closePP()">Schedule a Call</button>' +
             '</div>' +
             '</div>'
         );
@@ -976,9 +911,7 @@ function initProductCarousel() {
         const content = document.getElementById('ppContent');
 
         content.innerHTML = buildProductPage(p);
-        if (window.gsap) {
-            window.gsap.set(content, { opacity: 0, y: 50, scale: 0.97 });
-        }
+        gsap.set(content, { opacity: 0, y: 50, scale: 0.97 });
         pp.scrollTop = 0;
 
         const pi = cardEl.querySelector('.pi');
@@ -1003,52 +936,30 @@ function initProductCarousel() {
         });
         document.body.appendChild(rip);
 
-        if (window.gsap) {
-            window.gsap.to(pi, {
-                boxShadow: '0 0 0 2px rgba(1,184,253,.7), 0 0 90px rgba(1,184,253,.45)',
-                duration: 0.2, ease: 'power2.out', yoyo: true, repeat: 1
-            });
+        gsap.to(pi, {
+            boxShadow: '0 0 0 2px rgba(1,184,253,.7), 0 0 90px rgba(1,184,253,.45)',
+            duration: 0.2, ease: 'power2.out', yoyo: true, repeat: 1
+        });
 
-            window.gsap.set(pp, { opacity: 1, clipPath: 'inset(' + ct + ' ' + cr + ' ' + cb + ' ' + cl + ' round 24px)' });
-        } else {
-            pp.style.opacity = '1';
-            pp.style.clipPath = 'inset(' + ct + ' ' + cr + ' ' + cb + ' ' + cl + ' round 24px)';
-        }
-
+        gsap.set(pp, { opacity: 1, clipPath: 'inset(' + ct + ' ' + cr + ' ' + cb + ' ' + cl + ' round 24px)' });
         pp.style.pointerEvents = 'all';
         document.body.style.overflow = 'hidden';
 
-        if (window.gsap) {
-            const tl = window.gsap.timeline();
-            tl.to(rip, { scale: 500, opacity: 0, duration: 0.85, ease: 'power3.in' }, 0);
-            tl.to(pp, { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 0.8, ease: 'expo.inOut' }, 0.08);
-            tl.add(() => {
-                pp.classList.add('open');
-                document.body.style.overflow = '';
-                rip.remove();
-                window.gsap.to(content, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: 'power3.out' });
-                setTimeout(() => {
-                    addTilt('.pp-3d-card', 18);
-                    addTilt('.pp-stat', 12);
-                    addTilt('.pp-tag', 8);
-                    addTilt('.pp-feat-list li', 10);
-                }, 120);
-            }, 0.82);
-        } else {
+        const tl = gsap.timeline();
+        tl.to(rip, { scale: 500, opacity: 0, duration: 0.85, ease: 'power3.in' }, 0);
+        tl.to(pp, { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 0.8, ease: 'expo.inOut' }, 0.08);
+        tl.add(() => {
+            pp.classList.add('open');
+            document.body.style.overflow = '';
+            rip.remove();
+            gsap.to(content, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: 'power3.out' });
             setTimeout(() => {
-                pp.classList.add('open');
-                document.body.style.overflow = '';
-                rip.remove();
-                content.style.opacity = '1';
-                content.style.transform = 'translateY(0) scale(1)';
-                setTimeout(() => {
-                    addTilt('.pp-3d-card', 18);
-                    addTilt('.pp-stat', 12);
-                    addTilt('.pp-tag', 8);
-                    addTilt('.pp-feat-list li', 10);
-                }, 120);
-            }, 800);
-        }
+                addTilt('.pp-3d-card', 18);
+                addTilt('.pp-stat', 12);
+                addTilt('.pp-tag', 8);
+                addTilt('.pp-feat-list li', 10);
+            }, 120);
+        }, 0.82);
 
         ppFromCard = cardEl;
     }
@@ -1086,43 +997,28 @@ function initProductCarousel() {
         });
         document.body.appendChild(rip);
 
-        if (window.gsap) {
-            const tl = window.gsap.timeline({
-                onComplete() {
-                    window.gsap.set(pp, { opacity: 0 });
-                    pp.style.pointerEvents = 'none';
-                    pp.classList.remove('open');
-                    document.body.style.overflow = '';
-                    ppOpen = false;
-                    ppFromCard = null;
-                    rip.remove();
-                }
-            });
-            tl.to(content, { opacity: 0, y: -30, scale: 0.97, duration: 0.22, ease: 'power2.in' }, 0);
-            tl.to(rip, { scale: 1, opacity: 0.8, duration: 0.45, ease: 'expo.in' }, 0.15);
-            tl.to(rip, { opacity: 0, duration: 0.2, ease: 'power2.out' }, 0.55);
-            tl.to(pp, { clipPath: 'inset(' + ct + ' ' + cr + ' ' + cb + ' ' + cl + ' round 24px)', duration: 0.78, ease: 'expo.inOut' }, 0.18);
-        } else {
-            pp.style.clipPath = 'inset(' + ct + ' ' + cr + ' ' + cb + ' ' + cl + ' round 24px)';
-            setTimeout(() => {
-                pp.style.opacity = '0';
+        const tl = gsap.timeline({
+            onComplete() {
+                gsap.set(pp, { opacity: 0 });
                 pp.style.pointerEvents = 'none';
                 pp.classList.remove('open');
                 document.body.style.overflow = '';
                 ppOpen = false;
                 ppFromCard = null;
                 rip.remove();
-            }, 800);
-        }
+            }
+        });
+        tl.to(content, { opacity: 0, y: -30, scale: 0.97, duration: 0.22, ease: 'power2.in' }, 0);
+        tl.to(rip, { scale: 1, opacity: 0.8, duration: 0.45, ease: 'expo.in' }, 0.15);
+        tl.to(rip, { opacity: 0, duration: 0.2, ease: 'power2.out' }, 0.55);
+        tl.to(pp, { clipPath: 'inset(' + ct + ' ' + cr + ' ' + cb + ' ' + cl + ' round 24px)', duration: 0.78, ease: 'expo.inOut' }, 0.18);
     };
 
-    // Wire up back button
     const backBtn = document.getElementById('ppBackBtn');
     if (backBtn) {
         backBtn.addEventListener('click', window.closePP);
     }
 
-    // Contact button
     const contactBtn = document.getElementById('ppContactBtn');
     if (contactBtn) {
         contactBtn.addEventListener('click', () => {

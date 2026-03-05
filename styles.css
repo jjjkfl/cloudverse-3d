@@ -52,7 +52,6 @@ html {
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     width: 100%;
-    max-width: 100vw;
 }
 
 body {
@@ -62,7 +61,6 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     width: 100%;
-    max-width: 100vw;
     cursor: default;
 }
 
@@ -107,6 +105,7 @@ a {
 img,
 svg {
     display: block;
+    max-width: 100%;
 }
 
 ::selection {
@@ -129,7 +128,7 @@ svg {
 section {
     position: relative;
     width: 100%;
-    max-width: 100vw;
+    overflow: hidden;
 }
 
 /* ---- Section Dividers ---- */
@@ -141,7 +140,6 @@ section {
     justify-content: center;
     overflow: hidden;
     width: 100%;
-    max-width: 100vw;
 }
 
 .divider-line {
@@ -192,43 +190,6 @@ section {
     }
 }
 
-/* ---- Floating Particles Between Sections ---- */
-.section-divider::before,
-.section-divider::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--accent-primary);
-    opacity: 0.3;
-    animation: floatParticle 4s ease-in-out infinite;
-}
-
-.section-divider::before {
-    left: 30%;
-    animation-delay: 0s;
-}
-
-.section-divider::after {
-    right: 25%;
-    animation-delay: 2s;
-}
-
-@keyframes floatParticle {
-
-    0%,
-    100% {
-        transform: translateY(0) scale(1);
-        opacity: 0.2;
-    }
-
-    50% {
-        transform: translateY(-15px) scale(1.5);
-        opacity: 0.6;
-    }
-}
-
 /* ---- Enhanced Reveal Animations ---- */
 .reveal-on-scroll {
     opacity: 0;
@@ -255,18 +216,13 @@ section {
     filter: blur(0);
 }
 
-.reveal-on-scroll.visible {
+/* When GSAP is loaded, disable the CSS hiding rules so GSAP handles the animations */
+html.gsap-active .reveal-on-scroll {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-}
-
-.reveal-on-scroll[data-speed="slow"] {
-    transition-duration: 1.8s;
-}
-
-.reveal-on-scroll[data-speed="fast"] {
-    transition-duration: 0.8s;
+    transform: none;
+    filter: none;
+    transition: none !important;
+    /* Let GSAP handle all transitions */
 }
 
 .animate-in {
@@ -292,117 +248,6 @@ section {
         transform: translateY(0) scale(1);
         filter: blur(0);
     }
-}
-
-/* ======================
-   PARALLAX LAYER SYSTEM
-   ====================== */
-.parallax-container {
-    position: relative;
-    overflow: hidden;
-    transform-style: preserve-3d;
-    perspective: 2000px;
-}
-
-.parallax-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120%;
-    pointer-events: none;
-    will-change: transform;
-    transition: transform 0.1s linear;
-}
-
-.layer-deep {
-    z-index: 0;
-    transform: translateZ(-200px) scale(1.5);
-    opacity: 0.3;
-}
-
-.layer-back {
-    z-index: 1;
-    transform: translateZ(-100px) scale(1.2);
-    opacity: 0.6;
-}
-
-.layer-mid {
-    z-index: 2;
-    transform: translateZ(0);
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.layer-front {
-    z-index: 3;
-    transform: translateZ(100px) scale(0.9);
-    opacity: 0.8;
-}
-
-/* Floating Elements */
-.floating-elements {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.float-element {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(1, 184, 253, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(60px);
-    animation: floatAround 20s ease-in-out infinite;
-}
-
-.float-element:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.float-element:nth-child(2) {
-    animation-delay: -5s;
-}
-
-.float-element:nth-child(3) {
-    animation-delay: -10s;
-}
-
-@keyframes floatAround {
-
-    0%,
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    25% {
-        transform: translate(10%, -10%) scale(1.1);
-    }
-
-    50% {
-        transform: translate(-5%, 15%) scale(0.9);
-    }
-
-    75% {
-        transform: translate(-15%, -5%) scale(1.05);
-    }
-}
-
-.grid-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        linear-gradient(rgba(1, 184, 253, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(1, 184, 253, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
 }
 
 /* ======================
@@ -670,17 +515,6 @@ section {
     bottom: -100px;
     left: 10%;
     animation-delay: -5s;
-}
-
-.hero-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    background: radial-gradient(circle at 30% 50%, rgba(1, 184, 253, 0.02) 0%, transparent 50%);
 }
 
 .hero-grid {
@@ -1245,11 +1079,6 @@ section {
     transition: all 0.5s ease;
 }
 
-.feature-block:hover .feature-number {
-    color: rgba(1, 184, 253, 0.08);
-    transform: scale(1.02);
-}
-
 .feature-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1336,11 +1165,6 @@ section {
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     transition: all 0.5s ease;
-}
-
-.feature-block:hover .feature-graphic {
-    border-color: var(--border-hover);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px var(--accent-glow);
 }
 
 .feature-graphic::before {
@@ -1591,7 +1415,16 @@ section {
     border-top: 1px solid var(--border);
 }
 
-/* Section header - using existing section styles */
+/* Carousel wrapper for proper centering */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section header */
 #products .section-header {
     text-align: center;
     margin-bottom: 40px;
@@ -1659,7 +1492,8 @@ section {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 1400px;
+    width: 100%;
+    max-width: 1400px;
     height: 500px;
     transform-style: preserve-3d;
     pointer-events: auto;
@@ -2513,6 +2347,7 @@ section {
     font-family: var(--font-body);
     outline: none;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .form-grid input:focus,
@@ -2730,15 +2565,6 @@ section {
         width: 400px;
         height: 400px;
     }
-
-    .arch-stage {
-        width: 1200px;
-    }
-
-    .pc {
-        width: 200px;
-        height: 260px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -2845,11 +2671,6 @@ section {
     .pc {
         width: 170px;
         height: 225px;
-    }
-
-    .arch-stage {
-        width: 100%;
-        left: 50%;
     }
 
     .p-icon {
@@ -2990,5 +2811,137 @@ section {
     .hexagon-label {
         font-size: 0.55rem;
         letter-spacing: 1.5px;
+    }
+}
+/* ======================
+   CLIENTS SECTION
+   ====================== */
+/* ======================
+   CLIENTS SECTION
+   ====================== */
+.clients-section {
+    padding: var(--section-padding) 0;
+    border-top: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    position: relative;
+}
+
+.clients-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.clients-grid img {
+    height: 60px;
+    width: auto;
+    opacity: 0.7;
+    filter: grayscale(1);
+    transition: all 0.3s ease;
+}
+
+.clients-grid img:hover {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+/* ======================
+   BENEFITS GRID
+   ====================== */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    border-color: var(--accent-primary);
+    background: rgba(1, 184, 253, 0.05);
+    transform: translateX(5px);
+}
+
+.benefit-item span:first-child {
+    color: var(--accent-primary);
+    font-size: 1.5rem;
+}
+
+.benefit-item span:last-child {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ======================
+   FEATURE GRAPHIC IMAGES
+   ====================== */
+.feature-graphic {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 4/3;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+}
+
+.feature-graphic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.feature-block:hover .feature-graphic {
+    border-color: var(--border-hover);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px var(--accent-glow);
+}
+
+.feature-block:hover .feature-graphic img {
+    transform: scale(1.05);
+}
+
+.feature-graphic::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(1, 184, 253, 0.1), transparent);
+    pointer-events: none;
+}
+
+/* ======================
+   RESPONSIVE ADJUSTMENTS
+   ====================== */
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .clients-grid {
+        gap: 30px;
+    }
+    
+    .clients-grid img {
+        height: 40px;
     }
 }
