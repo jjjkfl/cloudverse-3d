@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Services — SEO Optimization & Social Media | Cloudverse Solutions</title>
+    <meta name="description"
+        content="Full-funnel digital marketing: Technical SEO audits, on-page optimization, Google & Meta Ads, social media marketing strategy for Media, E-Commerce, Restaurants and Professional Services.">
+    <meta name="keywords"
+        content="SEO optimization, social media marketing, Google Ads, Meta Ads, digital marketing agency, technical SEO, content strategy, Ahrefs, SEMrush, HubSpot">
+    <link rel="canonical" href="https://cloudversesolution.com/digital-marketing">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product.css">
+
+    <style>
+        /* ── DM-specific accent colour: orange/amber ── */
+        :root {
+            --dm-accent: #e67e22;
+            --dm-glow: rgba(230, 126, 34, 0.18);
+            --dm-sec: #f39c12;
+        }
+
+        /* ── Sub-nav tabs ── */
+        .dm-subnav {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 40px 0 0;
+            flex-wrap: wrap;
+        }
+
+        .dm-tab {
+            padding: 10px 28px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dm-tab:hover,
+        .dm-tab.active {
+            background: var(--dm-accent);
+            border-color: var(--dm-accent);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(230, 126, 34, 0.35);
+        }
+
+        /* ── Generic utility styles ── */
+        .dm-section {
+            padding: 90px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .dm-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .dm-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dm-accent);
+            margin-bottom: 12px;
+        }
+
+        /* ── KPI strip ── */
+        .kpi-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .kpi-card {
+            background: rgba(230, 126, 34, 0.05);
+            border: 1px solid rgba(230, 126, 34, 0.15);
+            border-radius: 18px;
+            padding: 24px 18px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            border-color: var(--dm-accent);
+            transform: translateY(-4px);
+        }
+
+        .kpi-val {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--dm-accent);
+        }
+
+        .kpi-label {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 4px;
+        }
+
+        /* ── Offering grid ── */
+        .offering-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+            align-items: start;
+        }
+
+        @media(max-width: 768px) {
+            .offering-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .offering-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 36px;
+            transition: all 0.3s ease;
+        }
+
+        .offering-card:hover {
+            border-color: rgba(230, 126, 34, 0.4);
+            box-shadow: 0 16px 40px rgba(230, 126, 34, 0.07);
+            transform: translateY(-4px);
+        }
+
+        .offering-card .oc-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .offering-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .offering-card p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.7;
+        }
+
+        .offering-card .oc-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .offering-card .oc-tags span {
+            font-size: 0.78rem;
+            padding: 4px 12px;
+            background: rgba(230, 126, 34, 0.08);
+            border: 1px solid rgba(230, 126, 34, 0.2);
+            border-radius: 20px;
+            color: var(--dm-accent);
+        }
+
+        /* ── Process timeline ── */
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .pt-step {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 26px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .pt-step:hover {
+            border-color: rgba(230, 126, 34, 0.35);
+            background: rgba(230, 126, 34, 0.04);
+        }
+
+        .pt-step .pt-num {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: rgba(230, 126, 34, 0.15);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .pt-step h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .pt-step p {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+
+        /* ── Tool pills ── */
+        .tool-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .tool-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.75);
+            transition: all 0.3s ease;
+        }
+
+        .tool-pill:hover {
+            border-color: var(--dm-accent);
+            color: #fff;
+        }
+
+        .tool-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--dm-accent);
+            flex-shrink: 0;
+        }
+
+        /* ── Industry tags ── */
+        .industries-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .ind-tag {
+            padding: 10px 22px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        /* ── Section divider ── */
+        .dm-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--dm-accent), transparent);
+            margin: 0;
+            opacity: 0.3;
+        }
+
+        /* ── Hero bg override ── */
+        .product-hero .bg-orb-1 {
+            background: radial-gradient(circle, rgba(230, 126, 34, 0.55), transparent) !important;
+        }
+
+        .product-hero .highlight {
+            background: linear-gradient(135deg, #e67e22, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── Comparison table ── */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 36px;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            font-size: 0.9rem;
+        }
+
+        .compare-table th {
+            color: var(--dm-accent);
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .compare-table tr:hover td {
+            background: rgba(230, 126, 34, 0.04);
+        }
+
+        .badge-yes {
+            display: inline-block;
+            padding: 2px 10px;
+            background: rgba(39, 174, 96, 0.15);
+            border-radius: 20px;
+            color: #27ae60;
+            font-size: 0.8rem;
+        }
+
+        .badge-optional {
+            display: inline-block;
+            padding: 2px 10px;
+            background: rgba(230, 126, 34, 0.15);
+            border-radius: 20px;
+            color: var(--dm-accent);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-atom">⚛</span><span
+                    class="logo-text">Cloudverse</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#approach" class="nav-link">About</a>
+                <a href="index.html#products" class="nav-link">Solutions</a>
+                <a href="index.html#cta" class="nav-link nav-link-cta">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="product-page">
+
+        <!-- ════════════════════ HERO ════════════════════ -->
+        <section class="product-hero" id="dm-hero">
+            <div class="product-hero-bg">
+                <div class="bg-orb bg-orb-1"></div>
+                <div class="bg-orb bg-orb-2"></div>
+                <div class="bg-orb bg-orb-3"></div>
+                <div class="grid-lines"></div>
+            </div>
+            <div class="product-hero-content">
+                <div class="product-hero-text">
+                    <button class="product-back-btn" onclick="history.back()"><svg width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>Back to Solutions</button>
+                    <span class="product-tag">Digital Marketing</span>
+                    <h1>Full-Funnel Growth That Drives <span class="highlight">Real ROI</span></h1>
+                    <p class="hero-desc">From technical SEO that ranks you on page one to precision paid campaigns on
+                        Google, Meta and Instagram — Cloudverse delivers measurable, attributable growth across organic
+                        search, social media, and ad channels for businesses in Germany and India.</p>
+                    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;">
+                        <a href="#seo-section" class="dm-tab active">SEO Optimization</a>
+                        <a href="#smm-section" class="dm-tab">Social Media Marketing</a>
+                    </div>
+                </div>
+                <div class="product-hero-visual">
+                    <div class="product-3d-scene">
+                        <div class="product-3d-card card-main">
+                            <div class="big-icon">📊</div>
+                            <h3 style="font-family:var(--font-heading);font-weight:700;">Digital Growth</h3>
+                            <p style="color:var(--text-secondary);font-size:0.9rem;">SEO · Social · Ads</p>
+                        </div>
+                        <div class="product-3d-card card-float-1">
+                            <div class="float-card-label">Avg ROI</div>
+                            <div class="float-card-value">300%</div>
+                        </div>
+                        <div class="product-3d-card card-float-2">
+                            <div class="float-card-label">ROAS</div>
+                            <div class="float-card-value">12×</div>
+                        </div>
+                        <div class="product-3d-card card-float-3">
+                            <div class="float-card-label">Setup</div>
+                            <div class="float-card-value">48hr</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPI STRIP -->
+        <div class="dm-section" style="padding:60px 0;">
+            <div class="dm-container">
+                <span class="dm-label">Proven Results</span>
+                <h2 class="section-title">Numbers That Matter</h2>
+                <div class="kpi-strip">
+                    <div class="kpi-card">
+                        <div class="kpi-val">300%</div>
+                        <div class="kpi-label">Average Marketing ROI</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-val">12×</div>
+                        <div class="kpi-label">Return on Ad Spend (ROAS)</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-val">48hr</div>
+                        <div class="kpi-label">Campaign Go-Live Time</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-val">Top 3</div>
+                        <div class="kpi-label">Avg Google Ranking</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-val">60%</div>
+                        <div class="kpi-label">Avg Organic Traffic Increase</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-val">4+</div>
+                        <div class="kpi-label">Platforms Managed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dm-divider"></div>
+
+        <!-- ════════════════════ SEO SECTION ════════════════════ -->
+        <div class="dm-section" id="seo-section">
+            <div class="dm-container">
+                <span class="dm-label">Service 01</span>
+                <h2 class="section-title">SEO Optimization</h2>
+                <p
+                    style="color:rgba(255,255,255,0.55);max-width:700px;font-size:1.05rem;line-height:1.7;margin-top:10px;">
+                    We don't just chase keywords — we engineer organic search dominance through technical excellence,
+                    content authority and link trust signals that compound over time, keeping you on page one long after
+                    competitors have fallen off.
+                </p>
+
+                <!-- SEO Offerings -->
+                <div class="offering-grid">
+                    <div class="offering-card">
+                        <div class="oc-icon">🔧</div>
+                        <h3>Technical SEO Audit</h3>
+                        <p>Comprehensive crawl analysis using Screaming Frog — identifying crawl errors, orphan pages,
+                            duplicate content, broken links, redirect chains, hreflang issues, and Core Web Vitals
+                            violations. Deliverable: prioritised fix roadmap within 48 hours.</p>
+                        <div class="oc-tags"><span>Screaming Frog</span><span>GSC</span><span>Core Web
+                                Vitals</span><span>Log File Analysis</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">📝</div>
+                        <h3>On-Page Optimization</h3>
+                        <p>Keyword-to-intent mapping, title and meta description rewrites, heading hierarchy
+                            restructuring, internal link architecture, image alt-text optimization, and content
+                            freshness strategy aligned to Google's Helpful Content guidelines.</p>
+                        <div class="oc-tags"><span>Ahrefs</span><span>SEMrush</span><span>SurferSEO</span><span>Schema
+                                Markup</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">🔗</div>
+                        <h3>Link Building & Authority</h3>
+                        <p>White-hat link acquisition through digital PR, resource page outreach, HARO (Help A Reporter
+                            Out) responses, broken link building, and guest editorial content in industry publications —
+                            tracked with Ahrefs DR growth reports.</p>
+                        <div class="oc-tags"><span>Ahrefs</span><span>HARO</span><span>Digital
+                                PR</span><span>Outreach</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">📐</div>
+                        <h3>Structured Data & Schema</h3>
+                        <p>JSON-LD schema implementation for Organization, LocalBusiness, FAQPage, Product, Article,
+                            BreadcrumbList and Review types — enabling rich results (star ratings, FAQs, sitelinks) in
+                            Google SERPs for maximum CTR lift.</p>
+                        <div class="oc-tags"><span>JSON-LD</span><span>Schema.org</span><span>Rich
+                                Results</span><span>GSC Enhancements</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">⚡</div>
+                        <h3>Page Speed & Core Web Vitals</h3>
+                        <p>LCP, CLS, INP/FID optimization — image compression (WebP/AVIF), lazy loading, render-blocking
+                            resource elimination, critical CSS inlining, CDN configuration (Cloudflare), and server
+                            response time reduction via caching layers.</p>
+                        <div class="oc-tags"><span>Lighthouse</span><span>PageSpeed
+                                Insights</span><span>WebP</span><span>Cloudflare</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">📍</div>
+                        <h3>Local SEO (Germany & India)</h3>
+                        <p>Google Business Profile optimization for Hanau (DE) and Hubli (IN) offices, geo-targeted
+                            landing pages, hreflang configuration for multi-language sites, citation building in local
+                            directories, and review generation workflows.</p>
+                        <div class="oc-tags"><span>GBP</span><span>hreflang</span><span>Geo
+                                Pages</span><span>Citations</span></div>
+                    </div>
+                </div>
+
+                <!-- SEO PROCESS -->
+                <div style="margin-top:70px;">
+                    <span class="dm-label">SEO Workflow</span>
+                    <h2 class="section-title">Our SEO Process</h2>
+                    <div class="process-timeline">
+                        <div class="pt-step">
+                            <div class="pt-num">01</div>
+                            <h4>Technical Crawl</h4>
+                            <p>Full site crawl with Screaming Frog + log file analysis to identify all indexability and
+                                crawl budget issues.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">02</div>
+                            <h4>Keyword Research</h4>
+                            <p>Intent-clustered keyword maps using Ahrefs/SEMrush — target selection by traffic
+                                potential, difficulty and business value.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">03</div>
+                            <h4>On-Page Fixes</h4>
+                            <p>Title tags, meta descriptions, heading structure, internal links, and schema markup
+                                rolled out via sprint-based tickets.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">04</div>
+                            <h4>Content Production</h4>
+                            <p>Topic cluster content calendar, pillar pages and supporting blog posts optimized with
+                                SurferSEO content scores ≥80.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">05</div>
+                            <h4>Link Acquisition</h4>
+                            <p>Monthly link-building outreach with target DR thresholds, anchor text diversification and
+                                toxic link disavow process.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">06</div>
+                            <h4>Monthly Reporting</h4>
+                            <p>GSC + GA4 ranking and traffic reports, keyword position tracking in SEMrush, and ROI
+                                attribution dashboard in Looker Studio.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO TOOLS -->
+                <div style="margin-top:60px;">
+                    <span class="dm-label">SEO Toolstack</span>
+                    <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Tools We Use</h2>
+                    <div class="tool-pills">
+                        <div class="tool-pill"><span class="tool-dot"></span>Ahrefs</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>SEMrush</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Google Search Console</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Screaming Frog</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>SurferSEO</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Google Analytics 4</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Looker Studio</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>PageSpeed Insights</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Lighthouse</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Schema Markup Validator</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Google Business Profile</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Cloudflare</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dm-divider"></div>
+
+        <!-- ════════════════════ SOCIAL MEDIA MARKETING ════════════════════ -->
+        <div class="dm-section" id="smm-section">
+            <div class="dm-container">
+                <span class="dm-label">Service 02</span>
+                <h2 class="section-title">Social Media Marketing</h2>
+                <p
+                    style="color:rgba(255,255,255,0.55);max-width:700px;font-size:1.05rem;line-height:1.7;margin-top:10px;">
+                    We manage your entire social presence and paid media — from platform-specific content strategy and
+                    creative production to precision-targeted ad campaigns on Meta, Instagram, LinkedIn, and X that
+                    generate attributable pipeline.
+                </p>
+
+                <!-- SMM Offerings -->
+                <div class="offering-grid">
+                    <div class="offering-card">
+                        <div class="oc-icon">📱</div>
+                        <h3>Platform-Specific Strategy</h3>
+                        <p>Custom content strategy per platform — Reels and Stories for Instagram, thought leadership
+                            carousels for LinkedIn, viral hooks for X/Twitter, and community-driven content for
+                            Facebook. Each channel gets a unique voice and posting cadence optimized for its algorithm.
+                        </p>
+                        <div class="oc-tags"><span>Meta</span><span>Instagram</span><span>LinkedIn</span><span>X /
+                                Twitter</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">📅</div>
+                        <h3>Content Calendar & Automation</h3>
+                        <p>Monthly content calendars with 30+ branded posts, design-ready assets (Canva Pro), scheduled
+                            publishing via Buffer or Hootsuite, and evergreen content recycling — ensuring consistent
+                            brand presence without manual daily effort.</p>
+                        <div class="oc-tags"><span>Buffer</span><span>Hootsuite</span><span>Canva
+                                Pro</span><span>Content Calendar</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">🎯</div>
+                        <h3>Paid Social Advertising</h3>
+                        <p>Full-funnel Meta Ads (Facebook + Instagram) and LinkedIn Ads management — audience
+                            segmentation, lookalike targeting, retargeting pixel setup, creative A/B testing, and weekly
+                            bid optimisation to maximise ROAS.</p>
+                        <div class="oc-tags"><span>Meta Ads Manager</span><span>LinkedIn
+                                Ads</span><span>Retargeting</span><span>A/B Testing</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">💰</div>
+                        <h3>Google Ads Management</h3>
+                        <p>Search, Display, Shopping, Performance Max and YouTube campaign setup and management — with
+                            negative keyword hygiene, Quality Score optimization, ad extension setup, and conversion
+                            tracking via Google Tag Manager.</p>
+                        <div class="oc-tags"><span>Google Ads</span><span>Performance
+                                Max</span><span>GTM</span><span>Shopping Ads</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">🎬</div>
+                        <h3>Video Post-Production for Ads</h3>
+                        <p>Social-first video editing for Instagram Reels, YouTube Shorts, and Facebook ad creatives —
+                            motion graphics, captions, voiceovers, and aspect ratio adaptation (9:16, 1:1, 16:9) for
+                            maximum platform coverage.</p>
+                        <div class="oc-tags"><span>Reels</span><span>YouTube Shorts</span><span>Motion
+                                Graphics</span><span>Ad Creatives</span></div>
+                    </div>
+                    <div class="offering-card">
+                        <div class="oc-icon">📈</div>
+                        <h3>Analytics & Attribution</h3>
+                        <p>UTM parameter taxonomy, Meta Pixel + CAPI (Conversions API) server-side setup, GA4 funnel
+                            analysis, cross-channel attribution modelling, and weekly performance dashboards in Looker
+                            Studio — so every rupee and euro is accounted for.</p>
+                        <div class="oc-tags"><span>Meta Pixel + CAPI</span><span>GA4</span><span>UTM</span><span>Looker
+                                Studio</span></div>
+                    </div>
+                </div>
+
+                <!-- SMM PROCESS -->
+                <div style="margin-top:70px;">
+                    <span class="dm-label">SMM Workflow</span>
+                    <h2 class="section-title">Our Social Media Process</h2>
+                    <div class="process-timeline">
+                        <div class="pt-step">
+                            <div class="pt-num">01</div>
+                            <h4>Brand Audit</h4>
+                            <p>Existing channel audit, competitor benchmarking, audience persona definition, and
+                                tone-of-voice guide creation.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">02</div>
+                            <h4>Strategy & Goals</h4>
+                            <p>SMART KPIs (followers, reach, CTR, CPL, ROAS) set per channel, content pillars defined,
+                                and paid vs organic budget allocation.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">03</div>
+                            <h4>Creative Production</h4>
+                            <p>Branded post templates, Reel scripts, ad copy variants, and video editing — all delivered
+                                in a shared Notion asset library.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">04</div>
+                            <h4>Campaign Launch</h4>
+                            <p>Audience segments built, pixels installed, tracking verified, ad sets live — campaigns
+                                reviewed after 72 hours for early optimisations.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">05</div>
+                            <h4>Optimisation</h4>
+                            <p>Weekly creative refresh, A/B test result analysis, bid strategy adjustments, and
+                                underperforming ad set pausing.</p>
+                        </div>
+                        <div class="pt-step">
+                            <div class="pt-num">06</div>
+                            <h4>Monthly Report</h4>
+                            <p>Cross-channel performance dashboard, attribution breakdown, creative fatigue analysis,
+                                and next-month strategy recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SMM TOOLS -->
+                <div style="margin-top:60px;">
+                    <span class="dm-label">SMM Toolstack</span>
+                    <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Tools We Use</h2>
+                    <div class="tool-pills">
+                        <div class="tool-pill"><span class="tool-dot"></span>Meta Ads Manager</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Google Ads</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>LinkedIn Campaign Manager</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Hootsuite</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Buffer</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Canva Pro</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>HubSpot</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Google Tag Manager</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Google Analytics 4</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Meta Pixel + CAPI</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>Looker Studio</div>
+                        <div class="tool-pill"><span class="tool-dot"></span>CapCut / Adobe Premiere</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dm-divider"></div>
+
+        <!-- INDUSTRY DOMAINS -->
+        <div class="dm-section">
+            <div class="dm-container">
+                <span class="dm-label">We Serve</span>
+                <h2 class="section-title">Industries We Market For</h2>
+                <p style="color:rgba(255,255,255,0.5);max-width:600px;margin-top:8px;">Cloudverse has successfully
+                    delivered digital marketing campaigns across multiple verticals with domain-specific expertise.</p>
+                <div class="industries-row">
+                    <div class="ind-tag">🛍️ E-Commerce & Retail</div>
+                    <div class="ind-tag">🍕 Food Delivery & Restaurants</div>
+                    <div class="ind-tag">🎬 Media & Entertainment</div>
+                    <div class="ind-tag">📚 Education & EdTech</div>
+                    <div class="ind-tag">💼 Professional Services</div>
+                    <div class="ind-tag">🪑 Furniture & Home Decor</div>
+                    <div class="ind-tag">📈 Real-Time Trading & Crypto</div>
+                    <div class="ind-tag">🏥 Healthcare</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dm-divider"></div>
+
+        <!-- COMPARE TABLE -->
+        <div class="dm-section">
+            <div class="dm-container">
+                <span class="dm-label">Service Comparison</span>
+                <h2 class="section-title">What's Included in Each Plan</h2>
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>SEO Package</th>
+                            <th>Social Media Package</th>
+                            <th>Full-Funnel Bundle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Technical SEO Audit</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td>—</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                        <tr>
+                            <td>On-Page Optimization</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td>—</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                        <tr>
+                            <td>Link Building</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td>—</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                        <tr>
+                            <td>Content Strategy</td>
+                            <td><span class="badge-optional">Optional</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                        <tr>
+                            <td>Social Media Management</td>
+                            <td>—</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                        <tr>
+                            <td>Paid Ads (Meta + Google)</td>
+                            <td>—</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                        <tr>
+                            <td>Video Editing for Ads</td>
+                            <td>—</td>
+                            <td><span class="badge-optional">Optional</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Reporting (Looker Studio)</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                        <tr>
+                            <td>GA4 + Pixel Setup</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dedicated Account Manager</td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                            <td><span class="badge-yes">✓ Included</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <section class="product-cta">
+            <div class="section-container">
+                <h2>Ready to Grow Your Digital Presence?</h2>
+                <p>Let's build a full-funnel marketing engine that brings you measurable, repeatable growth.</p>
+                <a href="index.html#cta" class="btn btn-primary btn-lg"><span>Get a Free Audit</span><svg width="20"
+                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg></a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p>© 2024 Cloudverse LLP · Digital Marketing Division</p>
+                <a href="mailto:info@cloudversesolution.com">info@cloudversesolution.com</a>
+            </div>
+        </div>
+    </footer>
+    <script src="product.js"></script>
+    <script>
+        // Smooth-scroll tab clicks
+        document.querySelectorAll('.dm-tab').forEach(tab => {
+            tab.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('.dm-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        // Highlight active tab on scroll
+        const seoSec = document.getElementById('seo-section');
+        const smmSec = document.getElementById('smm-section');
+        const tabs = document.querySelectorAll('.dm-tab');
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY + 200;
+            if (smmSec && y >= smmSec.offsetTop) { tabs[0].classList.remove('active'); tabs[1].classList.add('active'); }
+            else { tabs[0].classList.add('active'); tabs[1].classList.remove('active'); }
+        });
+    </script>
+</body>
+
+</html>
