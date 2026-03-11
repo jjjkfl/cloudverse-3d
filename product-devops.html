@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps & Cloud — Cloudverse Solutions</title>
+    <title>DevOps & CI/CD Services — Cloudverse Solutions</title>
     <meta name="description"
-        content="DevOps consulting and cloud infrastructure services. CI/CD, Kubernetes, AWS, GCP, Azure.">
+        content="Enterprise DevOps services: Kubernetes, Docker, GitHub Actions CI/CD, Terraform IaC, Grafana/Prometheus monitoring. 99.99% uptime with zero-downtime deploys.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,37 +14,182 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="product.css">
+    <style>
+        .tech-deep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .tech-deep-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-deep-card:hover {
+            border-color: rgba(39, 174, 96, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(39, 174, 96, 0.08);
+        }
+
+        .tech-deep-card .card-icon {
+            font-size: 2rem;
+            margin-bottom: 14px;
+        }
+
+        .tech-deep-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .tech-deep-card p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.6;
+        }
+
+        .tech-deep-card .sub-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .tech-deep-card .sub-tags span {
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            background: rgba(39, 174, 96, 0.1);
+            border: 1px solid rgba(39, 174, 96, 0.2);
+            border-radius: 20px;
+            color: #27ae60;
+        }
+
+        .pipeline-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-top: 40px;
+        }
+
+        .pipeline-step {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 28px 22px;
+            margin: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .pipeline-step:hover {
+            border-color: rgba(39, 174, 96, 0.35);
+            background: rgba(39, 174, 96, 0.04);
+        }
+
+        .pipeline-step .step-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(39, 174, 96, 0.15);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .pipeline-step h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .pipeline-step p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .metric-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .metric-val {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #27ae60;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 4px;
+        }
+
+        .section-label {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #27ae60;
+            margin-bottom: 8px;
+        }
+
+        .product-detail-section {
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+    </style>
 </head>
 
 <body>
     <nav class="navbar" id="navbar">
-        <div class="nav-container"><a href="index.html" class="nav-logo"><span class="logo-atom">⚛</span><span
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-atom">⚛</span><span
                     class="logo-text">Cloudverse</span></a>
-            <div class="nav-links"><a href="index.html#services" class="nav-link">Services</a><a
-                    href="index.html#products" class="nav-link">Products</a><a href="contact.html"
-                    class="nav-link nav-link-cta">Let's Talk</a></div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#approach" class="nav-link">About</a>
+                <a href="index.html#products" class="nav-link">Solutions</a>
+                <a href="index.html#cta" class="nav-link nav-link-cta">Contact</a>
+            </div>
         </div>
     </nav>
 
     <div class="product-page">
         <section class="product-hero">
             <div class="product-hero-bg">
-                <div class="bg-orb bg-orb-1"></div>
+                <div class="bg-orb bg-orb-1"
+                    style="background:radial-gradient(circle,rgba(39,174,96,0.5),transparent);"></div>
                 <div class="bg-orb bg-orb-2"></div>
                 <div class="bg-orb bg-orb-3"></div>
                 <div class="grid-lines"></div>
             </div>
             <div class="product-hero-content">
                 <div class="product-hero-text">
-                    <button class="product-back-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
+                    <button class="product-back-btn" onclick="history.back()"><svg width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M19 12H5M12 19l-7-7 7-7" />
-                        </svg>Back to Products</button>
-                    <span class="product-tag">DevOps & Cloud</span>
-                    <h1>Scalable <span class="highlight">Cloud</span> Infrastructure</h1>
-                    <p class="hero-desc">We architect, deploy, and manage cloud infrastructure with CI/CD pipelines,
-                        container orchestration, and infrastructure as code for maximum reliability.</p>
-                    <a href="contact.html" class="btn btn-primary"><span>Start Your Project</span><svg width="20"
+                        </svg>Back to Solutions</button>
+                    <span class="product-tag">DevOps & IT Infrastructure</span>
+                    <h1>Zero-Downtime Deploys & <span class="highlight">Bulletproof Infrastructure</span></h1>
+                    <p class="hero-desc">We design, build and manage your entire DevOps backbone — Kubernetes clusters,
+                        CI/CD pipelines, Infrastructure as Code with Terraform, and full-stack observability — so your
+                        teams ship faster with confidence and your systems run at 99.99% uptime.</p>
+                    <a href="index.html#cta" class="btn btn-primary"><span>Get DevOps Support</span><svg width="20"
                             height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg></a>
@@ -52,9 +197,9 @@
                 <div class="product-hero-visual">
                     <div class="product-3d-scene">
                         <div class="product-3d-card card-main">
-                            <div class="big-icon">☁️</div>
-                            <h3 style="font-family:var(--font-heading);font-weight:700;">Cloud Infra</h3>
-                            <p style="color:var(--text-secondary);font-size:0.9rem;">Always Available</p>
+                            <div class="big-icon">⚙️</div>
+                            <h3 style="font-family:var(--font-heading);font-weight:700;">DevOps</h3>
+                            <p style="color:var(--text-secondary);font-size:0.9rem;">K8s · Docker · Terraform</p>
                         </div>
                         <div class="product-3d-card card-float-1">
                             <div class="float-card-label">Uptime</div>
@@ -62,16 +207,51 @@
                         </div>
                         <div class="product-3d-card card-float-2">
                             <div class="float-card-label">Deploy</div>
-                            <div class="float-card-value">Kubernetes</div>
+                            <div class="float-card-value">&lt;5min</div>
                         </div>
                         <div class="product-3d-card card-float-3">
-                            <div class="float-card-label">IaC</div>
-                            <div class="float-card-value">Terraform</div>
+                            <div class="float-card-label">Downtime</div>
+                            <div class="float-card-value">0 min</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <div class="product-detail-section">
+            <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+                <div style="display:flex;flex-direction:column;">
+                    <span class="section-label">Performance SLAs</span>
+                    <h2 class="section-title" style="margin-top:0;">Infrastructure That Never Sleeps</h2>
+                </div>
+                <div class="metrics-row">
+                    <div class="metric-box">
+                        <div class="metric-val">99.99%</div>
+                        <div class="metric-label">Uptime SLA</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0 min</div>
+                        <div class="metric-label">Downtime per Deploy</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">&lt;5min</div>
+                        <div class="metric-label">Deploy Pipeline Duration</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">&lt;1min</div>
+                        <div class="metric-label">Incident Alert Time</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">100%</div>
+                        <div class="metric-label">IaC Coverage</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">24/7</div>
+                        <div class="metric-label">Tier 1 & Tier 2 Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <section class="product-features">
             <div class="section-container">
@@ -82,63 +262,178 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-number">01</div>
-                    <h3>CI/CD Pipelines</h3>
-                    <p>Automated build, test, and deployment pipelines with zero-downtime releases.</p>
+                    <h3>Containerization & Orchestration</h3>
+                    <p>Docker multi-stage builds, Kubernetes cluster setup (EKS/GKE/AKS), Helm chart management,
+                        auto-scaling with HPA/VPA, and service mesh (Istio/Linkerd) for microservices.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-number">02</div>
-                    <h3>Container Orchestration</h3>
-                    <p>Kubernetes and Docker-based microservices architecture for infinite scalability.</p>
+                    <h3>CI/CD Pipelines</h3>
+                    <p>GitHub Actions, GitLab CI/CD, and Jenkins pipelines with parallel test execution, artifact
+                        caching, SAST/DAST security gates, and blue-green / canary deployment strategies.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-number">03</div>
                     <h3>Infrastructure as Code</h3>
-                    <p>Terraform and Pulumi for reproducible, version-controlled infrastructure.</p>
+                    <p>Terraform and Pulumi for fully version-controlled, reproducible cloud infrastructure across AWS,
+                        GCP, and Azure — with Atlantis for GitOps-driven drift detection and auto-apply.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-number">04</div>
-                    <h3>Monitoring & Alerting</h3>
-                    <p>Comprehensive observability with Prometheus, Grafana, and custom dashboards.</p>
+                    <h3>Observability Stack</h3>
+                    <p>Prometheus metrics collection, Grafana dashboards, distributed tracing (Jaeger/Tempo), ELK/Loki
+                        log aggregation, and PagerDuty/OpsGenie on-call alerting.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-number">05</div>
-                    <h3>Security Hardening</h3>
-                    <p>Network policies, secrets management, and compliance-ready security posture.</p>
+                    <h3>Security & Secrets Management</h3>
+                    <p>HashiCorp Vault for secret rotation, SAST with SonarQube, container image scanning (Trivy/Snyk),
+                        Kubernetes RBAC policies, and network policy enforcement.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-number">06</div>
-                    <h3>Cost Optimization</h3>
-                    <p>Right-sizing resources, spot instances, and smart auto-scaling to minimize cloud spend.</p>
+                    <h3>Service Desk (Tier 1 & 2)</h3>
+                    <p>Dedicated IT service desk with SLA-backed Tier 1 incident triage and Tier 2 root cause analysis —
+                        integrated with Jira Service Management and PagerDuty escalation trees.</p>
                 </div>
             </div>
         </section>
 
+        <div class="product-detail-section">
+            <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+                <div style="display:flex;flex-direction:column;">
+                    <span class="section-label">DevOps Pipeline</span>
+                    <h2 class="section-title" style="margin-top:0;">How We Set Up Your DevOps</h2>
+                </div>
+                <div class="pipeline-steps">
+                    <div class="pipeline-step">
+                        <div class="step-num">01</div>
+                        <h4>Infrastructure Audit</h4>
+                        <p>Current stack assessment, cloud cost analysis, security posture review, DORA metrics baseline
+                            and gap analysis report.</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">02</div>
+                        <h4>IaC Foundation</h4>
+                        <p>Terraform modules for VPC, IAM, RDS, S3 and compute. Remote state in S3/GCS with DynamoDB
+                            locking. Full GitOps workflow setup.</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">03</div>
+                        <h4>Containerization</h4>
+                        <p>Dockerize all services with multi-stage builds, minimal base images, non-root users, and
+                            image scanning in CI before push.</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">04</div>
+                        <h4>CI/CD Implementation</h4>
+                        <p>GitHub Actions (or GitLab CI) pipelines: lint → test → build → SAST → container scan → deploy
+                            to staging → smoke test → promote to production.</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">05</div>
+                        <h4>Observability Setup</h4>
+                        <p>Prometheus + Grafana stack, custom application dashboards, log aggregation (Loki), alerting
+                            rules and PagerDuty routing with runbooks.</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">06</div>
+                        <h4>Handover & Runbooks</h4>
+                        <p>Team training, detailed runbook documentation, on-call rotation setup, and optional ongoing
+                            Tier 1/2 service desk support SLA.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-detail-section">
+            <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+                <div style="display:flex;flex-direction:column;">
+                    <span class="section-label">Technology Layers</span>
+                    <h2 class="section-title" style="margin-top:0;">Our DevOps Stack</h2>
+                </div>
+                <div class="tech-deep-grid">
+                    <div class="tech-deep-card">
+                        <div class="card-icon">🐳</div>
+                        <h3>Containerization</h3>
+                        <p>Immutable, secure container packaging and orchestration at scale.</p>
+                        <div class="sub-tags">
+                            <span>Docker</span><span>Kubernetes</span><span>Helm</span><span>Istio</span>
+                        </div>
+                    </div>
+                    <div class="tech-deep-card">
+                        <div class="card-icon">🔄</div>
+                        <h3>CI/CD</h3>
+                        <p>Automated test-to-deploy pipelines with policy gates.</p>
+                        <div class="sub-tags"><span>GitHub Actions</span><span>GitLab
+                                CI/CD</span><span>Jenkins</span><span>ArgoCD</span></div>
+                    </div>
+                    <div class="tech-deep-card">
+                        <div class="card-icon">🏗️</div>
+                        <h3>Infrastructure as Code</h3>
+                        <p>Version-controlled, reproducible cloud infrastructure.</p>
+                        <div class="sub-tags">
+                            <span>Terraform</span><span>Pulumi</span><span>Atlantis</span><span>Ansible</span>
+                        </div>
+                    </div>
+                    <div class="tech-deep-card">
+                        <div class="card-icon">📡</div>
+                        <h3>Observability</h3>
+                        <p>Full-stack metrics, logs, traces and alerting.</p>
+                        <div class="sub-tags">
+                            <span>Prometheus</span><span>Grafana</span><span>Loki</span><span>Jaeger</span><span>PagerDuty</span>
+                        </div>
+                    </div>
+                    <div class="tech-deep-card">
+                        <div class="card-icon">🔐</div>
+                        <h3>Security</h3>
+                        <p>Secrets management, scanning and access control.</p>
+                        <div class="sub-tags">
+                            <span>Vault</span><span>Trivy</span><span>SonarQube</span><span>Snyk</span><span>RBAC</span>
+                        </div>
+                    </div>
+                    <div class="tech-deep-card">
+                        <div class="card-icon">☁️</div>
+                        <h3>Cloud Platforms</h3>
+                        <p>Multi-cloud deployments and managed services.</p>
+                        <div class="sub-tags"><span>AWS</span><span>GCP</span><span>Azure</span><span>EKS/GKE/AKS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <section class="product-tech">
             <div class="tech-container">
-                <div class="section-header"><span class="section-tag">Technology</span>
-                    <h2 class="section-title">Our DevOps Stack</h2>
+                <div class="section-header"><span class="section-tag">Stack</span>
+                    <h2 class="section-title">Full Technology List</h2>
                 </div>
                 <div class="tech-grid">
-                    <span class="tech-pill"><span class="tech-dot"></span>AWS</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>GCP</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>Azure</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>Kubernetes</span>
                     <span class="tech-pill"><span class="tech-dot"></span>Docker</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>Terraform</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>Jenkins</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>GitHub Actions</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>Prometheus</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>Kubernetes</span>
                     <span class="tech-pill"><span class="tech-dot"></span>Helm</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>Terraform</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>GitHub Actions</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>GitLab CI/CD</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>ArgoCD</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>Prometheus</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>Grafana</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>Vault</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>Trivy / Snyk</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>SonarQube</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>PagerDuty</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>AWS / GCP / Azure</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>Ansible</span>
                 </div>
             </div>
         </section>
 
         <section class="product-cta">
             <div class="section-container">
-                <h2>Ready to Modernize Your Infrastructure?</h2>
-                <p>Scale with confidence using cloud-native architecture.</p><a href="contact.html"
-                    class="btn btn-primary btn-lg"><span>Get Started</span><svg width="20" height="20"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <h2>Ready to Modernize Your DevOps?</h2>
+                <p>Let's build reliable, automated infrastructure that lets your team ship fearlessly.</p>
+                <a href="index.html#cta" class="btn btn-primary btn-lg"><span>Get Started</span><svg width="20"
+                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg></a>
             </div>
