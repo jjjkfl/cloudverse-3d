@@ -992,14 +992,14 @@ html.gsap-active .reveal-on-scroll {
 }
 
 .pillar-card:hover {
-    border-color: var(--border-hover);
-    background: var(--bg-card-hover);
-    transform: translateY(-10px) scale(1.02) translateZ(20px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 40px var(--accent-glow);
+    border-color: var(--border);
+    background: var(--bg-card);
+    transform: translateZ(0);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .pillar-card:hover::before {
-    transform: scaleX(1);
+    transform: scaleX(0);
 }
 
 .pillar-card::after {
@@ -1016,7 +1016,7 @@ html.gsap-active .reveal-on-scroll {
 }
 
 .pillar-card:hover::after {
-    opacity: 1;
+    opacity: 0;
 }
 
 .pillar-icon {
@@ -1027,7 +1027,7 @@ html.gsap-active .reveal-on-scroll {
 }
 
 .pillar-card:hover .pillar-icon {
-    transform: scale(1.1) rotate(5deg);
+    transform: none;
 }
 
 .pillar-card h3 {

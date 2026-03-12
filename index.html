@@ -17,6 +17,9 @@
     <meta name="revisit-after" content="7 days">
     <link rel="canonical" href="https://cloudversesolution.com/">
     <meta name="theme-color" content="#01b8fd">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -141,6 +144,85 @@
             "Digital Marketing",
             "SEO"
         ]
+    }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://cloudversesolution.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "AI & Machine Learning",
+                "item": "https://cloudversesolution.com/product-ai"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "iOS Development",
+                "item": "https://cloudversesolution.com/product-ios"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Android Development",
+                "item": "https://cloudversesolution.com/product-android"
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Flutter Development",
+                "item": "https://cloudversesolution.com/product-flutter"
+            },
+            {
+                "@type": "ListItem",
+                "position": 6,
+                "name": "Web Development",
+                "item": "https://cloudversesolution.com/product-web"
+            },
+            {
+                "@type": "ListItem",
+                "position": 7,
+                "name": "DevOps & CI/CD",
+                "item": "https://cloudversesolution.com/product-devops"
+            },
+            {
+                "@type": "ListItem",
+                "position": 8,
+                "name": "Digital Marketing",
+                "item": "https://cloudversesolution.com/digital-marketing"
+            },
+            {
+                "@type": "ListItem",
+                "position": 9,
+                "name": "Contact",
+                "item": "https://cloudversesolution.com/contact"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Structured Data: WebSite (enables sitelinks search box) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Cloudverse Solutions",
+        "url": "https://cloudversesolution.com/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://cloudversesolution.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
     }
     </script>
 
@@ -768,11 +850,7 @@
             transition: all 0.3s ease;
         }
 
-        .pillar-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 20px 40px rgba(1, 184, 253, 0.1);
-        }
+
 
         .pillar-icon {
             font-size: 2.5rem;

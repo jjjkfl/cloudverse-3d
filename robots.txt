@@ -1,0 +1,12 @@
+# https://cloudversesolution.com robots.txt
+User-agent: *
+Allow: /
+
+# Disallow admin/system paths
+Disallow: /cgi-bin/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /.idea/
+
+# Sitemap
+Sitemap: https://cloudversesolution.com/sitemap.xml
