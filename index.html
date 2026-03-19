@@ -2122,38 +2122,68 @@
                 display: none;
             }
 
-            /* Mobile nav overlay */
-            .nav-links.nav-open {
-                display: flex;
-                position: fixed;
-                inset: 0;
+            /* When menu is open, expand the entire navbar to fill the viewport */
+            .navbar.nav-active {
+                height: 100vh;
+                height: 100dvh;
                 background: #080810;
-                backdrop-filter: blur(30px);
-                -webkit-backdrop-filter: blur(30px);
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .navbar.nav-active .nav-container {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            .navbar.nav-active .nav-logo {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+            }
+
+            .navbar.nav-active .nav-links {
+                display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                gap: 36px;
-                z-index: 9998;
+                gap: 32px;
                 animation: mobileNavIn 0.4s ease forwards;
             }
 
             @keyframes mobileNavIn {
-                from { opacity: 0; transform: translateY(-20px); }
-                to { opacity: 1; transform: translateY(0); }
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
 
-            .nav-links.nav-open .nav-link {
-                font-size: 1.4rem;
+            .navbar.nav-active .nav-link {
+                font-size: 1.5rem;
                 font-weight: 600;
                 color: var(--text-primary);
                 letter-spacing: 0.02em;
+                white-space: nowrap;
             }
 
-            .nav-links.nav-open .nav-link-cta {
+            .navbar.nav-active .nav-link::after {
+                display: none;
+            }
+
+            .navbar.nav-active .nav-link-cta {
                 font-size: 1.1rem;
-                padding: 14px 40px;
-                margin-top: 10px;
+                padding: 16px 48px;
+                margin-top: 16px;
+                background: var(--accent-primary);
+                color: var(--text-primary);
             }
 
             .nav-toggle {
@@ -2303,7 +2333,8 @@
                 flex-direction: column;
             }
 
-            .submit-btn, .back-btn {
+            .submit-btn,
+            .back-btn {
                 width: 100%;
                 text-align: center;
                 justify-content: center;
@@ -2428,7 +2459,8 @@
                 gap: 10px;
             }
 
-            .bpa, .bpb {
+            .bpa,
+            .bpb {
                 padding: 12px 24px;
                 font-size: 13px;
             }
@@ -2647,7 +2679,8 @@
                 font-size: 13px;
             }
 
-            .bpa, .bpb {
+            .bpa,
+            .bpb {
                 padding: 10px 20px;
                 font-size: 12px;
                 width: 100%;
@@ -2757,23 +2790,26 @@
         }
 
         .client-logo-card.logo-image {
-            padding: 14px 28px;
+            padding: 0;
             background: rgba(255, 255, 255, 0.08);
-            min-width: 160px;
+            min-width: unset;
+            width: 280px;
+            height: 200px;
+            overflow: hidden;
         }
 
         .client-logo-card.logo-image img {
-            height: 55px;
-            width: auto;
-            max-width: 180px;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
+            display: block;
             filter: none;
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .client-logo-card.logo-image:hover img {
             filter: brightness(1.15);
-            transform: scale(1.05);
+            transform: scale(1.06);
         }
 
         .client-logo-card:hover {
@@ -2811,13 +2847,14 @@
             }
 
             .client-logo-card.logo-image {
-                padding: 12px 22px;
-                min-width: 140px;
+                width: 250px;
+                height: 180px;
+                padding: 0;
             }
 
             .client-logo-card.logo-image img {
-                height: 50px;
-                max-width: 160px;
+                width: 100%;
+                height: 100%;
             }
         }
 
@@ -2845,13 +2882,14 @@
             }
 
             .client-logo-card.logo-image {
-                padding: 10px 18px;
-                min-width: 120px;
+                width: 220px;
+                height: 160px;
+                padding: 0;
             }
 
             .client-logo-card.logo-image img {
-                height: 45px;
-                max-width: 140px;
+                width: 100%;
+                height: 100%;
             }
 
             .cl-icon {
@@ -2887,13 +2925,14 @@
             }
 
             .client-logo-card.logo-image {
-                padding: 8px 14px;
-                min-width: 100px;
+                width: 180px;
+                height: 130px;
+                padding: 0;
             }
 
             .client-logo-card.logo-image img {
-                height: 38px;
-                max-width: 120px;
+                width: 100%;
+                height: 100%;
             }
 
             .cl-icon {
@@ -3049,44 +3088,65 @@
                 <div class="marquee-track">
                     <!-- Image-based client cards -->
                     <div class="client-logo-card logo-image">
-                        <img src="finesco.jpeg" alt="Finesco" loading="lazy">
+                        <img src="WhatsApp Image 2024-07-30 at 17.36.15_d2c4d84b.jpg.jpeg" alt="Client" loading="lazy">
                     </div>
                     <div class="client-logo-card logo-image">
-                        <img src="download.png" alt="Download" loading="lazy">
+                        <img src="Studio_Project_V6_edited.png" alt="Studio Project V6" loading="lazy">
                     </div>
                     <div class="client-logo-card logo-image">
-                        <img src="dhi brisk.jpeg" alt="Dhi Brisk" loading="lazy">
+                        <img src="Studio_Project_V5_edited_edited_edited.png" alt="Studio Project V5" loading="lazy">
                     </div>
-                    <!-- Text-based cards -->
-                    <div class="client-logo-card"><span class="cl-icon">🏬</span><span class="cl-name">RetailMax</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V3_edited.png" alt="Studio Project V3" loading="lazy">
                     </div>
-                    <div class="client-logo-card"><span class="cl-icon">🍕</span><span class="cl-name">FoodXpress</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V1_edited_edited_edited.png" alt="Studio Project V1" loading="lazy">
                     </div>
-                    <div class="client-logo-card"><span class="cl-icon">💼</span><span class="cl-name">ProServe</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="RecruitIntell_edited_edited_edited.png" alt="RecruitIntell" loading="lazy">
                     </div>
-                    <div class="client-logo-card"><span class="cl-icon">🏥</span><span class="cl-name">MediCare+</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="Gramyn_edited.png" alt="Gramyn" loading="lazy">
                     </div>
-                    <div class="client-logo-card"><span class="cl-icon">📚</span><span class="cl-name">EduLearn</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="FINESCO_Final_edited.png" alt="Finesco" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Dhi_BRISK_colour_logo.png" alt="Dhi Brisk" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="CareerPage_edited.png" alt="CareerPage" loading="lazy">
                     </div>
                     <!-- Duplicate for seamless loop -->
                     <div class="client-logo-card logo-image">
-                        <img src="finesco.jpeg" alt="Finesco" loading="lazy">
+                        <img src="WhatsApp Image 2024-07-30 at 17.36.15_d2c4d84b.jpg.jpeg" alt="Client" loading="lazy">
                     </div>
                     <div class="client-logo-card logo-image">
-                        <img src="download.png" alt="Download" loading="lazy">
+                        <img src="Studio_Project_V6_edited.png" alt="Studio Project V6" loading="lazy">
                     </div>
                     <div class="client-logo-card logo-image">
-                        <img src="dhi brisk.jpeg" alt="Dhi Brisk" loading="lazy">
+                        <img src="Studio_Project_V5_edited_edited_edited.png" alt="Studio Project V5" loading="lazy">
                     </div>
-                    <div class="client-logo-card"><span class="cl-icon">🏬</span><span class="cl-name">RetailMax</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V3_edited.png" alt="Studio Project V3" loading="lazy">
                     </div>
-                    <div class="client-logo-card"><span class="cl-icon">🍕</span><span class="cl-name">FoodXpress</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V1_edited_edited_edited.png" alt="Studio Project V1" loading="lazy">
                     </div>
-                    <div class="client-logo-card"><span class="cl-icon">💼</span><span class="cl-name">ProServe</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="RecruitIntell_edited_edited_edited.png" alt="RecruitIntell" loading="lazy">
                     </div>
-                    <div class="client-logo-card"><span class="cl-icon">🏥</span><span class="cl-name">MediCare+</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="Gramyn_edited.png" alt="Gramyn" loading="lazy">
                     </div>
-                    <div class="client-logo-card"><span class="cl-icon">📚</span><span class="cl-name">EduLearn</span>
+                    <div class="client-logo-card logo-image">
+                        <img src="FINESCO_Final_edited.png" alt="Finesco" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Dhi_BRISK_colour_logo.png" alt="Dhi Brisk" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="CareerPage_edited.png" alt="CareerPage" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -4096,23 +4156,24 @@
         });
 
         // Mobile navigation toggle
-        (function() {
+        (function () {
             const navToggleBtn = document.getElementById('navToggle');
             const navLinksEl = document.getElementById('navLinks');
-            if (!navToggleBtn || !navLinksEl) return;
+            const navbarEl = document.getElementById('navbar');
+            if (!navToggleBtn || !navLinksEl || !navbarEl) return;
 
-            navToggleBtn.addEventListener('click', function() {
-                const isOpen = navLinksEl.classList.contains('nav-open');
-                navLinksEl.classList.toggle('nav-open');
+            navToggleBtn.addEventListener('click', function () {
+                const isOpen = navbarEl.classList.contains('nav-active');
+                navbarEl.classList.toggle('nav-active');
                 navToggleBtn.classList.toggle('active');
                 navToggleBtn.setAttribute('aria-expanded', !isOpen);
                 document.body.style.overflow = isOpen ? '' : 'hidden';
             });
 
             // Close on link click
-            navLinksEl.querySelectorAll('.nav-link').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    navLinksEl.classList.remove('nav-open');
+            navLinksEl.querySelectorAll('.nav-link').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    navbarEl.classList.remove('nav-active');
                     navToggleBtn.classList.remove('active');
                     navToggleBtn.setAttribute('aria-expanded', 'false');
                     document.body.style.overflow = '';
@@ -4120,9 +4181,9 @@
             });
 
             // Close on window resize to desktop
-            window.addEventListener('resize', function() {
+            window.addEventListener('resize', function () {
                 if (window.innerWidth > 992) {
-                    navLinksEl.classList.remove('nav-open');
+                    navbarEl.classList.remove('nav-active');
                     navToggleBtn.classList.remove('active');
                     navToggleBtn.setAttribute('aria-expanded', 'false');
                     document.body.style.overflow = '';
