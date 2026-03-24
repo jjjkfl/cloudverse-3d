@@ -2058,9 +2058,7 @@
             transform: translateY(0);
         }
 
-        /* ═══════════════════════════════════════
-           RESPONSIVE — Tablet (1200px)
-           ═══════════════════════════════════════ */
+        /* Responsive */
         @media (max-width: 1200px) {
             .pillars-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -2070,15 +2068,8 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 40px;
             }
-
-            .hero-grid {
-                gap: 40px;
-            }
         }
 
-        /* ═══════════════════════════════════════
-           RESPONSIVE — Small Tablet (992px)
-           ═══════════════════════════════════════ */
         @media (max-width: 992px) {
 
             .hero-grid,
@@ -2089,28 +2080,8 @@
                 gap: 40px;
             }
 
-            .hero-grid {
-                text-align: center;
-                padding-top: 30px;
-            }
-
-            .hero-content {
-                max-width: 100%;
-            }
-
-            .hero-subtitle {
-                margin-left: auto;
-                margin-right: auto;
-                max-width: 560px;
-            }
-
-            .hero-actions {
-                justify-content: center;
-            }
-
             .feature-visual {
                 height: 300px;
-                order: -1;
             }
 
             .feature-number {
@@ -2122,107 +2093,12 @@
                 display: none;
             }
 
-            /* When menu is open, expand the entire navbar to fill the viewport */
-            .navbar.nav-active {
-                height: 100vh;
-                height: 100dvh;
-                background: #080810;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-            }
-
-            .navbar.nav-active .nav-container {
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-                padding-top: 0;
-                padding-bottom: 0;
-            }
-
-            .navbar.nav-active .nav-logo {
-                position: absolute;
-                top: 20px;
-                left: 20px;
-            }
-
-            .navbar.nav-active .nav-links {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 32px;
-                animation: mobileNavIn 0.4s ease forwards;
-            }
-
-            @keyframes mobileNavIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .navbar.nav-active .nav-link {
-                font-size: 1.5rem;
-                font-weight: 600;
-                color: var(--text-primary);
-                letter-spacing: 0.02em;
-                white-space: nowrap;
-            }
-
-            .navbar.nav-active .nav-link::after {
-                display: none;
-            }
-
-            .navbar.nav-active .nav-link-cta {
-                font-size: 1.1rem;
-                padding: 16px 48px;
-                margin-top: 16px;
-                background: var(--accent-primary);
-                color: var(--text-primary);
-            }
-
             .nav-toggle {
                 display: flex;
-                z-index: 9999;
-            }
-
-            .nav-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .nav-toggle.active span:nth-child(2) {
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-
-            .nav-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
             }
 
             .hero-atom-wrapper {
                 height: 300px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .atom-container {
-                width: 300px;
-                height: 300px;
-            }
-
-            .cloud-wrap {
-                width: 120px;
-                height: 120px;
-            }
-
-            .cloud-svg {
-                width: 100px;
             }
 
             .card {
@@ -2234,49 +2110,15 @@
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
-
-            .ppbody {
-                padding: 50px 30px 80px;
-            }
-
-            .pphero {
-                padding: 60px 30px 40px;
-                min-height: 70vh;
-            }
-
-            .ppstats {
-                grid-template-columns: 1fr;
-                max-width: 300px;
-            }
-
-            .ppstrip {
-                padding: 36px 24px;
-            }
         }
 
-        /* ═══════════════════════════════════════
-           RESPONSIVE — Mobile (768px)
-           ═══════════════════════════════════════ */
         @media (max-width: 768px) {
-            :root {
-                --section-padding: 60px 0;
-            }
-
             .section-container {
-                padding: 0 20px;
-            }
-
-            .nav-container {
                 padding: 0 20px;
             }
 
             .pillars-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .pillar-card {
-                padding: 28px 22px;
             }
 
             .process-timeline {
@@ -2284,17 +2126,8 @@
                 gap: 0;
             }
 
-            .process-step {
-                gap: 20px;
-            }
-
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .footer-container {
-                padding: 0 20px;
             }
 
             .footer-bottom {
@@ -2309,19 +2142,8 @@
                 gap: 20px;
             }
 
-            .form-content {
-                padding: 30px 20px;
-                border-radius: 20px;
-            }
-
-            .form-title {
-                font-size: 1.6rem;
-                margin-bottom: 24px;
-            }
-
             .form-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
             }
 
             .form-grid textarea,
@@ -2333,388 +2155,34 @@
                 flex-direction: column;
             }
 
-            .submit-btn,
-            .back-btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
+            .arch-scene {
+                height: 500px;
             }
 
-            /* Hero adjustments */
-            .hero-grid {
-                padding: 30px 20px 0;
-            }
-
-            .hero-title-line {
-                font-size: clamp(2rem, 7vw, 3.5rem);
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .atom-container {
-                width: 260px;
-                height: 260px;
-            }
-
-            .cloud-wrap {
-                width: 100px;
-                height: 100px;
-            }
-
-            .cloud-svg {
-                width: 80px;
-            }
-
-            /* Catalogue cards */
-            .stage-wrap {
-                height: 320px;
-            }
-
-            .card {
-                width: 140px;
-                height: 220px;
-                left: calc(50% - 70px);
-            }
-
-            .cname {
-                font-size: 11.5px;
-            }
-
-            .ctag {
-                font-size: 9px;
-            }
-
-            .icon {
-                font-size: 36px;
-                margin-top: 20px;
-            }
-
-            .hd h2 {
-                font-size: clamp(22px, 5vw, 36px);
-            }
-
-            /* CTA section */
-            .cta-section {
-                min-height: 600px;
-            }
-
-            .cta-title {
-                font-size: clamp(1.6rem, 6vw, 2.4rem) !important;
-            }
-
-            .cta-subtitle {
-                font-size: 0.95rem;
-                margin-bottom: 30px;
-            }
-
-            .hexagon-btn {
-                width: 140px;
-                height: 160px;
-            }
-
-            /* Feature blocks */
-            .feature-block {
-                margin-bottom: 60px;
-            }
-
-            .feature-title {
-                font-size: 1.6rem;
-            }
-
-            .feature-desc {
-                font-size: 0.95rem;
-            }
-
-            .feature-visual {
-                height: 250px;
-            }
-
-            /* Section header */
-            .section-title {
-                font-size: clamp(1.6rem, 5vw, 2.5rem);
-            }
-
-            .section-desc-large {
-                font-size: 1.1rem;
-            }
-
-            /* Product Detail overlay mobile */
-            .ppbar {
-                padding: 0 16px;
-            }
-
-            .pphero {
-                padding: 40px 20px 30px;
-                min-height: 60vh;
-            }
-
-            .bigicon {
-                font-size: 70px;
-                margin-bottom: 24px;
-            }
-
-            .ppbtns {
-                gap: 10px;
-            }
-
-            .bpa,
-            .bpb {
-                padding: 12px 24px;
-                font-size: 13px;
-            }
-
-            .ppbody {
-                padding: 40px 20px 60px;
-            }
-
-            .pp2col {
-                gap: 40px;
-            }
-
-            .ppvis {
-                height: 280px;
-            }
-
-            .pp3d {
-                width: 200px;
-                height: 260px;
-                padding: 24px;
-            }
-
-            .ppstrip {
-                padding: 30px 20px;
-                margin-top: 40px;
-            }
-
-            .ppstrip h3 {
-                font-size: 20px;
-            }
-
-            .ppchip {
-                padding: 6px 14px;
-                font-size: 12px;
-            }
-
-            .r3 {
-                width: 260px;
-                height: 260px;
-            }
-
-            /* Scroll indicator */
-            .hero-scroll-indicator {
-                bottom: 20px;
-            }
-
-            .scroll-line {
-                height: 40px;
-            }
-        }
-
-        /* ═══════════════════════════════════════
-           RESPONSIVE — Small Mobile (480px)
-           ═══════════════════════════════════════ */
-        @media (max-width: 480px) {
-            .hero-title-line {
-                font-size: clamp(1.6rem, 8vw, 2.4rem);
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
-                gap: 12px;
-            }
-
-            .hero-actions .btn {
-                width: 100%;
-                justify-content: center;
-                padding: 14px 24px;
-            }
-
-            .hero-subtitle {
-                font-size: 0.9rem;
-            }
-
-            .atom-container {
-                width: 220px;
-                height: 220px;
-            }
-
-            .cloud-wrap {
-                width: 80px;
-                height: 80px;
-            }
-
-            .cloud-svg {
-                width: 65px;
-            }
-
-            .section-container {
-                padding: 0 16px;
-            }
-
-            .section-title {
-                font-size: clamp(1.4rem, 6vw, 2rem);
-            }
-
-            .cta-title {
-                font-size: clamp(1.4rem, 7vw, 2rem) !important;
-            }
-
-            .cta-subtitle {
-                font-size: 0.85rem;
-                margin-bottom: 24px;
-            }
-
-            .hexagon-btn {
-                width: 120px;
-                height: 136px;
-            }
-
-            .card {
-                width: 120px;
-                height: 190px;
-                left: calc(50% - 60px);
-            }
-
-            .cname {
-                font-size: 10px;
-            }
-
-            .ctag {
-                font-size: 8px;
-                display: none;
-            }
-
-            .card-btn {
-                font-size: 8px;
-                padding: 5px 10px;
-            }
-
-            .icon {
-                font-size: 28px;
-                margin-top: 16px;
-            }
-
-            .stage-wrap {
-                height: 280px;
-            }
-
-            #active-name {
-                font-size: 16px;
-            }
-
-            #active-tag {
-                font-size: 12px;
-            }
-
-            .cat-arr {
-                width: 36px;
-                height: 36px;
-                font-size: 14px;
-            }
-
-            .cat-nav {
-                gap: 10px;
-            }
-
-            .feature-title {
-                font-size: 1.3rem;
-            }
-
-            .form-content {
-                padding: 24px 16px;
-            }
-
-            .pphero {
-                min-height: auto;
-                padding: 30px 16px 24px;
-            }
-
-            .bigicon {
-                font-size: 56px;
-                margin-bottom: 18px;
-            }
-
-            .pptitle {
-                font-size: 28px;
-                letter-spacing: -1px;
-            }
-
-            .ppbody {
-                padding: 24px 16px 40px;
-            }
-
-            .r2 {
+            .arch-card {
                 width: 180px;
-                height: 180px;
-            }
-
-            .r3 {
-                width: 220px;
-                height: 220px;
-            }
-
-            .ppvis {
-                height: 220px;
-            }
-
-            .pp3d {
-                width: 160px;
-                height: 220px;
-                padding: 18px;
-            }
-
-            .ppstrip {
-                padding: 24px 16px;
-                border-radius: 16px;
-            }
-
-            .ppstrip h3 {
-                font-size: 17px;
-            }
-
-            .ppstrip p {
-                font-size: 13px;
-            }
-
-            .bpa,
-            .bpb {
-                padding: 10px 20px;
-                font-size: 12px;
-                width: 100%;
-                text-align: center;
-            }
-
-            .footer {
-                padding: 40px 0 24px;
-            }
-
-            .footer-col h4 {
-                font-size: 1rem;
-                margin-bottom: 16px;
+                height: 260px;
+                margin-left: -90px;
+                margin-top: -130px;
             }
         }
 
-        /* ── NAV single-line enforcement (desktop only) ── */
-        @media (min-width: 993px) {
-            .nav-container {
-                flex-wrap: nowrap !important;
-            }
+        /* ── NAV single-line enforcement ── */
+        .nav-container {
+            flex-wrap: nowrap !important;
+        }
 
-            .nav-links {
-                display: flex !important;
-                flex-wrap: nowrap !important;
-                align-items: center;
-                gap: 28px;
-                white-space: nowrap;
-            }
+        .nav-links {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            align-items: center;
+            gap: 28px;
+            white-space: nowrap;
+        }
 
-            .nav-link {
-                white-space: nowrap;
-                flex-shrink: 0;
-            }
+        .nav-link {
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         /* ── Clients Marquee Section (updated with image support) ── */
@@ -2790,26 +2258,23 @@
         }
 
         .client-logo-card.logo-image {
-            padding: 0;
+            padding: 14px 28px;
             background: rgba(255, 255, 255, 0.08);
-            min-width: unset;
-            width: 280px;
-            height: 200px;
-            overflow: hidden;
+            min-width: 160px;
         }
 
         .client-logo-card.logo-image img {
-            width: 100%;
-            height: 100%;
+            height: 55px;
+            width: auto;
+            max-width: 180px;
             object-fit: contain;
-            display: block;
             filter: none;
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .client-logo-card.logo-image:hover img {
             filter: brightness(1.15);
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         .client-logo-card:hover {
@@ -2847,14 +2312,13 @@
             }
 
             .client-logo-card.logo-image {
-                width: 250px;
-                height: 180px;
-                padding: 0;
+                padding: 12px 22px;
+                min-width: 140px;
             }
 
             .client-logo-card.logo-image img {
-                width: 100%;
-                height: 100%;
+                height: 50px;
+                max-width: 160px;
             }
         }
 
@@ -2882,14 +2346,13 @@
             }
 
             .client-logo-card.logo-image {
-                width: 220px;
-                height: 160px;
-                padding: 0;
+                padding: 10px 18px;
+                min-width: 120px;
             }
 
             .client-logo-card.logo-image img {
-                width: 100%;
-                height: 100%;
+                height: 45px;
+                max-width: 140px;
             }
 
             .cl-icon {
@@ -2925,14 +2388,13 @@
             }
 
             .client-logo-card.logo-image {
-                width: 180px;
-                height: 130px;
-                padding: 0;
+                padding: 8px 14px;
+                min-width: 100px;
             }
 
             .client-logo-card.logo-image img {
-                width: 100%;
-                height: 100%;
+                height: 38px;
+                max-width: 120px;
             }
 
             .cl-icon {
@@ -3088,65 +2550,44 @@
                 <div class="marquee-track">
                     <!-- Image-based client cards -->
                     <div class="client-logo-card logo-image">
-                        <img src="WhatsApp Image 2024-07-30 at 17.36.15_d2c4d84b.jpg.jpeg" alt="Client" loading="lazy">
+                        <img src="finesco.jpeg" alt="Finesco" loading="lazy">
                     </div>
                     <div class="client-logo-card logo-image">
-                        <img src="Studio_Project_V6_edited.png" alt="Studio Project V6" loading="lazy">
+                        <img src="download.png" alt="Download" loading="lazy">
                     </div>
                     <div class="client-logo-card logo-image">
-                        <img src="Studio_Project_V5_edited_edited_edited.png" alt="Studio Project V5" loading="lazy">
+                        <img src="dhi brisk.jpeg" alt="Dhi Brisk" loading="lazy">
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="Studio_Project_V3_edited.png" alt="Studio Project V3" loading="lazy">
+                    <!-- Text-based cards -->
+                    <div class="client-logo-card"><span class="cl-icon">🏬</span><span class="cl-name">RetailMax</span>
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="Studio_Project_V1_edited_edited_edited.png" alt="Studio Project V1" loading="lazy">
+                    <div class="client-logo-card"><span class="cl-icon">🍕</span><span class="cl-name">FoodXpress</span>
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="RecruitIntell_edited_edited_edited.png" alt="RecruitIntell" loading="lazy">
+                    <div class="client-logo-card"><span class="cl-icon">💼</span><span class="cl-name">ProServe</span>
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="Gramyn_edited.png" alt="Gramyn" loading="lazy">
+                    <div class="client-logo-card"><span class="cl-icon">🏥</span><span class="cl-name">MediCare+</span>
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="FINESCO_Final_edited.png" alt="Finesco" loading="lazy">
-                    </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="Dhi_BRISK_colour_logo.png" alt="Dhi Brisk" loading="lazy">
-                    </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="CareerPage_edited.png" alt="CareerPage" loading="lazy">
+                    <div class="client-logo-card"><span class="cl-icon">📚</span><span class="cl-name">EduLearn</span>
                     </div>
                     <!-- Duplicate for seamless loop -->
                     <div class="client-logo-card logo-image">
-                        <img src="WhatsApp Image 2024-07-30 at 17.36.15_d2c4d84b.jpg.jpeg" alt="Client" loading="lazy">
+                        <img src="finesco.jpeg" alt="Finesco" loading="lazy">
                     </div>
                     <div class="client-logo-card logo-image">
-                        <img src="Studio_Project_V6_edited.png" alt="Studio Project V6" loading="lazy">
+                        <img src="download.png" alt="Download" loading="lazy">
                     </div>
                     <div class="client-logo-card logo-image">
-                        <img src="Studio_Project_V5_edited_edited_edited.png" alt="Studio Project V5" loading="lazy">
+                        <img src="dhi brisk.jpeg" alt="Dhi Brisk" loading="lazy">
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="Studio_Project_V3_edited.png" alt="Studio Project V3" loading="lazy">
+                    <div class="client-logo-card"><span class="cl-icon">🏬</span><span class="cl-name">RetailMax</span>
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="Studio_Project_V1_edited_edited_edited.png" alt="Studio Project V1" loading="lazy">
+                    <div class="client-logo-card"><span class="cl-icon">🍕</span><span class="cl-name">FoodXpress</span>
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="RecruitIntell_edited_edited_edited.png" alt="RecruitIntell" loading="lazy">
+                    <div class="client-logo-card"><span class="cl-icon">💼</span><span class="cl-name">ProServe</span>
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="Gramyn_edited.png" alt="Gramyn" loading="lazy">
+                    <div class="client-logo-card"><span class="cl-icon">🏥</span><span class="cl-name">MediCare+</span>
                     </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="FINESCO_Final_edited.png" alt="Finesco" loading="lazy">
-                    </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="Dhi_BRISK_colour_logo.png" alt="Dhi Brisk" loading="lazy">
-                    </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="CareerPage_edited.png" alt="CareerPage" loading="lazy">
+                    <div class="client-logo-card"><span class="cl-icon">📚</span><span class="cl-name">EduLearn</span>
                     </div>
                 </div>
             </div>
@@ -4154,42 +3595,6 @@
                 document.getElementById('navbar').classList.remove('scrolled');
             }
         });
-
-        // Mobile navigation toggle
-        (function () {
-            const navToggleBtn = document.getElementById('navToggle');
-            const navLinksEl = document.getElementById('navLinks');
-            const navbarEl = document.getElementById('navbar');
-            if (!navToggleBtn || !navLinksEl || !navbarEl) return;
-
-            navToggleBtn.addEventListener('click', function () {
-                const isOpen = navbarEl.classList.contains('nav-active');
-                navbarEl.classList.toggle('nav-active');
-                navToggleBtn.classList.toggle('active');
-                navToggleBtn.setAttribute('aria-expanded', !isOpen);
-                document.body.style.overflow = isOpen ? '' : 'hidden';
-            });
-
-            // Close on link click
-            navLinksEl.querySelectorAll('.nav-link').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    navbarEl.classList.remove('nav-active');
-                    navToggleBtn.classList.remove('active');
-                    navToggleBtn.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                });
-            });
-
-            // Close on window resize to desktop
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 992) {
-                    navbarEl.classList.remove('nav-active');
-                    navToggleBtn.classList.remove('active');
-                    navToggleBtn.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                }
-            });
-        })();
 
         // Reveal on scroll
         const revealElements = document.querySelectorAll('.reveal-on-scroll');
