@@ -480,7 +480,8 @@
 
         .hero-title-line {
             display: block;
-            font-size: clamp(3rem, 8vw, 5.5rem);
+            white-space: nowrap;
+            font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -0.02em;
@@ -2058,7 +2059,9 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
+        /* ═══════════════════════════════════════
+           RESPONSIVE — Tablet (1200px)
+           ═══════════════════════════════════════ */
         @media (max-width: 1200px) {
             .pillars-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -2068,8 +2071,15 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 40px;
             }
+
+            .hero-grid {
+                gap: 40px;
+            }
         }
 
+        /* ═══════════════════════════════════════
+           RESPONSIVE — Small Tablet (992px)
+           ═══════════════════════════════════════ */
         @media (max-width: 992px) {
 
             .hero-grid,
@@ -2080,8 +2090,28 @@
                 gap: 40px;
             }
 
+            .hero-grid {
+                text-align: center;
+                padding-top: 30px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 560px;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
             .feature-visual {
                 height: 300px;
+                order: -1;
             }
 
             .feature-number {
@@ -2093,12 +2123,107 @@
                 display: none;
             }
 
+            /* When menu is open, expand the entire navbar to fill the viewport */
+            .navbar.nav-active {
+                height: 100vh;
+                height: 100dvh;
+                background: #080810;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .navbar.nav-active .nav-container {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            .navbar.nav-active .nav-logo {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+            }
+
+            .navbar.nav-active .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 32px;
+                animation: mobileNavIn 0.4s ease forwards;
+            }
+
+            @keyframes mobileNavIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .navbar.nav-active .nav-link {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--text-primary);
+                letter-spacing: 0.02em;
+                white-space: nowrap;
+            }
+
+            .navbar.nav-active .nav-link::after {
+                display: none;
+            }
+
+            .navbar.nav-active .nav-link-cta {
+                font-size: 1.1rem;
+                padding: 16px 48px;
+                margin-top: 16px;
+                background: var(--accent-primary);
+                color: var(--text-primary);
+            }
+
             .nav-toggle {
                 display: flex;
+                z-index: 9999;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
             }
 
             .hero-atom-wrapper {
                 height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .atom-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .cloud-wrap {
+                width: 120px;
+                height: 120px;
+            }
+
+            .cloud-svg {
+                width: 100px;
             }
 
             .card {
@@ -2110,15 +2235,49 @@
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
+
+            .ppbody {
+                padding: 50px 30px 80px;
+            }
+
+            .pphero {
+                padding: 60px 30px 40px;
+                min-height: 70vh;
+            }
+
+            .ppstats {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+
+            .ppstrip {
+                padding: 36px 24px;
+            }
         }
 
+        /* ═══════════════════════════════════════
+           RESPONSIVE — Mobile (768px)
+           ═══════════════════════════════════════ */
         @media (max-width: 768px) {
+            :root {
+                --section-padding: 60px 0;
+            }
+
             .section-container {
+                padding: 0 20px;
+            }
+
+            .nav-container {
                 padding: 0 20px;
             }
 
             .pillars-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .pillar-card {
+                padding: 28px 22px;
             }
 
             .process-timeline {
@@ -2126,8 +2285,17 @@
                 gap: 0;
             }
 
+            .process-step {
+                gap: 20px;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-container {
+                padding: 0 20px;
             }
 
             .footer-bottom {
@@ -2142,8 +2310,19 @@
                 gap: 20px;
             }
 
+            .form-content {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .form-title {
+                font-size: 1.6rem;
+                margin-bottom: 24px;
+            }
+
             .form-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .form-grid textarea,
@@ -2155,34 +2334,388 @@
                 flex-direction: column;
             }
 
-            .arch-scene {
-                height: 500px;
+            .submit-btn,
+            .back-btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
             }
 
-            .arch-card {
-                width: 180px;
+            /* Hero adjustments */
+            .hero-grid {
+                padding: 30px 20px 0;
+            }
+
+            .hero-title-line {
+                font-size: clamp(2rem, 7vw, 3.5rem);
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .atom-container {
+                width: 260px;
                 height: 260px;
-                margin-left: -90px;
-                margin-top: -130px;
+            }
+
+            .cloud-wrap {
+                width: 100px;
+                height: 100px;
+            }
+
+            .cloud-svg {
+                width: 80px;
+            }
+
+            /* Catalogue cards */
+            .stage-wrap {
+                height: 320px;
+            }
+
+            .card {
+                width: 140px;
+                height: 220px;
+                left: calc(50% - 70px);
+            }
+
+            .cname {
+                font-size: 11.5px;
+            }
+
+            .ctag {
+                font-size: 9px;
+            }
+
+            .icon {
+                font-size: 36px;
+                margin-top: 20px;
+            }
+
+            .hd h2 {
+                font-size: clamp(22px, 5vw, 36px);
+            }
+
+            /* CTA section */
+            .cta-section {
+                min-height: 600px;
+            }
+
+            .cta-title {
+                font-size: clamp(1.6rem, 6vw, 2.4rem) !important;
+            }
+
+            .cta-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 30px;
+            }
+
+            .hexagon-btn {
+                width: 140px;
+                height: 160px;
+            }
+
+            /* Feature blocks */
+            .feature-block {
+                margin-bottom: 60px;
+            }
+
+            .feature-title {
+                font-size: 1.6rem;
+            }
+
+            .feature-desc {
+                font-size: 0.95rem;
+            }
+
+            .feature-visual {
+                height: 250px;
+            }
+
+            /* Section header */
+            .section-title {
+                font-size: clamp(1.6rem, 5vw, 2.5rem);
+            }
+
+            .section-desc-large {
+                font-size: 1.1rem;
+            }
+
+            /* Product Detail overlay mobile */
+            .ppbar {
+                padding: 0 16px;
+            }
+
+            .pphero {
+                padding: 40px 20px 30px;
+                min-height: 60vh;
+            }
+
+            .bigicon {
+                font-size: 70px;
+                margin-bottom: 24px;
+            }
+
+            .ppbtns {
+                gap: 10px;
+            }
+
+            .bpa,
+            .bpb {
+                padding: 12px 24px;
+                font-size: 13px;
+            }
+
+            .ppbody {
+                padding: 40px 20px 60px;
+            }
+
+            .pp2col {
+                gap: 40px;
+            }
+
+            .ppvis {
+                height: 280px;
+            }
+
+            .pp3d {
+                width: 200px;
+                height: 260px;
+                padding: 24px;
+            }
+
+            .ppstrip {
+                padding: 30px 20px;
+                margin-top: 40px;
+            }
+
+            .ppstrip h3 {
+                font-size: 20px;
+            }
+
+            .ppchip {
+                padding: 6px 14px;
+                font-size: 12px;
+            }
+
+            .r3 {
+                width: 260px;
+                height: 260px;
+            }
+
+            /* Scroll indicator */
+            .hero-scroll-indicator {
+                bottom: 20px;
+            }
+
+            .scroll-line {
+                height: 40px;
             }
         }
 
-        /* ── NAV single-line enforcement ── */
-        .nav-container {
-            flex-wrap: nowrap !important;
+        /* ═══════════════════════════════════════
+           RESPONSIVE — Small Mobile (480px)
+           ═══════════════════════════════════════ */
+        @media (max-width: 480px) {
+            .hero-title-line {
+                font-size: clamp(1.6rem, 8vw, 2.4rem);
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 24px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .atom-container {
+                width: 220px;
+                height: 220px;
+            }
+
+            .cloud-wrap {
+                width: 80px;
+                height: 80px;
+            }
+
+            .cloud-svg {
+                width: 65px;
+            }
+
+            .section-container {
+                padding: 0 16px;
+            }
+
+            .section-title {
+                font-size: clamp(1.4rem, 6vw, 2rem);
+            }
+
+            .cta-title {
+                font-size: clamp(1.4rem, 7vw, 2rem) !important;
+            }
+
+            .cta-subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 24px;
+            }
+
+            .hexagon-btn {
+                width: 120px;
+                height: 136px;
+            }
+
+            .card {
+                width: 120px;
+                height: 190px;
+                left: calc(50% - 60px);
+            }
+
+            .cname {
+                font-size: 10px;
+            }
+
+            .ctag {
+                font-size: 8px;
+                display: none;
+            }
+
+            .card-btn {
+                font-size: 8px;
+                padding: 5px 10px;
+            }
+
+            .icon {
+                font-size: 28px;
+                margin-top: 16px;
+            }
+
+            .stage-wrap {
+                height: 280px;
+            }
+
+            #active-name {
+                font-size: 16px;
+            }
+
+            #active-tag {
+                font-size: 12px;
+            }
+
+            .cat-arr {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .cat-nav {
+                gap: 10px;
+            }
+
+            .feature-title {
+                font-size: 1.3rem;
+            }
+
+            .form-content {
+                padding: 24px 16px;
+            }
+
+            .pphero {
+                min-height: auto;
+                padding: 30px 16px 24px;
+            }
+
+            .bigicon {
+                font-size: 56px;
+                margin-bottom: 18px;
+            }
+
+            .pptitle {
+                font-size: 28px;
+                letter-spacing: -1px;
+            }
+
+            .ppbody {
+                padding: 24px 16px 40px;
+            }
+
+            .r2 {
+                width: 180px;
+                height: 180px;
+            }
+
+            .r3 {
+                width: 220px;
+                height: 220px;
+            }
+
+            .ppvis {
+                height: 220px;
+            }
+
+            .pp3d {
+                width: 160px;
+                height: 220px;
+                padding: 18px;
+            }
+
+            .ppstrip {
+                padding: 24px 16px;
+                border-radius: 16px;
+            }
+
+            .ppstrip h3 {
+                font-size: 17px;
+            }
+
+            .ppstrip p {
+                font-size: 13px;
+            }
+
+            .bpa,
+            .bpb {
+                padding: 10px 20px;
+                font-size: 12px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer {
+                padding: 40px 0 24px;
+            }
+
+            .footer-col h4 {
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
         }
 
-        .nav-links {
-            display: flex !important;
-            flex-wrap: nowrap !important;
-            align-items: center;
-            gap: 28px;
-            white-space: nowrap;
-        }
+        /* ── NAV single-line enforcement (desktop only) ── */
+        @media (min-width: 993px) {
+            .nav-container {
+                flex-wrap: nowrap !important;
+            }
 
-        .nav-link {
-            white-space: nowrap;
-            flex-shrink: 0;
+            .nav-links {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                align-items: center;
+                gap: 28px;
+                white-space: nowrap;
+            }
+
+            .nav-link {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
         }
 
         /* ── Clients Marquee Section (updated with image support) ── */
@@ -2258,32 +2791,25 @@
         }
 
         .client-logo-card.logo-image {
-            padding: 14px 28px;
+            padding: 0;
             background: rgba(255, 255, 255, 0.08);
-            min-width: 160px;
+            min-width: unset;
+            width: 280px;
+            height: 200px;
+            overflow: hidden;
         }
 
         .client-logo-card.logo-image img {
-            height: 55px;
-            width: auto;
-            max-width: 180px;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
+            display: block;
             filter: none;
+            transform: scale(1.25);
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .client-logo-card.logo-image:hover img {
-            filter: brightness(1.15);
-            transform: scale(1.05);
-        }
-
-        .client-logo-card:hover {
-            border-color: rgba(1, 184, 253, 0.4);
-            background: rgba(1, 184, 253, 0.08);
-            box-shadow: 0 4px 24px rgba(1, 184, 253, 0.15),
-                0 0 0 1px rgba(1, 184, 253, 0.1);
-            transform: translateY(-4px);
-        }
+        /* Hover effects removed to prevent 'clickable' appearance */
 
         .cl-icon {
             font-size: 1.6rem;
@@ -2312,13 +2838,14 @@
             }
 
             .client-logo-card.logo-image {
-                padding: 12px 22px;
-                min-width: 140px;
+                width: 250px;
+                height: 180px;
+                padding: 0;
             }
 
             .client-logo-card.logo-image img {
-                height: 50px;
-                max-width: 160px;
+                width: 100%;
+                height: 100%;
             }
         }
 
@@ -2346,13 +2873,14 @@
             }
 
             .client-logo-card.logo-image {
-                padding: 10px 18px;
-                min-width: 120px;
+                width: 220px;
+                height: 160px;
+                padding: 0;
             }
 
             .client-logo-card.logo-image img {
-                height: 45px;
-                max-width: 140px;
+                width: 100%;
+                height: 100%;
             }
 
             .cl-icon {
@@ -2388,13 +2916,14 @@
             }
 
             .client-logo-card.logo-image {
-                padding: 8px 14px;
-                min-width: 100px;
+                width: 180px;
+                height: 130px;
+                padding: 0;
             }
 
             .client-logo-card.logo-image img {
-                height: 38px;
-                max-width: 120px;
+                width: 100%;
+                height: 100%;
             }
 
             .cl-icon {
@@ -2458,8 +2987,7 @@
                     <h1 class="hero-title">
                         <span class="hero-title-line animate-in">The New Standard</span>
                         <span class="hero-title-line hero-title-accent animate-in" style="animation-delay: 0.15s">in
-                            Software Design</span>
-                        <span class="hero-title-line animate-in" style="animation-delay: 0.3s">and Development</span>
+                            Software Development</span>
                     </h1>
                     <p class="hero-subtitle animate-in" style="animation-delay: 0.45s">Dedicated to delivering
                         exceptional digital solutions for businesses of all sizes. With our passion for innovation and
@@ -2540,178 +3068,51 @@
             <div class="divider-glow"></div>
         </div>
 
-        <!-- ============ CLIENTS MARQUEE SECTION (with images) ============ -->
-        <section class="clients-section" id="clients" aria-label="Our Clients">
-            <div class="clients-header">
-                <span class="section-tag">Trusted By</span>
-                <h2 class="section-title clients-title">Our Clients &amp; Partners</h2>
+        <!-- ============ PRODUCTS SECTION - CATALOGUE ============ -->
+        <section id="products">
+            <div id="bg-blob"></div>
+
+            <div class="hd">
+                <div class="hd-tag">Our Services</div>
+                <h2>Engineering the Future<br>of Technology</h2>
+                <p>Click the center card · Auto-rotates every 3s</p>
             </div>
-            <div class="marquee-wrapper">
-                <div class="marquee-track">
-                    <!-- Image-based client cards -->
-                    <div class="client-logo-card logo-image">
-                        <img src="finesco.jpeg" alt="Finesco" loading="lazy">
-                    </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="download.png" alt="Download" loading="lazy">
-                    </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="dhi brisk.jpeg" alt="Dhi Brisk" loading="lazy">
-                    </div>
-                    <!-- Text-based cards -->
-                    <div class="client-logo-card"><span class="cl-icon">🏬</span><span class="cl-name">RetailMax</span>
-                    </div>
-                    <div class="client-logo-card"><span class="cl-icon">🍕</span><span class="cl-name">FoodXpress</span>
-                    </div>
-                    <div class="client-logo-card"><span class="cl-icon">💼</span><span class="cl-name">ProServe</span>
-                    </div>
-                    <div class="client-logo-card"><span class="cl-icon">🏥</span><span class="cl-name">MediCare+</span>
-                    </div>
-                    <div class="client-logo-card"><span class="cl-icon">📚</span><span class="cl-name">EduLearn</span>
-                    </div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="client-logo-card logo-image">
-                        <img src="finesco.jpeg" alt="Finesco" loading="lazy">
-                    </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="download.png" alt="Download" loading="lazy">
-                    </div>
-                    <div class="client-logo-card logo-image">
-                        <img src="dhi brisk.jpeg" alt="Dhi Brisk" loading="lazy">
-                    </div>
-                    <div class="client-logo-card"><span class="cl-icon">🏬</span><span class="cl-name">RetailMax</span>
-                    </div>
-                    <div class="client-logo-card"><span class="cl-icon">🍕</span><span class="cl-name">FoodXpress</span>
-                    </div>
-                    <div class="client-logo-card"><span class="cl-icon">💼</span><span class="cl-name">ProServe</span>
-                    </div>
-                    <div class="client-logo-card"><span class="cl-icon">🏥</span><span class="cl-name">MediCare+</span>
-                    </div>
-                    <div class="client-logo-card"><span class="cl-icon">📚</span><span class="cl-name">EduLearn</span>
-                    </div>
-                </div>
+
+            <div class="stage-wrap">
+                <div class="stage" id="stage"></div>
+            </div>
+
+            <div class="cat-info">
+                <div id="active-name">—</div>
+                <div id="active-tag">—</div>
+                <button class="main-cta" id="mainCta">Explore Service</button>
+            </div>
+
+            <div class="cat-nav">
+                <button class="cat-arr" id="prev">&#8592;</button>
+                <div class="cat-dots" id="dots"></div>
+                <button class="cat-arr" id="next">&#8594;</button>
             </div>
         </section>
 
-        <!-- ============ APPROACH / DIGITAL PRESENCE SECTION ============ -->
-        <section class="approach-section" id="approach">
-            <div class="section-glow"></div>
-            <div class="section-container">
-                <div class="split-layout reveal-on-scroll">
-                    <div class="split-left">
-                        <span class="section-tag">Digital Presence</span>
-                        <h2 class="section-title">Take Your Digital <br>Presence to Higher Grounds</h2>
-                        <p class="section-desc-large" style="margin-bottom: 30px;">You don't have to run your entire
-                            business over the internet to benefit from online business opportunities.</p>
-                    </div>
-                    <div class="split-right">
-                        <div class="benefits-grid"
-                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;">
-                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
-                                <span style="color: var(--accent-primary); font-size: 1.5rem;">🌐</span>
-                                <span>Global access, 24/7</span>
-                            </div>
-                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
-                                <span style="color: var(--accent-primary); font-size: 1.5rem;">💬</span>
-                                <span>Improved client service</span>
-                            </div>
-                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
-                                <span style="color: var(--accent-primary); font-size: 1.5rem;">💰</span>
-                                <span>Cost savings</span>
-                            </div>
-                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
-                                <span style="color: var(--accent-primary); font-size: 1.5rem;">⚡</span>
-                                <span>Faster delivery</span>
-                            </div>
-                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
-                                <span style="color: var(--accent-primary); font-size: 1.5rem;">📊</span>
-                                <span>Run an online shop</span>
-                            </div>
-                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
-                                <span style="color: var(--accent-primary); font-size: 1.5rem;">🤝</span>
-                                <span>Manage suppliers</span>
-                            </div>
-                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
-                                <span style="color: var(--accent-primary); font-size: 1.5rem;">📝</span>
-                                <span>Online reservations</span>
-                            </div>
-                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
-                                <span style="color: var(--accent-primary); font-size: 1.5rem;">🔍</span>
-                                <span>Research competitors</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Cinematic Divider -->
-        <div class="section-divider" aria-hidden="true">
-            <div class="divider-line"></div>
-            <div class="divider-glow"></div>
+        <!-- Morph shell: the expanding card -->
+        <div id="morph-shell">
+            <div id="morph-emoji"></div>
         </div>
 
-        <!-- ============ PILLARS SECTION (Our Approach) ============ -->
-        <section class="pillars-section" id="pillars">
-            <div class="section-glow"></div>
-            <div class="section-container">
-                <div class="section-header reveal-on-scroll">
-                    <span class="section-tag">Our Approach</span>
-                    <h2 class="section-title">Research. Design. Build. Scale.</h2>
-                    <p class="section-desc">Discover the new standard in software solutions with industry-leading
-                        technologies and intuitive infrastructure for seamless integration</p>
-                </div>
-                <div class="pillars-grid">
-                    <div class="pillar-card reveal-on-scroll">
-                        <div class="pillar-icon" aria-hidden="true">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <circle cx="11" cy="11" r="8" />
-                                <path d="m21 21-4.3-4.3" />
-                            </svg>
-                        </div>
-                        <h3>Research</h3>
-                        <p>Deep-dive market analysis, competitor research, and requirement gathering for data-driven
-                            decisions</p>
-                    </div>
-                    <div class="pillar-card reveal-on-scroll" style="animation-delay: 0.1s">
-                        <div class="pillar-icon" aria-hidden="true">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <path d="M12 20h9" />
-                                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
-                            </svg>
-                        </div>
-                        <h3>Design</h3>
-                        <p>User-centered UI/UX design with intuitive interfaces that delight users and drive engagement
-                        </p>
-                    </div>
-                    <div class="pillar-card reveal-on-scroll" style="animation-delay: 0.2s">
-                        <div class="pillar-icon" aria-hidden="true">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <polyline points="16 18 22 12 16 6" />
-                                <polyline points="8 6 2 12 8 18" />
-                            </svg>
-                        </div>
-                        <h3>Build</h3>
-                        <p>Robust engineering with the latest tech stacks ensuring scalable, performant, and secure
-                            applications</p>
-                    </div>
-                    <div class="pillar-card reveal-on-scroll" style="animation-delay: 0.3s">
-                        <div class="pillar-icon" aria-hidden="true">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                            </svg>
-                        </div>
-                        <h3>Scale</h3>
-                        <p>Seamless deployment, monitoring, and scaling infrastructure for organizations of all sizes
-                        </p>
-                    </div>
-                </div>
+        <!-- Product page -->
+        <div id="pp">
+            <div class="ppbar">
+                <button class="ppback" id="ppback">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>Back
+                </button>
+                <div class="pplogo">Cloud<b>verse</b></div>
+                <button class="ppcta" id="ppcta" onclick="closePP()">Get Started</button>
             </div>
-        </section>
+            <div id="ppcontent"></div>
+        </div>
 
         <!-- ============ SERVICES SECTION ============ -->
         <section class="services-section" id="services">
@@ -2842,51 +3243,119 @@
             </div>
         </section>
 
-        <!-- ============ PRODUCTS SECTION - CATALOGUE ============ -->
-        <section id="products">
-            <div id="bg-blob"></div>
-
-            <div class="hd">
-                <div class="hd-tag">Our Services</div>
-                <h2>Engineering the Future<br>of Technology</h2>
-                <p>Click the center card · Auto-rotates every 3s</p>
-            </div>
-
-            <div class="stage-wrap">
-                <div class="stage" id="stage"></div>
-            </div>
-
-            <div class="cat-info">
-                <div id="active-name">—</div>
-                <div id="active-tag">—</div>
-                <button class="main-cta" id="mainCta">Explore Service</button>
-            </div>
-
-            <div class="cat-nav">
-                <button class="cat-arr" id="prev">&#8592;</button>
-                <div class="cat-dots" id="dots"></div>
-                <button class="cat-arr" id="next">&#8594;</button>
+        <!-- ============ APPROACH / DIGITAL PRESENCE SECTION ============ -->
+        <section class="approach-section" id="approach">
+            <div class="section-glow"></div>
+            <div class="section-container">
+                <div class="split-layout reveal-on-scroll">
+                    <div class="split-left">
+                        <span class="section-tag">Digital Presence</span>
+                        <h2 class="section-title">Take Your Digital <br>Presence to Higher Grounds</h2>
+                        <p class="section-desc-large" style="margin-bottom: 30px;">You don't have to run your entire
+                            business over the internet to benefit from online business opportunities.</p>
+                    </div>
+                    <div class="split-right">
+                        <div class="benefits-grid"
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;">
+                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
+                                <span style="color: var(--accent-primary); font-size: 1.5rem;">🌐</span>
+                                <span>Global access, 24/7</span>
+                            </div>
+                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
+                                <span style="color: var(--accent-primary); font-size: 1.5rem;">💬</span>
+                                <span>Improved client service</span>
+                            </div>
+                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
+                                <span style="color: var(--accent-primary); font-size: 1.5rem;">💰</span>
+                                <span>Cost savings</span>
+                            </div>
+                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
+                                <span style="color: var(--accent-primary); font-size: 1.5rem;">⚡</span>
+                                <span>Faster delivery</span>
+                            </div>
+                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
+                                <span style="color: var(--accent-primary); font-size: 1.5rem;">📊</span>
+                                <span>Run an online shop</span>
+                            </div>
+                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
+                                <span style="color: var(--accent-primary); font-size: 1.5rem;">🤝</span>
+                                <span>Manage suppliers</span>
+                            </div>
+                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
+                                <span style="color: var(--accent-primary); font-size: 1.5rem;">📝</span>
+                                <span>Online reservations</span>
+                            </div>
+                            <div class="benefit-item" style="display: flex; align-items: center; gap: 10px;">
+                                <span style="color: var(--accent-primary); font-size: 1.5rem;">🔍</span>
+                                <span>Research competitors</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Morph shell: the expanding card -->
-        <div id="morph-shell">
-            <div id="morph-emoji"></div>
-        </div>
-
-        <!-- Product page -->
-        <div id="pp">
-            <div class="ppbar">
-                <button class="ppback" id="ppback">
-                    <svg viewBox="0 0 24 24">
-                        <polyline points="15 18 9 12 15 6" />
-                    </svg>Back
-                </button>
-                <div class="pplogo">Cloud<b>verse</b></div>
-                <button class="ppcta" id="ppcta" onclick="closePP()">Get Started</button>
+        <!-- ============ PILLARS SECTION (Our Approach) ============ -->
+        <section class="pillars-section" id="pillars">
+            <div class="section-glow"></div>
+            <div class="section-container">
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-tag">Our Approach</span>
+                    <h2 class="section-title">Research. Design. Build. Scale.</h2>
+                    <p class="section-desc">Discover the new standard in software solutions with industry-leading
+                        technologies and intuitive infrastructure for seamless integration</p>
+                </div>
+                <div class="pillars-grid">
+                    <div class="pillar-card reveal-on-scroll">
+                        <div class="pillar-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" />
+                            </svg>
+                        </div>
+                        <h3>Research</h3>
+                        <p>Deep-dive market analysis, competitor research, and requirement gathering for data-driven
+                            decisions</p>
+                    </div>
+                    <div class="pillar-card reveal-on-scroll" style="animation-delay: 0.1s">
+                        <div class="pillar-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 20h9" />
+                                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                            </svg>
+                        </div>
+                        <h3>Design</h3>
+                        <p>User-centered UI/UX design with intuitive interfaces that delight users and drive engagement
+                        </p>
+                    </div>
+                    <div class="pillar-card reveal-on-scroll" style="animation-delay: 0.2s">
+                        <div class="pillar-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </div>
+                        <h3>Build</h3>
+                        <p>Robust engineering with the latest tech stacks ensuring scalable, performant, and secure
+                            applications</p>
+                    </div>
+                    <div class="pillar-card reveal-on-scroll" style="animation-delay: 0.3s">
+                        <div class="pillar-icon" aria-hidden="true">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                            </svg>
+                        </div>
+                        <h3>Scale</h3>
+                        <p>Seamless deployment, monitoring, and scaling infrastructure for organizations of all sizes
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div id="ppcontent"></div>
-        </div>
+        </section>
 
         <!-- ============ PROCESS SECTION ============ -->
         <section class="process-section" id="process">
@@ -2972,6 +3441,92 @@
             </div>
         </section>
 
+
+
+
+
+        <!-- ============ CLIENTS MARQUEE SECTION (with images) ============ -->
+        <section class="clients-section" id="clients" aria-label="Our Clients">
+            <div class="clients-header">
+                <span class="section-tag">Trusted By</span>
+                <h2 class="section-title clients-title">Our Clients &amp; Partners</h2>
+            </div>
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <!-- Image-based client cards -->
+
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V6_edited.png" alt="Studio Project V6" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V5_edited_edited_edited.png" alt="Studio Project V5" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V3_edited.png" alt="Studio Project V3" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V1_edited_edited_edited.png" alt="Studio Project V1" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="RecruitIntell_edited_edited_edited.png" alt="RecruitIntell" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Gramyn_edited.png" alt="Gramyn" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="FINESCO_Final_edited.png" alt="Finesco" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Dhi_BRISK_colour_logo.png" alt="Dhi Brisk" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="CareerPage_edited.png" alt="CareerPage" loading="lazy">
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V6_edited.png" alt="Studio Project V6" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V5_edited_edited_edited.png" alt="Studio Project V5" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V3_edited.png" alt="Studio Project V3" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Studio_Project_V1_edited_edited_edited.png" alt="Studio Project V1" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="RecruitIntell_edited_edited_edited.png" alt="RecruitIntell" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Gramyn_edited.png" alt="Gramyn" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="FINESCO_Final_edited.png" alt="Finesco" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="Dhi_BRISK_colour_logo.png" alt="Dhi Brisk" loading="lazy">
+                    </div>
+                    <div class="client-logo-card logo-image">
+                        <img src="CareerPage_edited.png" alt="CareerPage" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Cinematic Divider -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-glow"></div>
+        </div>
+
+
+
+
+
+
         <!-- ============ CTA SECTION ============ -->
         <section class="cta-section" id="cta">
             <canvas id="ctaGridCanvas"></canvas>
@@ -3001,13 +3556,17 @@
                 <div class="cta-slide">
                     <div class="form-content">
                         <h2 class="form-title">Get in Touch</h2>
-                        <form class="form-grid" id="contactForm">
-                            <input type="text" placeholder="* Full Name" required aria-label="Full name">
-                            <input type="text" placeholder="* Subject" required aria-label="Subject">
-                            <input type="email" placeholder="* Email Address" required aria-label="Email address">
-                            <input type="text" placeholder="Company" aria-label="Company name">
-                            <input type="tel" placeholder="Phone Number" aria-label="Phone number">
-                            <textarea placeholder="* Message" required aria-label="Your message"></textarea>
+                        <form class="form-grid" id="contactForm" action="https://formsubmit.co/gautamnarajji@gmail.com"
+                            method="POST">
+                            <input type="text" name="name" placeholder="* Full Name" required aria-label="Full name">
+                            <input type="text" name="subject" placeholder="* Subject" required aria-label="Subject">
+                            <input type="email" name="email" placeholder="* Email Address" required
+                                aria-label="Email address">
+                            <input type="text" name="company" placeholder="Company" aria-label="Company name">
+                            <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone number">
+                            <textarea name="message" placeholder="* Message" required
+                                aria-label="Your message"></textarea>
+                            <input type="hidden" name="_captcha" value="false">
                             <div class="form-actions">
                                 <button type="submit" class="submit-btn">Send Message</button>
                                 <button type="button" class="back-btn" id="formBack">← Back</button>
@@ -3062,11 +3621,11 @@
 
     <script>
         /* ══════════════════════════════════════
-           DATA — each service has its own gradient + relevant tech icons (cleaned)
-        ══════════════════════════════════════ */
+             DATA — each service has its own gradient + relevant tech icons (cleaned)
+          ══════════════════════════════════════ */
         const SVC = [
             {
-                icon: '⚙️', name: 'Software Development',
+                icon: '<img src="https://cdn.simpleicons.org/nodedotjs/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Node.js" />', name: 'Software Development',
                 tag: 'Enterprise software built for performance & infinite scale.',
                 color: '#3a7bd5', glow: 'rgba(58,123,213,',
                 bg: 'linear-gradient(175deg,#0d1b4b 0%,#1a3a8a 50%,#0a1230 100%)',
@@ -3078,7 +3637,7 @@
                 cta: 'Ready to build something powerful?'
             },
             {
-                icon: '🌐', name: 'Web Development',
+                icon: '<img src="https://cdn.simpleicons.org/react/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="React" />', name: 'Web Development',
                 tag: 'Blazing-fast, SEO-optimized web experiences.',
                 color: '#5b8dee', glow: 'rgba(91,141,238,',
                 bg: 'linear-gradient(175deg,#061840 0%,#0d3080 50%,#040e25 100%)',
@@ -3090,7 +3649,7 @@
                 cta: 'Launch your next web experience.'
             },
             {
-                icon: '🤖', name: 'Android Development',
+                icon: '<img src="https://cdn.simpleicons.org/android/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Android" />', name: 'Android Development',
                 tag: 'High-performance native Android apps users love.',
                 color: '#3ddc84', glow: 'rgba(61,220,132,',
                 bg: 'linear-gradient(175deg,#001a0d 0%,#004d22 50%,#00100a 100%)',
@@ -3102,7 +3661,7 @@
                 cta: 'Ship your Android app in weeks, not months.'
             },
             {
-                icon: '📱', name: 'iOS Development',
+                icon: '<img src="https://cdn.simpleicons.org/apple/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Apple" />', name: 'iOS Development',
                 tag: 'Polished SwiftUI apps for iPhone & iPad.',
                 color: '#a8b5c8', glow: 'rgba(168,181,200,',
                 bg: 'linear-gradient(175deg,#0d1520 0%,#1a2d45 50%,#080d15 100%)',
@@ -3114,7 +3673,7 @@
                 cta: 'Launch your iOS app on the App Store.'
             },
             {
-                icon: '💙', name: 'Flutter Development',
+                icon: '<img src="https://cdn.simpleicons.org/flutter/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Flutter" />', name: 'Flutter Development',
                 tag: 'One codebase — iOS, Android, Web & Desktop.',
                 color: '#54c5f8', glow: 'rgba(84,197,248,',
                 bg: 'linear-gradient(175deg,#001825 0%,#003d5c 50%,#001018 100%)',
@@ -3150,7 +3709,7 @@
                 cta: 'Start growing your digital presence.'
             },
             {
-                icon: '⚡', name: 'DevOps & CI/CD',
+                icon: '<img src="https://cdn.simpleicons.org/docker/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Docker" />', name: 'DevOps & CI/CD',
                 tag: 'Automated pipelines & zero-downtime deploys.',
                 color: '#27ae60', glow: 'rgba(39,174,96,',
                 bg: 'linear-gradient(175deg,#001a0d 0%,#004d22 50%,#00100a 100%)',
@@ -3162,7 +3721,7 @@
                 cta: 'Build infrastructure that never sleeps.'
             },
             {
-                icon: '🔄', name: 'Build Operate Transfer',
+                icon: '<img src="https://cdn.simpleicons.org/jira/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Jira" />', name: 'Build Operate Transfer',
                 tag: 'We build your team, operate it, then hand it over.',
                 color: '#f39c12', glow: 'rgba(243,156,18,',
                 bg: 'linear-gradient(175deg,#2a1800 0%,#7a4400 50%,#1a0f00 100%)',
@@ -3596,6 +4155,42 @@
             }
         });
 
+        // Mobile navigation toggle
+        (function () {
+            const navToggleBtn = document.getElementById('navToggle');
+            const navLinksEl = document.getElementById('navLinks');
+            const navbarEl = document.getElementById('navbar');
+            if (!navToggleBtn || !navLinksEl || !navbarEl) return;
+
+            navToggleBtn.addEventListener('click', function () {
+                const isOpen = navbarEl.classList.contains('nav-active');
+                navbarEl.classList.toggle('nav-active');
+                navToggleBtn.classList.toggle('active');
+                navToggleBtn.setAttribute('aria-expanded', !isOpen);
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+
+            // Close on link click
+            navLinksEl.querySelectorAll('.nav-link').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    navbarEl.classList.remove('nav-active');
+                    navToggleBtn.classList.remove('active');
+                    navToggleBtn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Close on window resize to desktop
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 992) {
+                    navbarEl.classList.remove('nav-active');
+                    navToggleBtn.classList.remove('active');
+                    navToggleBtn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            });
+        })();
+
         // Reveal on scroll
         const revealElements = document.querySelectorAll('.reveal-on-scroll');
         const observer = new IntersectionObserver((entries) => {
@@ -3808,6 +4403,64 @@
             function loop() { update(); draw(); requestAnimationFrame(loop); }
             loop();
         })();
+    </script>
+
+    <!-- ── CONTACT FORM AJAX SUBMIT ── -->
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const btn = form.querySelector('.submit-btn');
+                const originalText = btn.textContent;
+                
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+                btn.style.opacity = '0.7';
+
+                fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        btn.textContent = 'Message Sent!';
+                        btn.style.backgroundColor = '#27ae60'; /* Success green */
+                        form.reset();
+                        setTimeout(() => {
+                            btn.textContent = originalText;
+                            btn.style.backgroundColor = '';
+                            btn.disabled = false;
+                            btn.style.opacity = '1';
+                        }, 3000);
+                    } else {
+                        btn.textContent = 'Error!';
+                        btn.style.backgroundColor = '#e74c3c'; /* Error red */
+                        setTimeout(() => {
+                            btn.textContent = originalText;
+                            btn.style.backgroundColor = '';
+                            btn.disabled = false;
+                            btn.style.opacity = '1';
+                        }, 3000);
+                    }
+                })
+                .catch(error => {
+                    btn.textContent = 'Error!';
+                    btn.style.backgroundColor = '#e74c3c';
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.backgroundColor = '';
+                        btn.disabled = false;
+                        btn.style.opacity = '1';
+                    }, 3000);
+                });
+            });
+        }
     </script>
 </body>
 
