@@ -173,7 +173,65 @@
             padding: 80px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
-    </style>
+    
+        /* ── Massive Floating Logo ── */
+        .product-logo-banner {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0px auto 40px;
+            position: relative;
+            z-index: 2;
+        }
+        .product-logo-banner img, .product-logo-banner .emoji-logo {
+            width: 250px; height: 250px; font-size: 250px;
+            position: relative; z-index: 2;
+            filter: drop-shadow(0 0 80px rgba(255,255,255,0.6));
+            animation: logoFloat 6s ease-in-out infinite;
+            background: transparent; border: none; box-shadow: none;
+            line-height: 1; margin: 0; padding: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        /* Handle raw text emoji for AI and Software pages if they lack class */
+        .product-logo-banner.emoji-logo { text-shadow: 0 0 80px rgba(255,255,255,0.6); filter: none; }
+
+        @keyframes logoFloat {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+    
+        /* ── Hero Centering Overrides ── */
+        .product-hero-content {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+        }
+        .product-hero-text {
+            transform: none !important;
+            opacity: 1 !important;
+            animation: none !important;
+            max-width: 800px !important;
+            margin: 0 auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        .hero-desc {
+            max-width: 600px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .hero-stats-strip {
+            justify-content: center !important;
+            margin-top: 40px !important;
+        }
+        </style>
 </head>
 
 <body>
@@ -192,19 +250,21 @@
 
     <div class="product-page">
         <section class="product-hero">
-            <div class="product-hero-bg">
+            <div class="product-hero-bg" style="display:none;">
                 <div class="bg-orb bg-orb-1"
                     style="background:radial-gradient(circle,rgba(100,180,255,0.5),transparent);"></div>
                 <div class="bg-orb bg-orb-2"></div>
                 <div class="bg-orb bg-orb-3"></div>
                 <div class="grid-lines"></div>
             </div>
+            
             <div class="product-hero-content">
                 <div class="product-hero-text">
                     <button class="product-back-btn" onclick="history.back()"><svg width="16" height="16"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M19 12H5M12 19l-7-7 7-7" />
                         </svg>Back to Solutions</button>
+                    <div class="product-logo-banner"><img src="https://cdn.simpleicons.org/apple/white" alt="Apple" /></div>
                     <span class="product-tag">Native iOS Development</span>
                     <h1>Premium iOS Apps for the <span class="highlight">Apple Ecosystem</span></h1>
                     <p class="hero-desc">We craft native iOS applications using Swift and SwiftUI that feel at home
@@ -215,30 +275,8 @@
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg></a>
                 </div>
-                <div class="product-hero-visual">
-                    <div class="product-3d-scene">
-                        <div class="product-3d-card card-main">
-                            <div class="big-icon">🍎</div>
-                            <h3 style="font-family:var(--font-heading);font-weight:700;">iOS App</h3>
-                            <p style="color:var(--text-secondary);font-size:0.9rem;">Swift · SwiftUI · Combine</p>
-                        </div>
-                        <div class="product-3d-card card-float-1">
-                            <div class="float-card-label">App Store</div>
-                            <div class="float-card-value">4.9★</div>
-                        </div>
-                        <div class="product-3d-card card-float-2">
-                            <div class="float-card-label">Launch</div>
-                            <div class="float-card-value">8 wks</div>
-                        </div>
-                        <div class="product-3d-card card-float-3">
-                            <div class="float-card-label">Devices</div>
-                            <div class="float-card-value">All Apple</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
-
         <div class="product-detail-section">
             <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
                 <span class="section-label" style="display:block;margin-bottom:8px;">Performance Targets</span>
