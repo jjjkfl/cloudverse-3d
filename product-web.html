@@ -12,7 +12,7 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Cloudverse LLP">
     <link rel="canonical" href="https://cloudversesolution.com/product-web">
-    <meta name="theme-color" content="#01b8fd">
+    <meta name="theme-color" content="#5b8dee">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
@@ -30,114 +30,13 @@
     <meta name="twitter:title" content="Web Application Development — Cloudverse Solutions">
     <meta name="twitter:description"
         content="Full-stack web development with React.js, Angular.js, Laravel, Next.js. SSR, SSG, PWA, GraphQL APIs and cloud-native architecture.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="product.css">
-<<<<<<< HEAD
     <style>
-        .tech-deep-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .tech-deep-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 28px;
-            transition: all 0.3s ease;
-        }
-
-        .tech-deep-card:hover {
-            border-color: rgba(1, 184, 253, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(1, 184, 253, 0.08);
-        }
-
-        .tech-deep-card .card-icon {
-            font-size: 2rem;
-            margin-bottom: 14px;
-        }
-
-        .tech-deep-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .tech-deep-card p {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.55);
-            line-height: 1.6;
-        }
-
-        .tech-deep-card .sub-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 12px;
-        }
-
-        .tech-deep-card .sub-tags span {
-            font-size: 0.75rem;
-            padding: 3px 10px;
-            background: rgba(1, 184, 253, 0.1);
-            border: 1px solid rgba(1, 184, 253, 0.2);
-            border-radius: 20px;
-            color: #01b8fd;
-        }
-
-        .pipeline-steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            margin-top: 40px;
-            position: relative;
-        }
-
-        .pipeline-step {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 16px;
-            padding: 28px 22px;
-            position: relative;
-            margin: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .pipeline-step:hover {
-            border-color: rgba(1, 184, 253, 0.35);
-            background: rgba(1, 184, 253, 0.04);
-        }
-
-        .pipeline-step .step-num {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: rgba(1, 184, 253, 0.15);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .pipeline-step h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: #fff;
-        }
-
-        .pipeline-step p {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
-            line-height: 1.5;
-        }
-
         .metrics-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -156,7 +55,7 @@
         .metric-val {
             font-size: 2.2rem;
             font-weight: 800;
-            color: #01b8fd;
+            color: #5b8dee;
         }
 
         .metric-label {
@@ -170,7 +69,7 @@
             font-size: 0.8rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #01b8fd;
+            color: #5b8dee;
             margin-bottom: 8px;
         }
 
@@ -179,13 +78,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .product-detail-section .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-    
-        /* ── Massive Floating Logo ── */
+        /* ── Floating Logo ── */
         .product-logo-banner {
             width: 100%;
             display: flex;
@@ -204,16 +97,13 @@
             line-height: 1; margin: 0; padding: 0;
             display: flex; align-items: center; justify-content: center;
         }
-        /* Handle raw text emoji for AI and Software pages if they lack class */
-        .product-logo-banner.emoji-logo { text-shadow: 0 0 80px rgba(91,141,238,0.6); filter: none; }
 
         @keyframes logoFloat {
             0%,100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
         }
 
-    
-        /* ── Hero Centering Overrides ── */
+        /* ── Hero Centering ── */
         .product-hero-content {
             display: flex !important;
             flex-direction: column !important;
@@ -242,9 +132,7 @@
             justify-content: center !important;
             margin-top: 40px !important;
         }
-        </style>
-=======
->>>>>>> b5189df (gsn)
+    </style>
 </head>
 
 <body>
@@ -262,16 +150,15 @@
     </nav>
 
     <div class="product-page">
-<<<<<<< HEAD
-        <!-- HERO -->
         <section class="product-hero">
             <div class="product-hero-bg" style="display:none;">
-                <div class="bg-orb bg-orb-1"></div>
+                <div class="bg-orb bg-orb-1"
+                    style="background:radial-gradient(circle,rgba(91,141,238,0.5),transparent);"></div>
                 <div class="bg-orb bg-orb-2"></div>
                 <div class="bg-orb bg-orb-3"></div>
                 <div class="grid-lines"></div>
             </div>
-            
+
             <div class="product-hero-content">
                 <div class="product-hero-text">
                     <button class="product-back-btn" onclick="history.back()"><svg width="16" height="16"
@@ -280,10 +167,8 @@
                         </svg>Back to Solutions</button>
                     <div class="product-logo-banner"><img src="https://cdn.simpleicons.org/react/white" alt="React" /></div>
                     <span class="product-tag">Web Application Development</span>
-                    <h1>Full-Stack <span class="highlight">Web Experiences</span> That Drive Growth</h1>
-                    <p class="hero-desc">From SPA and SSR to Progressive Web Apps — we engineer blazing-fast, SEO-ready,
-                        scalable web applications using React.js, Angular.js, Laravel, Next.js and cloud-native backends
-                        that convert visitors into customers.</p>
+                    <h1>Blazing-Fast <span class="highlight">Web Experiences</span> That Convert</h1>
+                    <p class="hero-desc">From SPAs and SSR to Progressive Web Apps — we engineer SEO-ready, pixel-perfect web applications using React.js, Next.js, Angular, Laravel and cloud-native backends that turn visitors into customers.</p>
                     <a href="index.html#cta" class="btn btn-primary"><span>Start Your Project</span><svg width="20"
                             height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -291,15 +176,14 @@
                 </div>
             </div>
         </section>
+
+        <!-- METRICS -->
         <div class="product-detail-section">
-            <div class="product-detail-section section-container"
-                style="max-width:1200px;margin:0 auto;padding:80px 40px;">
+            <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
                 <div style="display:flex;flex-direction:column;">
                     <span class="section-label">Performance Benchmarks</span>
                     <h2 class="section-title" style="margin-top:0;">Built to Outperform</h2>
                 </div>
-                <p style="color:rgba(255,255,255,0.55);max-width:600px;margin-top:8px;margin-bottom:0;">Every web app we
-                    ship is benchmarked against Google's Core Web Vitals and industry standards before go-live.</p>
                 <div class="metrics-row">
                     <div class="metric-box">
                         <div class="metric-val">&lt;100ms</div>
@@ -329,39 +213,7 @@
             </div>
         </div>
 
-        <!-- CAPABILITIES GRID -->
-=======
-
-        <!-- LOGO BANNER -->
-        <section class="product-logo-banner">
-            <div class="logo-banner-inner">
-                <button class="product-back-btn" onclick="history.back()"><svg width="16" height="16"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M19 12H5M12 19l-7-7 7-7" />
-                    </svg>Back to Solutions</button>
-                <div class="logo-banner-icon">
-                    <img src="https://cdn.simpleicons.org/react/white" alt="Web Development" />
-                </div>
-                <span class="product-tag">Web Application Development</span>
-                <h1>Full-Stack <span class="highlight">Web Experiences</span> That Drive Growth</h1>
-                <p class="logo-banner-desc">From SPA and SSR to Progressive Web Apps — we engineer blazing-fast,
-                    SEO-ready, scalable web applications using React.js, Angular.js, Laravel, Next.js and cloud-native
-                    backends.</p>
-                <div class="hero-metrics-bar">
-                    <div class="hm-item"><strong>&lt;100ms</strong><span>Time to First Byte</span></div>
-                    <div class="hm-item"><strong>98/100</strong><span>Lighthouse Performance</span></div>
-                    <div class="hm-item"><strong>&lt;2.5s</strong><span>Largest Contentful Paint</span></div>
-                    <div class="hm-item"><strong>&lt;0.1</strong><span>Cumulative Layout Shift</span></div>
-                </div>
-                <a href="index.html#cta" class="btn btn-primary"><span>Start Your Project</span><svg width="20"
-                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg></a>
-            </div>
-        </section>
-
         <!-- CAPABILITIES -->
->>>>>>> b5189df (gsn)
         <section class="product-features">
             <div class="section-container">
                 <div class="section-header"><span class="section-tag">Capabilities</span>
@@ -371,33 +223,27 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>Frontend Frameworks</h3>
-                    <p>React.js, Angular.js and Next.js SPAs with server-side rendering, static generation and
-                        code-splitting for sub-second load times and SEO readiness.</p>
+                    <p>React.js, Angular and Next.js SPAs with server-side rendering, static generation and code-splitting for sub-second load times and full SEO readiness.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>Backend & APIs</h3>
-                    <p>Node.js, Laravel, Django, Springboot and PHP backends with RESTful and GraphQL APIs, JWT
-                        authentication and role-based access control.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Database Engineering</h3>
-                    <p>MySQL, PostgreSQL, MongoDB and Redis — schema design, query optimisation, replication and caching
-                        layers for high-throughput data operations.</p>
+                    <h3>Backend &amp; APIs</h3>
+                    <p>Node.js, Laravel, Django and Springboot backends with RESTful and GraphQL APIs, JWT authentication, role-based access control and auto-generated documentation.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Progressive Web Apps</h3>
-                    <p>Offline-capable PWAs with service workers, push notifications, installable home-screen shortcuts
-                        and native-like performance on any device.</p>
+                    <p>Offline-capable PWAs with service workers, push notifications, installable home-screen shortcuts and native-like performance across all devices and browsers.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>Cloud & DevOps</h3>
-                    <p>Docker containerisation, AWS/GCP deployment, CI/CD pipelines, auto-scaling infrastructure and
-                        zero-downtime releases for production-grade reliability.</p>
+                    <h3>Real-Time Features</h3>
+                    <p>WebSocket-powered live dashboards, collaborative editing, live chat and push notifications using Socket.io, Firebase Realtime DB and AWS API Gateway WebSockets.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>CMS & E-Commerce</h3>
-                    <p>WordPress, Magento and custom CMS solutions with headless architectures, payment gateway
-                        integrations and inventory management systems.</p>
+                    <h3>E-Commerce &amp; CMS</h3>
+                    <p>Headless CMS integrations (Contentful, Strapi, Sanity), Magento and WordPress builds, and custom storefronts with Stripe, PayPal and region-specific payment gateways.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Cloud &amp; DevOps</h3>
+                    <p>Docker containerisation, AWS/GCP deployment, CI/CD pipelines via GitHub Actions, auto-scaling infrastructure and zero-downtime releases for production-grade reliability.</p>
                 </div>
             </div>
         </section>
@@ -412,8 +258,9 @@
                     <span class="tech-pill"><span class="tech-dot"></span>React.js</span>
                     <span class="tech-pill"><span class="tech-dot"></span>Angular.js</span>
                     <span class="tech-pill"><span class="tech-dot"></span>Next.js</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>Laravel</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>TypeScript</span>
                     <span class="tech-pill"><span class="tech-dot"></span>Node.js</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>Laravel</span>
                     <span class="tech-pill"><span class="tech-dot"></span>Django</span>
                     <span class="tech-pill"><span class="tech-dot"></span>PHP / Perl</span>
                     <span class="tech-pill"><span class="tech-dot"></span>Springboot</span>
@@ -423,10 +270,9 @@
                     <span class="tech-pill"><span class="tech-dot"></span>Redis</span>
                     <span class="tech-pill"><span class="tech-dot"></span>Docker</span>
                     <span class="tech-pill"><span class="tech-dot"></span>AWS / GCP</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>Apigility</span>
                     <span class="tech-pill"><span class="tech-dot"></span>WordPress / Magento</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>Zend Framework</span>
-                    <span class="tech-pill"><span class="tech-dot"></span>TypeScript</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>Tailwind CSS</span>
+                    <span class="tech-pill"><span class="tech-dot"></span>GraphQL</span>
                 </div>
             </div>
         </section>
@@ -442,7 +288,6 @@
                     </svg></a>
             </div>
         </section>
-
     </div>
 
     <footer class="footer">

@@ -7,7 +7,7 @@ const SVC = [
                 tag: 'Enterprise software built for performance & infinite scale.',
                 color: '#3a7bd5', glow: 'rgba(58,123,213,',
                 bg: 'linear-gradient(175deg,#0d1b4b 0%,#1a3a8a 50%,#0a1230 100%)',
-                url: 'product-web.html',
+                url: 'product-software.html',
                 full: 'We engineer bespoke software integrating seamlessly with your operations — every line of code crafted for performance, security and infinite scalability.',
                 stats: ['50+', '99.9%', '24/7'], statL: ['Projects', 'Uptime SLA', 'Support'],
                 feats: [{ e: '🏗️', t: 'Custom ERP & CRM', d: 'Tailored to your exact business logic' }, { e: '🔌', t: 'API Design', d: 'RESTful & GraphQL, fully documented' }, { e: '☁️', t: 'Cloud-Native', d: 'AWS, GCP, Azure from day one' }, { e: '🔒', t: 'Security', d: 'SOC2 compliant architecture' }],
