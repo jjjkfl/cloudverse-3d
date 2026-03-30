@@ -3556,8 +3556,7 @@
                 <div class="cta-slide">
                     <div class="form-content">
                         <h2 class="form-title">Get in Touch</h2>
-                        <form class="form-grid" id="contactForm" action="/submit-form"
-                            method="POST">
+                        <form class="form-grid" id="contactForm" action="/submit-form" method="POST">
                             <input type="text" name="name" placeholder="* Full Name" required aria-label="Full name">
                             <input type="text" name="subject" placeholder="* Subject" required aria-label="Subject">
                             <input type="email" name="email" placeholder="* Email Address" required
@@ -4408,13 +4407,13 @@
     <!-- ── CONTACT FORM AJAX SUBMIT ── -->
     <script>
         const contactForm = document.getElementById('contactForm');
-        if(contactForm) {
-            contactForm.addEventListener('submit', function(e) {
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const form = e.target;
                 const btn = form.querySelector('.submit-btn');
                 const originalText = btn.textContent;
-                
+
                 btn.textContent = 'Sending...';
                 btn.disabled = true;
                 btn.style.opacity = '0.7';
@@ -4426,39 +4425,39 @@
                         'Accept': 'application/json'
                     }
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        btn.textContent = 'Message Sent!';
-                        btn.style.backgroundColor = '#27ae60'; /* Success green */
-                        form.reset();
-                        setTimeout(() => {
-                            btn.textContent = originalText;
-                            btn.style.backgroundColor = '';
-                            btn.disabled = false;
-                            btn.style.opacity = '1';
-                        }, 3000);
-                    } else {
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            btn.textContent = 'Message Sent!';
+                            btn.style.backgroundColor = '#27ae60'; /* Success green */
+                            form.reset();
+                            setTimeout(() => {
+                                btn.textContent = originalText;
+                                btn.style.backgroundColor = '';
+                                btn.disabled = false;
+                                btn.style.opacity = '1';
+                            }, 3000);
+                        } else {
+                            btn.textContent = 'Error!';
+                            btn.style.backgroundColor = '#e74c3c'; /* Error red */
+                            setTimeout(() => {
+                                btn.textContent = originalText;
+                                btn.style.backgroundColor = '';
+                                btn.disabled = false;
+                                btn.style.opacity = '1';
+                            }, 3000);
+                        }
+                    })
+                    .catch(error => {
                         btn.textContent = 'Error!';
-                        btn.style.backgroundColor = '#e74c3c'; /* Error red */
+                        btn.style.backgroundColor = '#e74c3c';
                         setTimeout(() => {
                             btn.textContent = originalText;
                             btn.style.backgroundColor = '';
                             btn.disabled = false;
                             btn.style.opacity = '1';
                         }, 3000);
-                    }
-                })
-                .catch(error => {
-                    btn.textContent = 'Error!';
-                    btn.style.backgroundColor = '#e74c3c';
-                    setTimeout(() => {
-                        btn.textContent = originalText;
-                        btn.style.backgroundColor = '';
-                        btn.disabled = false;
-                        btn.style.opacity = '1';
-                    }, 3000);
-                });
+                    });
             });
         }
     </script>

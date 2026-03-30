@@ -2,91 +2,115 @@
    CAROUSEL DATA & LOGIC — "Engineering the Future"
    ============================================ */
 const SVC = [
-    {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>', 
-        name: 'Software Development',
-        tag: 'Enterprise software built for performance & infinite scale.',
-        color: '#3a7bd5', glow: 'rgba(58,123,213,',
-        bg: 'linear-gradient(175deg,#0d1b4b 0%,#1a3a8a 50%,#0a1230 100%)',
-        full: 'We engineer bespoke software integrating seamlessly with your operations — every line of code crafted for performance, security and infinite scalability.',
-        stats: ['50+', '99.9%', '24/7'], statL: ['Projects', 'Uptime SLA', 'Support'],
-        feats: [{ e: '🏗', t: 'Custom ERP & CRM', d: 'Tailored to your exact business logic' }, { e: '🔌', t: 'API Design', d: 'RESTful & GraphQL, fully documented' }, { e: '☁️', t: 'Cloud-Native', d: 'AWS, GCP, Azure from day one' }, { e: '🔒', t: 'Security', d: 'SOC2 compliant architecture' }],
-        tags: ['Node.js', 'Python', 'Go', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes'],
-        cta: 'Ready to build something powerful?'
-    },
-    {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>', 
-        name: 'Web Development',
-        tag: 'Blazing-fast, SEO-optimized web experiences.',
-        color: '#5b8dee', glow: 'rgba(91,141,238,',
-        bg: 'linear-gradient(175deg,#061840 0%,#0d3080 50%,#040e25 100%)',
-        full: 'React, Next.js, Node.js — blazing-fast, accessible web experiences that delight users and convert visitors into loyal customers.',
-        stats: ['<100ms', '98/100', '∞'], statL: ['Load Time', 'Lighthouse', 'Scalability'],
-        feats: [{ e: '⚛️', t: 'React & Next.js', d: 'SSR, SSG and ISR patterns' }, { e: '🎨', t: 'UI/UX Design', d: 'Pixel-perfect Figma to production' }, { e: '🔍', t: 'SEO', d: 'Technical and content strategy' }, { e: '📈', t: 'Analytics', d: 'GA4, Mixpanel, Amplitude' }],
-        tags: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'MongoDB', 'Vercel'],
-        cta: 'Launch your next web experience.'
-    },
-    {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>', 
-        name: 'Mobile Apps',
-        tag: 'Native iOS, Android & Flutter apps users love.',
-        color: '#e83e8c', glow: 'rgba(232,62,140,',
-        bg: 'linear-gradient(175deg,#3d0020 0%,#8a0040 50%,#280015 100%)',
-        full: 'Your app on every device — mobile-first experiences backed by robust backends and real-time analytics, shipped in weeks not months.',
-        stats: ['5M+', '4.9★', '8wks'], statL: ['Downloads', 'App Rating', 'Avg Launch'],
-        feats: [{ e: '🍎', t: 'iOS Swift', d: 'Native performance & gestures' }, { e: '🤖', t: 'Android Kotlin', d: 'Material 3 design system' }, { e: '💙', t: 'Flutter', d: 'One codebase, all platforms' }, { e: '🔔', t: 'Real-time', d: 'Firebase, OneSignal, WebSockets' }],
-        tags: ['Flutter', 'Swift', 'Kotlin', 'Firebase', 'Dart', 'Fastlane'],
-        cta: 'Your app idea deserves to ship.'
-    },
-    {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg>', 
-        name: 'AI & Machine Learning',
-        tag: 'Intelligent systems that automate & self-improve.',
-        color: '#9b59b6', glow: 'rgba(155,89,182,',
-        bg: 'linear-gradient(175deg,#1a0033 0%,#4a0080 50%,#110022 100%)',
-        full: 'From NLP chatbots to predictive analytics and computer vision — intelligent, self-improving systems that drive measurable revenue uplift.',
-        stats: ['95%', '3×', '<50ms'], statL: ['Accuracy', 'Revenue Uplift', 'Inference'],
-        feats: [{ e: '💬', t: 'NLP & Chatbots', d: 'GPT-powered conversational AI' }, { e: '📊', t: 'Predictive Analytics', d: 'Forecast demand and churn' }, { e: '👁️', t: 'Computer Vision', d: 'Object detection and OCR' }, { e: '🎯', t: 'Personalization', d: 'ML-driven recommendations' }],
-        tags: ['Python', 'TensorFlow', 'PyTorch', 'LangChain', 'OpenAI', 'FastAPI'],
-        cta: 'Make your product intelligently adaptive.'
-    },
-    {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>', 
-        name: 'Digital Marketing',
-        tag: 'Full-funnel growth that drives measurable ROI.',
-        color: '#e67e22', glow: 'rgba(230,126,34,',
-        bg: 'linear-gradient(175deg,#3d1500 0%,#8a3000 50%,#270e00 100%)',
-        full: 'Full-funnel strategies from organic search dominance to precision paid campaigns on Google, Meta and Instagram that drive real, attributable ROI.',
-        stats: ['300%', '12×', '48hr'], statL: ['Avg ROI', 'ROAS', 'Campaign Setup'],
-        feats: [{ e: '🔍', t: 'SEO Strategy', d: 'Technical, on-page and link building' }, { e: '💰', t: 'Google Ads', d: 'Search, Display and Shopping' }, { e: '📘', t: 'Meta Ads', d: 'Facebook and Instagram funnels' }, { e: '📱', t: 'Social Media', d: 'Content strategy and scheduling' }],
-        tags: ['Google Ads', 'Meta Ads', 'SEMrush', 'Ahrefs', 'HubSpot', 'GA4'],
-        cta: 'Start growing your digital presence.'
-    },
-    {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12c0 6-8 6-8 0a4 4 0 1 0-8 0c0 6 8 6 8 0"></path></svg>', 
-        name: 'DevOps & CI/CD',
-        tag: 'Automated pipelines & zero-downtime deploys.',
-        color: '#27ae60', glow: 'rgba(39,174,96,',
-        bg: 'linear-gradient(175deg,#001a0d 0%,#004d22 50%,#00100a 100%)',
-        full: 'We set up and maintain your infrastructure backbone — reliability, security and blazing-fast delivery cycles with automated testing.',
-        stats: ['99.99%', '0min', '<5min'], statL: ['Uptime', 'Downtime/Deploy', 'Deploy Time'],
-        feats: [{ e: '🐳', t: 'Docker & Kubernetes', d: 'Containerized microservices' }, { e: '🔄', t: 'CI/CD Pipelines', d: 'GitHub Actions, GitLab CI/CD' }, { e: '📡', t: 'Monitoring', d: 'Grafana, Prometheus, PagerDuty' }, { e: '🔐', t: 'Security', d: 'SAST, DAST and Vault secrets' }],
-        tags: ['Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'Prometheus', 'AWS'],
-        cta: 'Build infrastructure that never sleeps.'
-    },
-    {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"></path><path d="M8 21H3v-5"></path><path d="M21 3 3 21"></path></svg>', 
-        name: 'Build Operate Transfer',
-        tag: 'We build your team, operate it, then hand it over.',
-        color: '#f39c12', glow: 'rgba(243,156,18,',
-        bg: 'linear-gradient(175deg,#2a1800 0%,#7a4400 50%,#1a0f00 100%)',
-        full: 'A complete outsourcing model — set up your dedicated tech team, operate it to maturity, then seamlessly transfer ownership to you, risk-free.',
-        stats: ['100%', '12mo', '0%'], statL: ['Knowledge Transfer', 'Timeline', 'Handover Risk'],
-        feats: [{ e: '👥', t: 'Team Setup', d: 'Recruit, train and onboard talent' }, { e: '🏃', t: 'Day-to-Day Ops', d: 'Management, KPIs and reporting' }, { e: '📚', t: 'Documentation', d: 'Technical and process knowledge base' }, { e: '🤝', t: 'Handover', d: 'Transition training and support' }],
-        tags: ['Agile', 'Scrum', 'JIRA', 'Confluence', 'Slack', 'OKRs', 'ISO 27001'],
-        cta: 'Own your technology team, risk-free.'
-    }
-];
+            {
+                icon: '<img src="https://cdn.simpleicons.org/nodedotjs/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Node.js" />', name: 'Software Development',
+                tag: 'Enterprise software built for performance & infinite scale.',
+                color: '#3a7bd5', glow: 'rgba(58,123,213,',
+                bg: 'linear-gradient(175deg,#0d1b4b 0%,#1a3a8a 50%,#0a1230 100%)',
+                url: 'product-web.html',
+                full: 'We engineer bespoke software integrating seamlessly with your operations — every line of code crafted for performance, security and infinite scalability.',
+                stats: ['50+', '99.9%', '24/7'], statL: ['Projects', 'Uptime SLA', 'Support'],
+                feats: [{ e: '🏗️', t: 'Custom ERP & CRM', d: 'Tailored to your exact business logic' }, { e: '🔌', t: 'API Design', d: 'RESTful & GraphQL, fully documented' }, { e: '☁️', t: 'Cloud-Native', d: 'AWS, GCP, Azure from day one' }, { e: '🔒', t: 'Security', d: 'SOC2 compliant architecture' }],
+                tags: ['Node.js', 'Python', 'Go', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes'],
+                cta: 'Ready to build something powerful?'
+            },
+            {
+                icon: '<img src="https://cdn.simpleicons.org/react/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="React" />', name: 'Web Development',
+                tag: 'Blazing-fast, SEO-optimized web experiences.',
+                color: '#5b8dee', glow: 'rgba(91,141,238,',
+                bg: 'linear-gradient(175deg,#061840 0%,#0d3080 50%,#040e25 100%)',
+                url: 'product-web.html',
+                full: 'React, Next.js, Node.js — blazing-fast, accessible web experiences that delight users and convert visitors into loyal customers.',
+                stats: ['<100ms', '98/100', '∞'], statL: ['Load Time', 'Lighthouse', 'Scalability'],
+                feats: [{ e: '⚛️', t: 'React & Next.js', d: 'SSR, SSG and ISR patterns' }, { e: '🎨', t: 'UI/UX Design', d: 'Pixel-perfect Figma to production' }, { e: '🔍', t: 'SEO', d: 'Technical and content strategy' }, { e: '📈', t: 'Analytics', d: 'GA4, Mixpanel, Amplitude' }],
+                tags: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'MongoDB', 'Vercel'],
+                cta: 'Launch your next web experience.'
+            },
+            {
+                icon: '<img src="https://cdn.simpleicons.org/android/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Android" />', name: 'Android Development',
+                tag: 'High-performance native Android apps users love.',
+                color: '#3ddc84', glow: 'rgba(61,220,132,',
+                bg: 'linear-gradient(175deg,#001a0d 0%,#004d22 50%,#00100a 100%)',
+                url: 'product-android.html',
+                full: 'Native Android apps built with Kotlin & Jetpack Compose — fluid Material 3 UIs, Coroutines/Flow async architecture, and Play Store-ready CI/CD pipelines.',
+                stats: ['5M+', '4.9★', '8wks'], statL: ['Downloads', 'App Rating', 'Avg Launch'],
+                feats: [{ e: '📱', t: 'Jetpack Compose', d: 'Declarative reactive UI' }, { e: '🔄', t: 'Kotlin Coroutines', d: 'Async / Flow architecture' }, { e: '🔥', t: 'Firebase', d: 'Auth, Firestore, FCM, Analytics' }, { e: '🚀', t: 'CI/CD', d: 'Fastlane + GitHub Actions' }],
+                tags: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Room', 'Retrofit', 'Firebase'],
+                cta: 'Ship your Android app in weeks, not months.'
+            },
+            {
+                icon: '<img src="https://cdn.simpleicons.org/apple/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Apple" />', name: 'iOS Development',
+                tag: 'Polished SwiftUI apps for iPhone & iPad.',
+                color: '#a8b5c8', glow: 'rgba(168,181,200,',
+                bg: 'linear-gradient(175deg,#0d1520 0%,#1a2d45 50%,#080d15 100%)',
+                url: 'product-ios.html',
+                full: 'Premium iOS apps with SwiftUI, Combine, ARKit and CoreML — fully App Store compliant, shipped via Xcode Cloud and TestFlight.',
+                stats: ['4.9★', '<100ms', 'WWDC'], statL: ['App Store Avg', 'App Launch', 'Guidelines'],
+                feats: [{ e: '🎨', t: 'SwiftUI', d: 'Declarative modern iOS UI' }, { e: '🔗', t: 'Combine', d: 'Reactive programming' }, { e: '📦', t: 'ARKit & CoreML', d: 'Augmented reality & ML on-device' }, { e: '🚀', t: 'Xcode Cloud', d: 'Automated CI/CD pipeline' }],
+                tags: ['Swift', 'SwiftUI', 'CoreML', 'ARKit', 'Combine', 'CloudKit', 'TestFlight'],
+                cta: 'Launch your iOS app on the App Store.'
+            },
+            {
+                icon: '<img src="https://cdn.simpleicons.org/flutter/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Flutter" />', name: 'Flutter Development',
+                tag: 'One codebase — iOS, Android, Web & Desktop.',
+                color: '#54c5f8', glow: 'rgba(84,197,248,',
+                bg: 'linear-gradient(175deg,#001825 0%,#003d5c 50%,#001018 100%)',
+                url: 'product-flutter.html',
+                full: "Cross-platform Flutter apps with Impeller rendering, Riverpod/Bloc state management, and Shorebird OTA updates — ship to all platforms from a single codebase.",
+                stats: ['1 Code', '60fps', 'OTA'], statL: ['Base → All Platforms', 'Smooth UI', 'Live Updates'],
+                feats: [{ e: '🎨', t: 'Impeller Engine', d: 'GPU-accelerated rendering' }, { e: '🔄', t: 'Riverpod / Bloc', d: 'Scalable state management' }, { e: '📦', t: 'Shorebird OTA', d: 'Push updates without app store review' }, { e: '🚀', t: 'Fastlane', d: 'Multi-platform CI/CD' }],
+                tags: ['Flutter', 'Dart', 'Riverpod', 'Bloc', 'Firebase', 'Fastlane', 'Shorebird'],
+                cta: 'One codebase. Every platform. Ship faster.'
+            },
+            {
+                icon: '🧠', name: 'AI & Machine Learning',
+                tag: 'Intelligent systems that automate & self-improve.',
+                color: '#9b59b6', glow: 'rgba(155,89,182,',
+                bg: 'linear-gradient(175deg,#1a0033 0%,#4a0080 50%,#110022 100%)',
+                url: 'product-ai.html',
+                full: 'From NLP chatbots to predictive analytics and computer vision — intelligent, self-improving systems that drive measurable revenue uplift.',
+                stats: ['95%', '3×', '<50ms'], statL: ['Accuracy', 'Revenue Uplift', 'Inference'],
+                feats: [{ e: '💬', t: 'NLP & Chatbots', d: 'GPT-powered conversational AI' }, { e: '📊', t: 'Predictive Analytics', d: 'Forecast demand and churn' }, { e: '👁️', t: 'Computer Vision', d: 'Object detection and OCR' }, { e: '🎯', t: 'Personalization', d: 'ML-driven recommendations' }],
+                tags: ['Python', 'TensorFlow', 'PyTorch', 'LangChain', 'OpenAI', 'FastAPI'],
+                cta: 'Make your product intelligently adaptive.'
+            },
+            {
+                icon: '📈', name: 'Digital Marketing',
+                tag: 'Full-funnel growth that drives measurable ROI.',
+                color: '#e67e22', glow: 'rgba(230,126,34,',
+                bg: 'linear-gradient(175deg,#3d1500 0%,#8a3000 50%,#270e00 100%)',
+                url: 'digital-marketing.html',
+                full: 'Full-funnel strategies from organic search dominance to precision paid campaigns on Google, Meta and Instagram that drive real, attributable ROI.',
+                stats: ['300%', '12×', '48hr'], statL: ['Avg ROI', 'ROAS', 'Campaign Setup'],
+                feats: [{ e: '🔍', t: 'SEO Strategy', d: 'Technical, on-page and link building' }, { e: '💰', t: 'Google Ads', d: 'Search, Display and Shopping' }, { e: '📘', t: 'Meta Ads', d: 'Facebook and Instagram funnels' }, { e: '📱', t: 'Social Media', d: 'Content strategy and scheduling' }],
+                tags: ['Google Ads', 'Meta Ads', 'SEMrush', 'Ahrefs', 'HubSpot', 'GA4'],
+                cta: 'Start growing your digital presence.'
+            },
+            {
+                icon: '<img src="https://cdn.simpleicons.org/docker/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Docker" />', name: 'DevOps & CI/CD',
+                tag: 'Automated pipelines & zero-downtime deploys.',
+                color: '#27ae60', glow: 'rgba(39,174,96,',
+                bg: 'linear-gradient(175deg,#001a0d 0%,#004d22 50%,#00100a 100%)',
+                url: 'product-devops.html',
+                full: 'We set up and maintain your infrastructure backbone — reliability, security and blazing-fast delivery cycles with automated testing.',
+                stats: ['99.99%', '0min', '<5min'], statL: ['Uptime', 'Downtime/Deploy', 'Deploy Time'],
+                feats: [{ e: '🐳', t: 'Docker & Kubernetes', d: 'Containerized microservices' }, { e: '🔄', t: 'CI/CD Pipelines', d: 'GitHub Actions, GitLab CI/CD' }, { e: '📡', t: 'Monitoring', d: 'Grafana, Prometheus, PagerDuty' }, { e: '🔐', t: 'Security', d: 'SAST, DAST and Vault secrets' }],
+                tags: ['Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'Prometheus', 'AWS'],
+                cta: 'Build infrastructure that never sleeps.'
+            },
+            {
+                icon: '<img src="https://cdn.simpleicons.org/jira/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Jira" />', name: 'Build Operate Transfer',
+                tag: 'We build your team, operate it, then hand it over.',
+                color: '#f39c12', glow: 'rgba(243,156,18,',
+                bg: 'linear-gradient(175deg,#2a1800 0%,#7a4400 50%,#1a0f00 100%)',
+                url: '#cta',
+                full: 'A complete outsourcing model — set up your dedicated tech team, operate it to maturity, then seamlessly transfer ownership to you, risk-free.',
+                stats: ['100%', '12mo', '0%'], statL: ['Knowledge Transfer', 'Timeline', 'Handover Risk'],
+                feats: [{ e: '👥', t: 'Team Setup', d: 'Recruit, train and onboard talent' }, { e: '🏃', t: 'Day-to-Day Ops', d: 'Management, KPIs and reporting' }, { e: '📚', t: 'Documentation', d: 'Technical and process knowledge base' }, { e: '🤝', t: 'Handover', d: 'Transition training and support' }],
+                tags: ['Agile', 'Scrum', 'JIRA', 'Confluence', 'Slack', 'OKRs', 'ISO 27001'],
+                cta: 'Own your technology team, risk-free.'
+            }
+        ];
 
 const N = SVC.length;
 const SPREAD = 200;

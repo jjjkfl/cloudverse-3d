@@ -21,13 +21,15 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cloudversesolution.com/product-devops">
     <meta property="og:title" content="DevOps & CI/CD Services — Cloudverse Solutions">
-    <meta property="og:description" content="Enterprise DevOps: Kubernetes, Docker, GitHub Actions CI/CD, Terraform IaC, Grafana/Prometheus monitoring. 99.99% uptime with zero-downtime deploys.">
+    <meta property="og:description"
+        content="Enterprise DevOps: Kubernetes, Docker, GitHub Actions CI/CD, Terraform IaC, Grafana/Prometheus monitoring. 99.99% uptime with zero-downtime deploys.">
     <meta property="og:site_name" content="Cloudverse Solutions">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="DevOps & CI/CD Services — Cloudverse Solutions">
-    <meta name="twitter:description" content="Enterprise DevOps: Kubernetes, Docker, GitHub Actions CI/CD, Terraform IaC, Grafana/Prometheus monitoring. 99.99% uptime with zero-downtime deploys.">
+    <meta name="twitter:description"
+        content="Enterprise DevOps: Kubernetes, Docker, GitHub Actions CI/CD, Terraform IaC, Grafana/Prometheus monitoring. 99.99% uptime with zero-downtime deploys.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -320,152 +322,43 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-number">01</div>
                     <h3>Containerization & Orchestration</h3>
-                    <p>Docker multi-stage builds, Kubernetes cluster setup (EKS/GKE/AKS), Helm chart management,
-                        auto-scaling with HPA/VPA, and service mesh (Istio/Linkerd) for microservices.</p>
+                    <p>Docker multi-stage builds, Kubernetes cluster setup (EKS/GKE/AKS), Helm charts, auto-scaling with
+                        HPA/VPA, and service mesh for microservices.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-number">02</div>
                     <h3>CI/CD Pipelines</h3>
-                    <p>GitHub Actions, GitLab CI/CD, and Jenkins pipelines with parallel test execution, artifact
-                        caching, SAST/DAST security gates, and blue-green / canary deployment strategies.</p>
+                    <p>GitHub Actions, GitLab CI/CD and Jenkins with parallel test execution, artifact caching,
+                        SAST/DAST security gates, and blue-green / canary deploys.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-number">03</div>
                     <h3>Infrastructure as Code</h3>
-                    <p>Terraform and Pulumi for fully version-controlled, reproducible cloud infrastructure across AWS,
-                        GCP, and Azure — with Atlantis for GitOps-driven drift detection and auto-apply.</p>
+                    <p>Terraform and Pulumi for version-controlled, reproducible infrastructure across AWS, GCP and Azure
+                        — with Atlantis for GitOps-driven drift detection.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-number">04</div>
                     <h3>Observability Stack</h3>
-                    <p>Prometheus metrics collection, Grafana dashboards, distributed tracing (Jaeger/Tempo), ELK/Loki
-                        log aggregation, and PagerDuty/OpsGenie on-call alerting.</p>
+                    <p>Prometheus metrics, Grafana dashboards, distributed tracing with Jaeger/Tempo, ELK/Loki log
+                        aggregation, and PagerDuty on-call alerting.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-number">05</div>
-                    <h3>Security & Secrets Management</h3>
-                    <p>HashiCorp Vault for secret rotation, SAST with SonarQube, container image scanning (Trivy/Snyk),
-                        Kubernetes RBAC policies, and network policy enforcement.</p>
+                    <h3>Security & Secrets</h3>
+                    <p>HashiCorp Vault for secret rotation, SonarQube SAST, Trivy/Snyk container scanning, Kubernetes
+                        RBAC, and network policy enforcement.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-number">06</div>
                     <h3>Service Desk (Tier 1 & 2)</h3>
-                    <p>Dedicated IT service desk with SLA-backed Tier 1 incident triage and Tier 2 root cause analysis —
-                        integrated with Jira Service Management and PagerDuty escalation trees.</p>
+                    <p>Dedicated IT service desk with SLA-backed incident triage and root cause analysis — integrated
+                        with Jira Service Management and PagerDuty escalation.</p>
                 </div>
             </div>
         </section>
 
-        <div class="product-detail-section">
-            <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
-                <div style="display:flex;flex-direction:column;">
-                    <span class="section-label">DevOps Pipeline</span>
-                    <h2 class="section-title" style="margin-top:0;">How We Set Up Your DevOps</h2>
-                </div>
-                <div class="pipeline-steps">
-                    <div class="pipeline-step">
-                        <div class="step-num">01</div>
-                        <h4>Infrastructure Audit</h4>
-                        <p>Current stack assessment, cloud cost analysis, security posture review, DORA metrics baseline
-                            and gap analysis report.</p>
-                    </div>
-                    <div class="pipeline-step">
-                        <div class="step-num">02</div>
-                        <h4>IaC Foundation</h4>
-                        <p>Terraform modules for VPC, IAM, RDS, S3 and compute. Remote state in S3/GCS with DynamoDB
-                            locking. Full GitOps workflow setup.</p>
-                    </div>
-                    <div class="pipeline-step">
-                        <div class="step-num">03</div>
-                        <h4>Containerization</h4>
-                        <p>Dockerize all services with multi-stage builds, minimal base images, non-root users, and
-                            image scanning in CI before push.</p>
-                    </div>
-                    <div class="pipeline-step">
-                        <div class="step-num">04</div>
-                        <h4>CI/CD Implementation</h4>
-                        <p>GitHub Actions (or GitLab CI) pipelines: lint → test → build → SAST → container scan → deploy
-                            to staging → smoke test → promote to production.</p>
-                    </div>
-                    <div class="pipeline-step">
-                        <div class="step-num">05</div>
-                        <h4>Observability Setup</h4>
-                        <p>Prometheus + Grafana stack, custom application dashboards, log aggregation (Loki), alerting
-                            rules and PagerDuty routing with runbooks.</p>
-                    </div>
-                    <div class="pipeline-step">
-                        <div class="step-num">06</div>
-                        <h4>Handover & Runbooks</h4>
-                        <p>Team training, detailed runbook documentation, on-call rotation setup, and optional ongoing
-                            Tier 1/2 service desk support SLA.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="product-detail-section">
-            <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
-                <div style="display:flex;flex-direction:column;">
-                    <span class="section-label">Technology Layers</span>
-                    <h2 class="section-title" style="margin-top:0;">Our DevOps Stack</h2>
-                </div>
-                <div class="tech-deep-grid">
-                    <div class="tech-deep-card">
-                        <div class="card-icon">🐳</div>
-                        <h3>Containerization</h3>
-                        <p>Immutable, secure container packaging and orchestration at scale.</p>
-                        <div class="sub-tags">
-                            <span>Docker</span><span>Kubernetes</span><span>Helm</span><span>Istio</span>
-                        </div>
-                    </div>
-                    <div class="tech-deep-card">
-                        <div class="card-icon">🔄</div>
-                        <h3>CI/CD</h3>
-                        <p>Automated test-to-deploy pipelines with policy gates.</p>
-                        <div class="sub-tags"><span>GitHub Actions</span><span>GitLab
-                                CI/CD</span><span>Jenkins</span><span>ArgoCD</span></div>
-                    </div>
-                    <div class="tech-deep-card">
-                        <div class="card-icon">🏗️</div>
-                        <h3>Infrastructure as Code</h3>
-                        <p>Version-controlled, reproducible cloud infrastructure.</p>
-                        <div class="sub-tags">
-                            <span>Terraform</span><span>Pulumi</span><span>Atlantis</span><span>Ansible</span>
-                        </div>
-                    </div>
-                    <div class="tech-deep-card">
-                        <div class="card-icon">📡</div>
-                        <h3>Observability</h3>
-                        <p>Full-stack metrics, logs, traces and alerting.</p>
-                        <div class="sub-tags">
-                            <span>Prometheus</span><span>Grafana</span><span>Loki</span><span>Jaeger</span><span>PagerDuty</span>
-                        </div>
-                    </div>
-                    <div class="tech-deep-card">
-                        <div class="card-icon">🔐</div>
-                        <h3>Security</h3>
-                        <p>Secrets management, scanning and access control.</p>
-                        <div class="sub-tags">
-                            <span>Vault</span><span>Trivy</span><span>SonarQube</span><span>Snyk</span><span>RBAC</span>
-                        </div>
-                    </div>
-                    <div class="tech-deep-card">
-                        <div class="card-icon">☁️</div>
-                        <h3>Cloud Platforms</h3>
-                        <p>Multi-cloud deployments and managed services.</p>
-                        <div class="sub-tags"><span>AWS</span><span>GCP</span><span>Azure</span><span>EKS/GKE/AKS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <!-- TECH STACK -->
         <section class="product-tech">
             <div class="tech-container">
                 <div class="section-header"><span class="section-tag">Stack</span>
-                    <h2 class="section-title">Full Technology List</h2>
+                    <h2 class="section-title">Technologies We Use</h2>
                 </div>
                 <div class="tech-grid">
                     <span class="tech-pill"><span class="tech-dot"></span>Docker</span>
@@ -487,6 +380,7 @@
             </div>
         </section>
 
+        <!-- CTA -->
         <section class="product-cta">
             <div class="section-container">
                 <h2>Ready to Modernize Your DevOps?</h2>
@@ -497,6 +391,7 @@
                     </svg></a>
             </div>
         </section>
+
     </div>
 
     <footer class="footer">

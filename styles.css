@@ -2620,8 +2620,15 @@ html.gsap-active .reveal-on-scroll {
     }
 
     @keyframes navFadeIn {
-        from { opacity: 0; transform: translateY(-15px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .navbar.nav-active .nav-link {
@@ -3038,6 +3045,7 @@ html.gsap-active .reveal-on-scroll {
         padding: 0 16px;
     }
 }
+
 /* ======================
    CLIENTS SECTION
   
@@ -3226,8 +3234,13 @@ html.gsap-active .reveal-on-scroll {
 }
 
 @keyframes shim {
-    from { left: -120% }
-    to { left: 150% }
+    from {
+        left: -120%
+    }
+
+    to {
+        left: 150%
+    }
 }
 
 .card.is-center::after {
@@ -3401,6 +3414,7 @@ html.gsap-active .reveal-on-scroll {
     margin: 0 auto;
     padding: 76px 60px 130px;
 }
+
 .clients-section {
     padding: var(--section-padding) 0;
     border-top: 1px solid var(--border);
@@ -3518,11 +3532,11 @@ html.gsap-active .reveal-on-scroll {
     .benefits-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .clients-grid {
         gap: 30px;
     }
-    
+
     .clients-grid img {
         height: 40px;
     }

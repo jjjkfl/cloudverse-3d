@@ -1053,3 +1053,237 @@
     color: #050608 !important;
     box-shadow: 0 0 30px rgba(1, 184, 253, 0.3) !important;
 }
+/* ============================================
+   MINIMALISTIC & INFORMATIVE REDESIGN OVERRIDES
+   ============================================ */
+
+/* Minimalist Hero Metrics Bar */
+.hero-metrics-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 24px;
+    margin-bottom: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 24px;
+}
+.hero-metrics-bar .hm-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.hero-metrics-bar strong {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.hero-metrics-bar span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Flatten UI Elements - Remove all 3D effects, deep glows and thick borders */
+.feature-card, .pipeline-step, .product-3d-card.card-main, .tech-pill {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+    border-radius: 12px !important;
+    backdrop-filter: none !important;
+    transform: none !important;
+    transition: background 0.2s ease !important;
+}
+
+/* Soft hover instead of 3D lift */
+.feature-card:hover, .pipeline-step:hover {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Strip out all gradient borders and shimmers */
+.feature-card::before, .feature-card::after { 
+    display: none !important; 
+}
+
+/* Clean up hero visuals */
+.product-hero-bg .bg-orb { 
+    opacity: 0.02 !important; 
+}
+.product-hero-bg .grid-lines { 
+    opacity: 0.05 !important; 
+}
+
+/* Clean Pill hovers */
+.tech-pill:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: none !important;
+}
+
+/* Adjusted spacing for missing large background numbers */
+.feature-card { 
+    padding: 24px 28px !important; 
+}
+.pipeline-step { 
+    padding: 24px 28px !important; 
+    margin: 0 !important; 
+}
+
+/* Increase general readability */
+p {
+    line-height: 1.8 !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* ============================================
+   PRODUCT LOGO BANNER — Centered Hero
+   ============================================ */
+.product-logo-banner {
+    padding: 140px 0 80px;
+    text-align: center;
+    position: relative;
+}
+
+.logo-banner-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-banner-inner .product-back-btn {
+    align-self: flex-start;
+    margin-bottom: 48px;
+}
+
+/* Large product logo — no background, purely the icon */
+.logo-banner-icon {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: scale(0.7);
+    animation: logoBannerPop 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.logo-banner-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.06));
+}
+
+@keyframes logoBannerPop {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.logo-banner-inner .product-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(108, 92, 231, 0.15);
+    border: 1px solid rgba(108, 92, 231, 0.3);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.35s forwards;
+}
+
+.logo-banner-inner h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.45s forwards;
+}
+
+.logo-banner-inner h1 .highlight {
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-banner-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.55s forwards;
+}
+
+.logo-banner-inner .hero-metrics-bar {
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.65s forwards;
+}
+
+.logo-banner-inner .btn {
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.75s forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-logo-banner {
+        padding: 120px 0 60px;
+    }
+
+    .logo-banner-icon {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 32px;
+    }
+
+    .logo-banner-inner {
+        padding: 0 24px;
+    }
+
+    .logo-banner-inner .hero-metrics-bar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo-banner-icon {
+        width: 110px;
+        height: 110px;
+    }
+}
