@@ -19,7 +19,7 @@ let db;
             filename: path.join(__dirname, 'database.sqlite'),
             driver: sqlite3.Database
         });
-        
+
         // Ensure the contacts table is there
         await db.exec(`
             CREATE TABLE IF NOT EXISTS contacts (
@@ -61,13 +61,13 @@ const transporter = nodemailer.createTransport({
 app.post('/submit-form', upload.none(), async (req, res) => {
     try {
         const { firstName, lastName, name, email, company, service, message, subject, phone } = req.body;
-        
+
         let clientName = name || `${firstName || ''} ${lastName || ''}`.trim() || 'Unknown Sender';
         let emailSubject = subject || `New Website Form Submission from ${clientName}`;
 
         // Validate crucial fields before sending
         if (!email || !message) {
-             return res.status(400).json({ success: false, message: 'Email and message are required.' });
+            return res.status(400).json({ success: false, message: 'Email and message are required.' });
         }
 
         // 1. Store the Submission directly in the Local SQLite Database
@@ -78,7 +78,7 @@ app.post('/submit-form', upload.none(), async (req, res) => {
         );
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: 'lwithtarun@gmail.com', // Target email
+            to: 'info@cloudversesolution.com', // Target email
             subject: emailSubject,
             text: `
                 Name: ${clientName}
@@ -110,7 +110,7 @@ app.get('/view-contacts', async (req, res) => {
         }
 
         const contacts = await db.all('SELECT * FROM contacts ORDER BY timestamp DESC');
-        
+
         let html = `
             <!DOCTYPE html>
             <html>
