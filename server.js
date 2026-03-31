@@ -117,7 +117,7 @@ app.post('/submit-form', upload.none(), async (req, res) => {
         // 3. Background Email Notification (Don't let it crash the server)
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER || 'lwithtarun@gmail.com', // Target email (owner)
+            to: process.env.EMAIL_USER || 'info@cloudversesolution.com', // Target email (owner)
             subject: emailSubject,
             text: `
                 Name: ${clientName}
