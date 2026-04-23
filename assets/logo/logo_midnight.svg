@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+  <defs>
+    <linearGradient id="midnight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0f0c29;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#302b63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#24243e;stop-opacity:1" />
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+      .atom { font-family: 'Inter', sans-serif; font-size: 150px; fill: #00d2ff; }
+      .text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 160px; fill: url(#midnight); letter-spacing: -4px; }
+    </style>
+  </defs>
+  <text x="40" y="200" class="atom">⚛</text>
+  <text x="220" y="200" class="text">Cloudverse</text>
+</svg>

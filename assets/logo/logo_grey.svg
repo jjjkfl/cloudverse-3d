@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="150" viewBox="0 0 600 150">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+      .atom { font-family: 'Inter', sans-serif; font-size: 70px; fill: #888888; }
+      .text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 80px; fill: #888888; letter-spacing: -2px; }
+    </style>
+  </defs>
+  <text x="20" y="95" class="atom">⚛</text>
+  <text x="110" y="95" class="text">Cloudverse</text>
+</svg>

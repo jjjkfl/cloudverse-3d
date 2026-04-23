@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="150" viewBox="0 0 600 150">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#BF953F;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#FCF6BA;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#B38728;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#FBF5B7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#AA771C;stop-opacity:1" />
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+      .atom { font-family: 'Inter', sans-serif; font-size: 70px; fill: url(#goldGradient); }
+      .text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 80px; fill: url(#goldGradient); letter-spacing: -2px; }
+    </style>
+  </defs>
+  <text x="20" y="95" class="atom">⚛</text>
+  <text x="110" y="95" class="text">Cloudverse</text>
+</svg>
