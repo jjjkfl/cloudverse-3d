@@ -142,12 +142,19 @@ function initCarousel() {
 
         el.addEventListener('click', () => {
             const ci = ((Math.round(pos) % N) + N) % N;
-            if (i === ci) openPP(i);
-            else {
+            if (i !== ci) {
                 let d = i - ci;
                 if (d > N / 2) d -= N;
                 if (d < -N / 2) d += N;
                 animTo(pos + d);
+                setTimeout(() => {
+                    if (s.url && s.url !== '#cta') window.location.href = s.url;
+                    else if (s.url === '#cta') document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
+                }, 700);
+            } else {
+                if (s.url && s.url !== '#cta') window.location.href = s.url;
+                else if (s.url === '#cta') document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
+                else openPP(i);
             }
         });
         stageEl.appendChild(el);
@@ -189,7 +196,7 @@ function initCarousel() {
             const yNudge = abs * abs * 5;
             const zi = Math.round(100 - abs * 15);
             const bl = abs > 2.2 ? (abs - 2.2) * 2.8 : 0;
-            el.style.cssText = `position:absolute;width:185px;height:290px;bottom:0;left:calc(50% - 92px);border-radius:20px;overflow:hidden;cursor:pointer;user-select:none;transform-style:preserve-3d;will-change:transform,opacity,filter;transform-origin:50% 100%;transform:translateX(${x.toFixed(1)}px) translateY(${-yNudge.toFixed(1)}px) rotateY(${rotY.toFixed(1)}deg) scale(${sc.toFixed(3)});opacity:${op.toFixed(3)};z-index:${zi};filter:blur(${bl.toFixed(1)}px);pointer-events:${abs < MAX_VIS ? 'all' : 'none'};`;
+            el.style.cssText = `position:absolute;width:185px;height:290px;bottom:0;left:calc(50% - 92px);border-radius:20px;overflow:hidden;cursor:pointer;user-select:none;transform-style:preserve-3d;will-change:transform,opacity,filter;transform-origin:50% 100%;transform:translateX(${x.toFixed(1)}px) translateY(${-yNudge.toFixed(1)}px) rotateY(${rotY.toFixed(1)}deg) scale(${sc.toFixed(3)});opacity:${op.toFixed(3)};z-index:${zi};filter:blur(${bl.toFixed(1)}px);pointer-events:${abs <= MAX_VIS ? 'all' : 'none'};`;
             el.classList.toggle('is-center', isCenter);
         });
         dotEls.forEach((d, i) => d.classList.toggle('on', i === ci));

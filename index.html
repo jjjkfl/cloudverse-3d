@@ -252,6 +252,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <script src="favicon.js"></script>
 
     <style>
         /* Root variables & base styles */
@@ -2994,7 +2995,7 @@
                         our team of skilled developers, we bring your ideas to life and propel your business forward in
                         the digital landscape.</p>
                     <div class="hero-actions animate-in" style="animation-delay: 0.6s">
-                        <a href="#approach" class="btn btn-primary">
+                        <a href="#products" class="btn btn-primary">
                             <span>Explore Solutions</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" aria-hidden="true">
@@ -3075,7 +3076,7 @@
             <div class="hd">
                 <div class="hd-tag">Our Services</div>
                 <h2>Engineering the Future<br>of Technology</h2>
-                <p>Click the center card · Auto-rotates every 3s</p>
+
             </div>
 
             <div class="stage-wrap">
@@ -3608,7 +3609,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 Cloudverse LLP. All rights reserved. The New Standard in Software Design.</p>
+                <p>© 2030 Cloudverse LLP. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
@@ -3790,12 +3791,20 @@
 
             el.addEventListener('click', () => {
                 const ci = ((Math.round(pos) % N) + N) % N;
-                if (i === ci) openPP(i);
-                else {
+                if (i !== ci) {
+                    /* First bring the card to center, then navigate */
                     let d = i - ci;
                     if (d > N / 2) d -= N;
                     if (d < -N / 2) d += N;
                     animTo(pos + d);
+                    setTimeout(() => {
+                        if (s.url && s.url !== '#cta') window.location.href = s.url;
+                        else if (s.url === '#cta') document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
+                    }, 700);
+                } else {
+                    if (s.url && s.url !== '#cta') window.location.href = s.url;
+                    else if (s.url === '#cta') document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
+                    else openPP(i);
                 }
             });
             stageEl.appendChild(el);
@@ -3859,7 +3868,7 @@
                     'opacity:' + op.toFixed(3) + ';' +
                     'z-index:' + zi + ';' +
                     'filter:blur(' + bl.toFixed(1) + 'px);' +
-                    'pointer-events:' + (abs < MAX_VIS ? 'all' : 'none') + ';';
+                    'pointer-events:' + (abs <= MAX_VIS ? 'all' : 'none') + ';';
 
                 el.classList.toggle('is-center', isCenter);
             });

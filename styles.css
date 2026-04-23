@@ -320,20 +320,16 @@ html.gsap-active .reveal-on-scroll {
     font-size: 1.6rem;
     color: var(--accent-primary);
     filter: drop-shadow(0 0 12px var(--accent-glow));
-    animation: atomPulse 3s ease-in-out infinite;
+    animation: atomRotateNav 10s linear infinite;
+    display: inline-block;
 }
 
-@keyframes atomPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
+@keyframes atomRotateNav {
+    from {
+        transform: rotate(0deg);
     }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 0.9;
+    to {
+        transform: rotate(360deg);
     }
 }
 
