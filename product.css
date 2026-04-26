@@ -1026,6 +1026,23 @@
     white-space: nowrap;
 }
 
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 16px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: calc(100vw - 210px);
+        mask-image: linear-gradient(to right, black 85%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+        padding-right: 30px;
+    }
+    
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 .nav-link {
     white-space: nowrap;
     flex-shrink: 0;

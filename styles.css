@@ -2575,10 +2575,6 @@ html.gsap-active .reveal-on-scroll {
     .pp-cta-strip {
         padding: 50px 40px;
     }
-}
-
-/* ── Small Tablet / Large Phone (768px) ── */
-@media (max-width: 768px) {
 
     .nav-links,
     .nav-social {
@@ -2669,6 +2665,10 @@ html.gsap-active .reveal-on-scroll {
     .nav-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
     }
+}
+
+/* ── Small Tablet / Large Phone (768px) ── */
+@media (max-width: 768px) {
 
     .hero-grid {
         grid-template-columns: 1fr;
