@@ -2607,6 +2607,12 @@ html.gsap-active .reveal-on-scroll {
         left: 20px;
     }
 
+    .navbar.nav-active .nav-toggle {
+        position: absolute;
+        top: 24px;
+        right: 20px;
+    }
+
     .navbar.nav-active .nav-links {
         display: flex;
         flex-direction: column;
