@@ -59,6 +59,38 @@
     <meta name="geo.placename" content="Hanau, Hubli">
     <meta name="geo.position" content="50.126;8.928;15.365;75.124">
 
+    <!-- Anti-Cache Critical Styles for Overlay -->
+    <style>
+    .ts-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9500; display: flex; align-items: center; justify-content: center; padding: 40px 24px; opacity: 0; pointer-events: none; transition: opacity .45s ease; background: rgba(5,6,10,.78); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); }
+    .ts-overlay.open { opacity: 1; pointer-events: auto; }
+    .ts-card { position: relative; width: 100%; max-width: 920px; max-height: 88vh; overflow-y: auto; border-radius: 28px; border: 1px solid rgba(255,255,255,.1); background: rgba(10,10,20,.94); box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset, 0 40px 100px rgba(0,0,0,.7), 0 0 80px rgba(1,184,253,.06); transform: translateY(30px) scale(.96); transition: transform .55s cubic-bezier(.16,1,.3,1); scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.12) transparent; }
+    .ts-overlay.open .ts-card { transform: translateY(0) scale(1); }
+    .ts-card::before { content: ''; position: absolute; top: 0; left: 20%; right: 20%; height: 1.5px; background: linear-gradient(90deg, transparent, rgba(1,184,253,.45) 30%, rgba(108,92,231,.45) 70%, transparent); border-radius: 1px; }
+    .ts-body { padding: 48px 44px 44px; }
+    .ts-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.07); gap: 20px; }
+    .ts-header-left { display: flex; align-items: center; gap: 18px; flex: 1; min-width: 0; }
+    .ts-icon { width: 62px; height: 62px; border-radius: 18px; border: 1px solid rgba(1,184,253,.18); background: linear-gradient(135deg, rgba(1,184,253,.09), rgba(108,92,231,.07)); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+    .ts-title-wrap { min-width: 0; }
+    .ts-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; font-weight: 700; letter-spacing: -.03em; margin-bottom: 8px; line-height: 1.2; color: #f0ede6; }
+    .ts-desc { font-size: .88rem; color: rgba(255,255,255,.45); font-weight: 300; line-height: 1.65; max-width: 480px; }
+    .ts-close { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); color: rgba(255,255,255,.5); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .3s ease; flex-shrink: 0; }
+    .ts-close:hover { border-color: rgba(255,255,255,.22); color: #fff; transform: rotate(90deg); background: rgba(255,255,255,.07); }
+    .ts-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+    .ts-tab { padding: 7px 17px; border-radius: 100px; border: 1px solid rgba(255,255,255,.08); background: transparent; color: rgba(255,255,255,.45); font-family: 'Inter', sans-serif; font-size: .78rem; font-weight: 500; letter-spacing: .03em; cursor: pointer; transition: all .25s ease; }
+    .ts-tab:hover { border-color: rgba(255,255,255,.18); color: #fff; }
+    .ts-tab.on { background: rgba(1,184,253,.12); border-color: rgba(1,184,253,.35); color: #01b8fd; }
+    .ts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; margin-bottom: 36px; }
+    .ts-tech { position: relative; padding: 20px 10px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.07); background: rgba(255,255,255,.025); text-align: center; overflow: hidden; transition: all .35s cubic-bezier(.16,1,.3,1); display: flex; flex-direction: column; align-items: center; }
+    .ts-tech::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, var(--tg, rgba(1,184,253,.12)), transparent 65%); opacity: 0; transition: opacity .4s; pointer-events: none; }
+    .ts-tech:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.14); background: rgba(255,255,255,.05); }
+    .ts-tech:hover::after { opacity: 1; }
+    .ts-tech img { width: 34px; height: 34px; object-fit: contain; margin-bottom: 10px; transition: transform .35s ease; filter: brightness(1.05); }
+    .ts-tech:hover img { transform: scale(1.12); filter: brightness(1.22); }
+    .ts-tech-name { font-size: .72rem; font-weight: 600; color: #f0ede6; line-height: 1.3; }
+    .ts-tech-tag { font-size: .62rem; color: rgba(255,255,255,.35); margin-top: 3px; }
+    @media (max-width: 768px) { .ts-body { padding: 28px 20px 24px; } .ts-header { flex-direction: column; gap: 14px; } .ts-header-left { gap: 12px; } .ts-close { position: absolute; top: 20px; right: 20px; } .ts-grid { grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 9px; } .ts-title { font-size: 1.3rem; } }
+    </style>
+
     <!-- Structured Data: FAQ -->
     <script type="application/ld+json">
     {
@@ -357,18 +389,29 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none;
-            color: var(--text-primary);
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            z-index: 10;
+            position: relative;
         }
 
         .logo-atom {
-            font-size: 2rem;
-            filter: drop-shadow(0 0 10px var(--accent-primary));
+            font-size: 1.6rem;
+            color: var(--accent-primary);
+            filter: drop-shadow(0 0 12px rgba(1, 184, 253, 0.15));
             animation: rotate 10s linear infinite;
             display: inline-block;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         @keyframes rotate {
@@ -3651,6 +3694,7 @@
                     <h4>Asia Office</h4>
                     <p>Jolad Building, Keshwapur,<br>Hubli, Karnataka, India 580023</p>
                     <a href="tel:+919739317048">+91 973-931-7048</a>
+                    <a href="tel:+919632068026">+91 963-206-8026</a>
                 </div>
                 <div class="footer-col">
                     <h4>Europe Office</h4>
@@ -3662,13 +3706,34 @@
             <div class="footer-bottom">
                 <p>© 2030 Cloudverse LLP. All rights reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
+
                     <a href="mailto:info@cloudversesolution.com">info@cloudversesolution.com</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- ══════════════════════════════════════
+         TECH STACK OVERLAY MODAL
+    ══════════════════════════════════════ -->
+    <div class="ts-overlay" id="tsOverlay">
+        <div class="ts-card" id="tsCard">
+            <div class="ts-body">
+                <div class="ts-header">
+                    <div class="ts-header-left">
+                        <div class="ts-icon" id="tsIcon">🚀</div>
+                        <div class="ts-title-wrap">
+                            <div class="ts-title" id="tsTitle">Service</div>
+                            <div class="ts-desc" id="tsDesc">Description</div>
+                        </div>
+                    </div>
+                    <button class="ts-close" id="tsClose">&#10005;</button>
+                </div>
+                <div class="ts-tabs" id="tsTabs"></div>
+                <div class="ts-grid" id="tsGrid"></div>
+            </div>
+        </div>
+    </div>
 
     <script>
         /* ══════════════════════════════════════
@@ -3685,7 +3750,19 @@
                 stats: ['50+', '99.9%', '24/7'], statL: ['Projects', 'Uptime SLA', 'Support'],
                 feats: [{ e: '🏗️', t: 'Custom ERP & CRM', d: 'Tailored to your exact business logic' }, { e: '🔌', t: 'API Design', d: 'RESTful & GraphQL, fully documented' }, { e: '☁️', t: 'Cloud-Native', d: 'AWS, GCP, Azure from day one' }, { e: '🔒', t: 'Security', d: 'SOC2 compliant architecture' }],
                 tags: ['Node.js', 'Python', 'Go', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes'],
-                cta: 'Ready to build something powerful?'
+                cta: 'Ready to build something powerful?',
+                tabs: ['all','backend','devops','languages'],
+                techs: [
+                    {name:'Node.js', tag:'Backend', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', category:'backend', glow:'rgba(95,160,78,.14)'},
+                    {name:'Python', tag:'Backend', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', category:'backend', glow:'rgba(55,118,171,.14)'},
+                    {name:'Go', tag:'Languages', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg', category:'languages', glow:'rgba(0,173,216,.14)'},
+                    {name:'PostgreSQL', tag:'Database', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg', category:'backend', glow:'rgba(51,103,145,.14)'},
+                    {name:'Redis', tag:'Cache', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg', category:'backend', glow:'rgba(220,56,45,.14)'},
+                    {name:'Docker', tag:'Container', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg', category:'devops', glow:'rgba(36,150,237,.14)'},
+                    {name:'Kubernetes', tag:'Orchestration', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg', category:'devops', glow:'rgba(50,108,229,.14)'},
+                    {name:'GraphQL', tag:'API', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg', category:'backend', glow:'rgba(225,0,152,.14)'}
+                ],
+                overlayStats: [{n:'50+',l:'Projects'},{n:'99.9%',l:'Uptime SLA'},{n:'24/7',l:'Support'},{n:'SOC2',l:'Compliant'}]
             },
             {
                 icon: '<img src="https://cdn.simpleicons.org/react/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="React" />', name: 'Web Development',
@@ -3697,7 +3774,19 @@
                 stats: ['<100ms', '98/100', '∞'], statL: ['Load Time', 'Lighthouse', 'Scalability'],
                 feats: [{ e: '⚛️', t: 'React & Next.js', d: 'SSR, SSG and ISR patterns' }, { e: '🎨', t: 'UI/UX Design', d: 'Pixel-perfect Figma to production' }, { e: '🔍', t: 'SEO', d: 'Technical and content strategy' }, { e: '📈', t: 'Analytics', d: 'GA4, Mixpanel, Amplitude' }],
                 tags: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'MongoDB', 'Vercel'],
-                cta: 'Launch your next web experience.'
+                cta: 'Launch your next web experience.',
+                tabs: ['all','frontend','backend','styling'],
+                techs: [
+                    {name:'React', tag:'SPA / UI', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', category:'frontend', glow:'rgba(97,218,251,.14)'},
+                    {name:'Next.js', tag:'SSR / SSG', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg', category:'frontend', glow:'rgba(255,255,255,.08)'},
+                    {name:'TypeScript', tag:'Type-safe', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg', category:'frontend', glow:'rgba(49,120,198,.14)'},
+                    {name:'Tailwind CSS', tag:'Styling', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', category:'styling', glow:'rgba(56,189,248,.14)'},
+                    {name:'MongoDB', tag:'Database', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg', category:'backend', glow:'rgba(77,179,61,.14)'},
+                    {name:'Node.js', tag:'Backend', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', category:'backend', glow:'rgba(95,160,78,.14)'},
+                    {name:'GraphQL', tag:'API', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg', category:'backend', glow:'rgba(225,0,152,.14)'},
+                    {name:'Vercel', tag:'Deployment', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg', category:'backend', glow:'rgba(255,255,255,.08)'}
+                ],
+                overlayStats: [{n:'<100ms',l:'Load Time'},{n:'98/100',l:'Lighthouse'},{n:'WCAG',l:'Accessible'},{n:'∞',l:'Scalability'}]
             },
             {
                 icon: '<img src="https://cdn.simpleicons.org/android/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Android" />', name: 'Android Development',
@@ -3709,7 +3798,19 @@
                 stats: ['5M+', '4.9★', '8wks'], statL: ['Downloads', 'App Rating', 'Avg Launch'],
                 feats: [{ e: '📱', t: 'Jetpack Compose', d: 'Declarative reactive UI' }, { e: '🔄', t: 'Kotlin Coroutines', d: 'Async / Flow architecture' }, { e: '🔥', t: 'Firebase', d: 'Auth, Firestore, FCM, Analytics' }, { e: '🚀', t: 'CI/CD', d: 'Fastlane + GitHub Actions' }],
                 tags: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Room', 'Retrofit', 'Firebase'],
-                cta: 'Ship your Android app in weeks, not months.'
+                cta: 'Ship your Android app in weeks, not months.',
+                tabs: ['all','native','backend','cicd'],
+                techs: [
+                    {name:'Kotlin', tag:'Android', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg', category:'native', glow:'rgba(0,112,193,.14)'},
+                    {name:'Android', tag:'Platform', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg', category:'native', glow:'rgba(61,220,132,.14)'},
+                    {name:'Jetpack Compose', tag:'UI', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetpackcompose/jetpackcompose-original.svg', category:'native', glow:'rgba(97,218,251,.14)'},
+                    {name:'Firebase', tag:'Backend', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg', category:'backend', glow:'rgba(255,152,0,.14)'},
+                    {name:'Retrofit', tag:'HTTP', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg', category:'native', glow:'rgba(61,220,132,.14)'},
+                    {name:'Room DB', tag:'Database', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg', category:'backend', glow:'rgba(0,112,193,.14)'},
+                    {name:'GitHub Actions', tag:'CI/CD', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', category:'cicd', glow:'rgba(255,255,255,.08)'},
+                    {name:'Fastlane', tag:'Deploy', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg', category:'cicd', glow:'rgba(0,150,136,.14)'}
+                ],
+                overlayStats: [{n:'5M+',l:'Downloads'},{n:'4.9★',l:'App Rating'},{n:'8wks',l:'Avg Launch'},{n:'50+',l:'Apps Shipped'}]
             },
             {
                 icon: '<img src="https://cdn.simpleicons.org/apple/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Apple" />', name: 'iOS Development',
@@ -3721,7 +3822,19 @@
                 stats: ['4.9★', '<100ms', 'WWDC'], statL: ['App Store Avg', 'App Launch', 'Guidelines'],
                 feats: [{ e: '🎨', t: 'SwiftUI', d: 'Declarative modern iOS UI' }, { e: '🔗', t: 'Combine', d: 'Reactive programming' }, { e: '📦', t: 'ARKit & CoreML', d: 'Augmented reality & ML on-device' }, { e: '🚀', t: 'Xcode Cloud', d: 'Automated CI/CD pipeline' }],
                 tags: ['Swift', 'SwiftUI', 'CoreML', 'ARKit', 'Combine', 'CloudKit', 'TestFlight'],
-                cta: 'Launch your iOS app on the App Store.'
+                cta: 'Launch your iOS app on the App Store.',
+                tabs: ['all','native','ar','cicd'],
+                techs: [
+                    {name:'Swift', tag:'Language', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg', category:'native', glow:'rgba(240,81,56,.14)'},
+                    {name:'SwiftUI', tag:'UI Framework', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg', category:'native', glow:'rgba(20,126,251,.14)'},
+                    {name:'Xcode', tag:'IDE', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xcode/xcode-original.svg', category:'native', glow:'rgba(17,138,252,.14)'},
+                    {name:'CoreML', tag:'On-device AI', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg', category:'ar', glow:'rgba(155,89,182,.14)'},
+                    {name:'ARKit', tag:'AR', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg', category:'ar', glow:'rgba(0,212,255,.14)'},
+                    {name:'Firebase', tag:'Backend', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg', category:'native', glow:'rgba(255,152,0,.14)'},
+                    {name:'TestFlight', tag:'Beta', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg', category:'cicd', glow:'rgba(0,122,255,.14)'},
+                    {name:'Fastlane', tag:'CI/CD', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg', category:'cicd', glow:'rgba(0,150,136,.14)'}
+                ],
+                overlayStats: [{n:'4.9★',l:'App Store Avg'},{n:'<100ms',l:'App Launch'},{n:'WWDC',l:'Guidelines'},{n:'8wks',l:'Avg Launch'}]
             },
             {
                 icon: '<img src="https://cdn.simpleicons.org/flutter/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Flutter" />', name: 'Flutter Development',
@@ -3733,7 +3846,19 @@
                 stats: ['1 Code', '60fps', 'OTA'], statL: ['Base → All Platforms', 'Smooth UI', 'Live Updates'],
                 feats: [{ e: '🎨', t: 'Impeller Engine', d: 'GPU-accelerated rendering' }, { e: '🔄', t: 'Riverpod / Bloc', d: 'Scalable state management' }, { e: '📦', t: 'Shorebird OTA', d: 'Push updates without app store review' }, { e: '🚀', t: 'Fastlane', d: 'Multi-platform CI/CD' }],
                 tags: ['Flutter', 'Dart', 'Riverpod', 'Bloc', 'Firebase', 'Fastlane', 'Shorebird'],
-                cta: 'One codebase. Every platform. Ship faster.'
+                cta: 'One codebase. Every platform. Ship faster.',
+                tabs: ['all','ui','state','backend'],
+                techs: [
+                    {name:'Flutter', tag:'Framework', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg', category:'ui', glow:'rgba(84,197,248,.14)'},
+                    {name:'Dart', tag:'Language', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg', category:'ui', glow:'rgba(0,180,230,.14)'},
+                    {name:'Riverpod', tag:'State Mgmt', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg', category:'state', glow:'rgba(84,197,248,.14)'},
+                    {name:'Firebase', tag:'Backend', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg', category:'backend', glow:'rgba(255,152,0,.14)'},
+                    {name:'Android', tag:'Platform', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg', category:'ui', glow:'rgba(61,220,132,.14)'},
+                    {name:'iOS / Swift', tag:'Platform', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg', category:'ui', glow:'rgba(240,81,56,.14)'},
+                    {name:'Fastlane', tag:'CI/CD', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg', category:'backend', glow:'rgba(0,150,136,.14)'},
+                    {name:'SQLite', tag:'Local DB', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg', category:'backend', glow:'rgba(0,100,180,.14)'}
+                ],
+                overlayStats: [{n:'1 Code',l:'All Platforms'},{n:'60fps',l:'Smooth UI'},{n:'OTA',l:'Live Updates'},{n:'<8wks',l:'Ship Time'}]
             },
             {
                 icon: '🧠', name: 'AI & Machine Learning',
@@ -3745,7 +3870,19 @@
                 stats: ['95%', '3×', '<50ms'], statL: ['Accuracy', 'Revenue Uplift', 'Inference'],
                 feats: [{ e: '💬', t: 'NLP & Chatbots', d: 'GPT-powered conversational AI' }, { e: '📊', t: 'Predictive Analytics', d: 'Forecast demand and churn' }, { e: '👁️', t: 'Computer Vision', d: 'Object detection and OCR' }, { e: '🎯', t: 'Personalization', d: 'ML-driven recommendations' }],
                 tags: ['Python', 'TensorFlow', 'PyTorch', 'LangChain', 'OpenAI', 'FastAPI'],
-                cta: 'Make your product intelligently adaptive.'
+                cta: 'Make your product intelligently adaptive.',
+                tabs: ['all','frameworks','data','deployment'],
+                techs: [
+                    {name:'Python', tag:'Core', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', category:'frameworks', glow:'rgba(55,118,171,.14)'},
+                    {name:'TensorFlow', tag:'Deep Learning', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg', category:'frameworks', glow:'rgba(255,111,0,.14)'},
+                    {name:'PyTorch', tag:'Deep Learning', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg', category:'frameworks', glow:'rgba(238,76,44,.14)'},
+                    {name:'Scikit-learn', tag:'ML Models', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg', category:'frameworks', glow:'rgba(247,147,30,.14)'},
+                    {name:'NumPy', tag:'Data', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg', category:'data', glow:'rgba(77,166,255,.14)'},
+                    {name:'Pandas', tag:'Analysis', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg', category:'data', glow:'rgba(130,79,255,.14)'},
+                    {name:'FastAPI', tag:'Serving', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg', category:'deployment', glow:'rgba(0,150,136,.14)'},
+                    {name:'Docker', tag:'Container', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg', category:'deployment', glow:'rgba(36,150,237,.14)'}
+                ],
+                overlayStats: [{n:'95%',l:'Accuracy'},{n:'3×',l:'Revenue Uplift'},{n:'<50ms',l:'Inference'},{n:'10+',l:'AI Products'}]
             },
             {
                 icon: '📈', name: 'Digital Marketing',
@@ -3757,7 +3894,19 @@
                 stats: ['300%', '12×', '48hr'], statL: ['Avg ROI', 'ROAS', 'Campaign Setup'],
                 feats: [{ e: '🔍', t: 'SEO Strategy', d: 'Technical, on-page and link building' }, { e: '💰', t: 'Google Ads', d: 'Search, Display and Shopping' }, { e: '📘', t: 'Meta Ads', d: 'Facebook and Instagram funnels' }, { e: '📱', t: 'Social Media', d: 'Content strategy and scheduling' }],
                 tags: ['Google Ads', 'Meta Ads', 'SEMrush', 'Ahrefs', 'HubSpot', 'GA4'],
-                cta: 'Start growing your digital presence.'
+                cta: 'Start growing your digital presence.',
+                tabs: ['all','ads','seo','analytics'],
+                techs: [
+                    {name:'Google Ads', tag:'PPC', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg', category:'ads', glow:'rgba(66,133,244,.14)'},
+                    {name:'Meta Ads', tag:'Social', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/facebook/facebook-original.svg', category:'ads', glow:'rgba(24,119,242,.14)'},
+                    {name:'HubSpot', tag:'CRM', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hubspot/hubspot-original.svg', category:'analytics', glow:'rgba(255,122,89,.14)'},
+                    {name:'GA4', tag:'Analytics', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg', category:'analytics', glow:'rgba(234,67,53,.14)'},
+                    {name:'SEMrush', tag:'SEO', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chrome/chrome-original.svg', category:'seo', glow:'rgba(255,102,0,.14)'},
+                    {name:'Ahrefs', tag:'Backlinks', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chrome/chrome-original.svg', category:'seo', glow:'rgba(0,200,100,.14)'},
+                    {name:'Mailchimp', tag:'Email', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mailchimp/mailchimp-original.svg', category:'ads', glow:'rgba(255,224,27,.1)'},
+                    {name:'Canva', tag:'Creative', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg', category:'analytics', glow:'rgba(0,196,204,.14)'}
+                ],
+                overlayStats: [{n:'300%',l:'Avg ROI'},{n:'12×',l:'ROAS'},{n:'48hr',l:'Campaign Setup'},{n:'1M+',l:'Leads'}]
             },
             {
                 icon: '<img src="https://cdn.simpleicons.org/docker/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Docker" />', name: 'DevOps & CI/CD',
@@ -3769,7 +3918,19 @@
                 stats: ['99.99%', '0min', '<5min'], statL: ['Uptime', 'Downtime/Deploy', 'Deploy Time'],
                 feats: [{ e: '🐳', t: 'Docker & Kubernetes', d: 'Containerized microservices' }, { e: '🔄', t: 'CI/CD Pipelines', d: 'GitHub Actions, GitLab CI/CD' }, { e: '📡', t: 'Monitoring', d: 'Grafana, Prometheus, PagerDuty' }, { e: '🔐', t: 'Security', d: 'SAST, DAST and Vault secrets' }],
                 tags: ['Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'Prometheus', 'AWS'],
-                cta: 'Build infrastructure that never sleeps.'
+                cta: 'Build infrastructure that never sleeps.',
+                tabs: ['all','cloud','containers','cicd'],
+                techs: [
+                    {name:'AWS', tag:'Cloud', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg', category:'cloud', glow:'rgba(255,153,0,.14)'},
+                    {name:'Docker', tag:'Container', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg', category:'containers', glow:'rgba(36,150,237,.14)'},
+                    {name:'Kubernetes', tag:'Orchestration', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg', category:'containers', glow:'rgba(50,108,229,.14)'},
+                    {name:'Terraform', tag:'IaC', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg', category:'cicd', glow:'rgba(123,66,188,.14)'},
+                    {name:'GitHub Actions', tag:'CI/CD', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', category:'cicd', glow:'rgba(255,255,255,.08)'},
+                    {name:'Prometheus', tag:'Monitoring', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg', category:'cicd', glow:'rgba(230,82,44,.14)'},
+                    {name:'Jenkins', tag:'Build', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg', category:'cicd', glow:'rgba(210,40,40,.14)'},
+                    {name:'Google Cloud', tag:'Cloud', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg', category:'cloud', glow:'rgba(66,133,244,.14)'}
+                ],
+                overlayStats: [{n:'99.99%',l:'Uptime'},{n:'0min',l:'Downtime'},{n:'<5min',l:'Deploy Time'},{n:'SAST',l:'Security'}]
             },
             {
                 icon: '<img src="https://cdn.simpleicons.org/jira/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Jira" />', name: 'Build Operate Transfer',
@@ -3781,7 +3942,19 @@
                 stats: ['100%', '12mo', '0%'], statL: ['Knowledge Transfer', 'Timeline', 'Handover Risk'],
                 feats: [{ e: '👥', t: 'Team Setup', d: 'Recruit, train and onboard talent' }, { e: '🏃', t: 'Day-to-Day Ops', d: 'Management, KPIs and reporting' }, { e: '📚', t: 'Documentation', d: 'Technical and process knowledge base' }, { e: '🤝', t: 'Handover', d: 'Transition training and support' }],
                 tags: ['Agile', 'Scrum', 'JIRA', 'Confluence', 'Slack', 'OKRs', 'ISO 27001'],
-                cta: 'Own your technology team, risk-free.'
+                cta: 'Own your technology team, risk-free.',
+                tabs: ['all','management','tools','process'],
+                techs: [
+                    {name:'JIRA', tag:'Project', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg', category:'management', glow:'rgba(0,82,204,.14)'},
+                    {name:'Confluence', tag:'Docs', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/confluence/confluence-original.svg', category:'management', glow:'rgba(0,82,204,.14)'},
+                    {name:'Slack', tag:'Communication', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg', category:'tools', glow:'rgba(74,21,75,.14)'},
+                    {name:'GitHub', tag:'Code', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg', category:'tools', glow:'rgba(255,255,255,.08)'},
+                    {name:'GitLab', tag:'DevOps', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg', category:'process', glow:'rgba(226,67,41,.14)'},
+                    {name:'Notion', tag:'Wiki', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/notion/notion-original.svg', category:'tools', glow:'rgba(255,255,255,.08)'},
+                    {name:'Asana', tag:'Tasks', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/asana/asana-original.svg', category:'management', glow:'rgba(241,91,76,.14)'},
+                    {name:'Linear', tag:'Agile', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linear/linear-original.svg', category:'process', glow:'rgba(94,106,210,.14)'}
+                ],
+                overlayStats: [{n:'100%',l:'Transfer'},{n:'12mo',l:'Timeline'},{n:'0%',l:'Risk'},{n:'50+',l:'Teams Built'}]
             }
         ];
 
@@ -3799,6 +3972,17 @@
         let pos = 3;
         let busy = false;
         let autoT = null;
+
+        function handleServiceClick(idx) {
+            if (SVC[idx].name === 'Build Operate Transfer') {
+                const ctaEl = document.getElementById('cta');
+                const wrapper = document.getElementById('ctaPageWrapper');
+                if (ctaEl) ctaEl.scrollIntoView({ behavior: 'smooth' });
+                if (wrapper) wrapper.classList.add('cta-show-form');
+            } else {
+                openTechOverlay(idx);
+            }
+        }
 
         /* ══════════════════════════════════════
            BUILD CARDS
@@ -3819,43 +4003,30 @@
                 '<button class="card-btn">Explore →</button>' +
                 '</div>';
 
-            /* Explore button → navigate to product URL directly */
+            /* Explore button → open tech stack overlay */
             el.querySelector('.card-btn').addEventListener('click', e => {
                 e.stopPropagation();
                 const ci = ((Math.round(pos) % N) + N) % N;
                 if (i !== ci) {
-                    /* First bring the card to center, then navigate */
                     let d = i - ci;
                     if (d > N / 2) d -= N;
                     if (d < -N / 2) d += N;
                     animTo(pos + d);
-                    setTimeout(() => {
-                        if (s.url && s.url !== '#cta') window.location.href = s.url;
-                        else if (s.url === '#cta') document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
-                    }, 700);
+                    setTimeout(() => handleServiceClick(i), 700);
                 } else {
-                    if (s.url && s.url !== '#cta') window.location.href = s.url;
-                    else if (s.url === '#cta') document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
-                    else openPP(i);
+                    handleServiceClick(i);
                 }
             });
 
             el.addEventListener('click', () => {
                 const ci = ((Math.round(pos) % N) + N) % N;
                 if (i !== ci) {
-                    /* First bring the card to center, then navigate */
                     let d = i - ci;
                     if (d > N / 2) d -= N;
                     if (d < -N / 2) d += N;
                     animTo(pos + d);
-                    setTimeout(() => {
-                        if (s.url && s.url !== '#cta') window.location.href = s.url;
-                        else if (s.url === '#cta') document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
-                    }, 700);
                 } else {
-                    if (s.url && s.url !== '#cta') window.location.href = s.url;
-                    else if (s.url === '#cta') document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
-                    else openPP(i);
+                    handleServiceClick(i);
                 }
             });
             stageEl.appendChild(el);
@@ -3999,14 +4170,7 @@
         document.getElementById('next').addEventListener('click', () => step(+1));
         document.getElementById('mainCta').addEventListener('click', () => {
             const idx = ((Math.round(pos) % N) + N) % N;
-            const url = SVC[idx].url;
-            if (url && url !== '#cta') {
-                window.location.href = url;
-            } else if (url === '#cta') {
-                document.getElementById('cta').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                openPP(idx);
-            }
+            handleServiceClick(idx);
         });
 
         let tx = 0;
@@ -4355,9 +4519,122 @@
                 backBtn.addEventListener('click', () => wrapper.classList.remove('cta-show-form'));
             }
 
+            // Auto-open form if hash is #cta
+            if (window.location.hash === '#cta' && wrapper) {
+                setTimeout(() => wrapper.classList.add('cta-show-form'), 500);
+            }
+
+            // Handle Contact link clicks
+            document.querySelectorAll('.nav-link-cta').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (wrapper) wrapper.classList.add('cta-show-form');
+                });
+            });
+
             initGrid();
             drawGrid();
         })();
+
+        /* ══════════════════════════════════════
+           TECH STACK OVERLAY
+        ══════════════════════════════════════ */
+        var _tsActiveSvc = null;
+        var _tsActiveTab = 'all';
+
+        function openTechOverlay(idx) {
+            try {
+                var s = SVC[idx];
+                if (!s || !s.techs) return;
+                _tsActiveSvc = s;
+                _tsActiveTab = 'all';
+
+                var iconEl  = document.getElementById('tsIcon');
+                var titleEl = document.getElementById('tsTitle');
+                var descEl  = document.getElementById('tsDesc');
+
+                if (iconEl)  iconEl.innerHTML      = s.icon;
+                if (titleEl) titleEl.textContent   = s.name;
+                if (descEl)  descEl.textContent    = s.full;
+
+                _tsBuildTabs(s);
+                _tsBuildGrid();
+
+                var ov = document.getElementById('tsOverlay');
+                if (ov) { 
+                    ov.classList.add('open'); 
+                    ov.style.opacity = '1';
+                    ov.style.pointerEvents = 'auto';
+                    ov.style.display = 'flex';
+                    ov.style.zIndex = '2147483647';
+                } else {
+                    alert('Error: tsOverlay element not found in DOM!');
+                }
+                document.body.style.overflow = 'hidden';
+                stopAuto();
+            } catch (err) {
+                alert("Overlay Error: " + err.message);
+                console.error(err);
+            }
+        }
+
+        function _tsClose() {
+            var ov = document.getElementById('tsOverlay');
+            if (ov) { 
+                ov.classList.remove('open'); 
+                ov.style.opacity = '0';
+                ov.style.pointerEvents = 'none';
+            }
+            document.body.style.overflow = '';
+            startAuto();
+        }
+
+        function _tsBuildTabs(s) {
+            var el = document.getElementById('tsTabs');
+            if (!el) return;
+            el.innerHTML = '';
+            s.tabs.forEach(function(tab) {
+                var btn = document.createElement('button');
+                btn.className = 'ts-tab' + (tab === _tsActiveTab ? ' on' : '');
+                btn.textContent = tab.charAt(0).toUpperCase() + tab.slice(1);
+                btn.dataset.tab = tab;
+                btn.addEventListener('click', function() {
+                    _tsActiveTab = tab;
+                    el.querySelectorAll('.ts-tab').forEach(function(b) {
+                        b.classList.toggle('on', b.dataset.tab === tab);
+                    });
+                    _tsBuildGrid();
+                });
+                el.appendChild(btn);
+            });
+        }
+
+        function _tsBuildGrid() {
+            var el = document.getElementById('tsGrid');
+            if (!el || !_tsActiveSvc) return;
+            el.innerHTML = '';
+            var list = _tsActiveTab === 'all'
+                ? _tsActiveSvc.techs
+                : _tsActiveSvc.techs.filter(function(t) { return t.category === _tsActiveTab; });
+            list.forEach(function(tech) {
+                var item = document.createElement('div');
+                item.className = 'ts-tech';
+                item.style.setProperty('--tg', tech.glow);
+                item.innerHTML =
+                    '<img src="' + tech.icon + '" alt="' + tech.name + '" loading="lazy" onerror="this.style.opacity=0">' +
+                    '<div class="ts-tech-name">' + tech.name + '</div>' +
+                    '<div class="ts-tech-tag">' + tech.tag + '</div>';
+                el.appendChild(item);
+            });
+        }
+
+        // Wire up close button and backdrop — safe to call even if overlay is parsed later
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.id === 'tsClose') { _tsClose(); }
+            if (e.target && e.target.id === 'tsOverlay') { _tsClose(); }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { _tsClose(); }
+        });
     </script>
 
     <!-- ── ATOM CANVAS ANIMATION ── -->
