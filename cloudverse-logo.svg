@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%">
+  <defs>
+    <!-- Gradient for the text -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#01b8fd" />
+    </linearGradient>
+
+    <!-- Subtle glow effect for the atom -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Web fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+      .logo-text {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 56px;
+        fill: url(#textGrad);
+        letter-spacing: -1.5px;
+      }
+    </style>
+  </defs>
+
+  <!-- Atom Graphic -->
+  <g transform="translate(60, 60)" filter="url(#glow)">
+    <!-- Center nucleus -->
+    <circle cx="0" cy="0" r="5.5" fill="#01b8fd" />
+    
+    <!-- Orbital rings -->
+    <g fill="none" stroke="#01b8fd" stroke-width="3.5">
+      <ellipse rx="24" ry="8.5" />
+      <ellipse rx="24" ry="8.5" transform="rotate(45)" />
+      <ellipse rx="24" ry="8.5" transform="rotate(90)" />
+      <ellipse rx="24" ry="8.5" transform="rotate(135)" />
+    </g>
+  </g>
+
+  <!-- Cloudverse Text -->
+  <text x="130" y="78" class="logo-text">Cloudverse</text>
+</svg>
