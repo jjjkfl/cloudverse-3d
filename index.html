@@ -4124,17 +4124,6 @@
                 feats: [{ e: '🔍', t: 'SEO Strategy', d: 'Technical, on-page and link building' }, { e: '💰', t: 'Google Ads', d: 'Search, Display and Shopping' }, { e: '📘', t: 'Meta Ads', d: 'Facebook and Instagram funnels' }, { e: '📱', t: 'Social Media', d: 'Content strategy and scheduling' }],
                 tags: ['Google Ads', 'Meta Ads', 'SEMrush', 'Ahrefs', 'HubSpot', 'GA4'],
                 cta: 'Start growing your digital presence.',
-                tabs: ['all', 'ads', 'seo', 'analytics'],
-                techs: [
-                    { name: 'Google Ads', tag: 'PPC', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg', category: 'ads', glow: 'rgba(66,133,244,.14)' },
-                    { name: 'Meta Ads', tag: 'Social', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/facebook/facebook-original.svg', category: 'ads', glow: 'rgba(24,119,242,.14)' },
-                    { name: 'HubSpot', tag: 'CRM', icon: 'https://cdn.simpleicons.org/hubspot/FF7A59', category: 'analytics', glow: 'rgba(255,122,89,.14)' },
-                    { name: 'GA4', tag: 'Analytics', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg', category: 'analytics', glow: 'rgba(234,67,53,.14)' },
-                    { name: 'SEMrush', tag: 'SEO', icon: 'https://cdn.simpleicons.org/semrush/FF642D', category: 'seo', glow: 'rgba(255,102,0,.14)' },
-                    { name: 'Ahrefs', tag: 'Backlinks', iconHtml: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="width:34px;height:34px;border-radius:8px;display:block;"><rect width="100" height="100" rx="18" fill="#FF6228"/><text x="50" y="72" font-size="62" font-family="Arial,sans-serif" font-weight="900" text-anchor="middle" fill="white">a</text></svg>', category: 'seo', glow: 'rgba(255,98,40,.14)' },
-                    { name: 'Mailchimp', tag: 'Email', icon: 'https://cdn.worldvectorlogo.com/logos/mailchimp-freddie-icon.svg', category: 'ads', glow: 'rgba(255,224,27,.1)' },
-                    { name: 'Canva', tag: 'Creative', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg', category: 'analytics', glow: 'rgba(0,196,204,.14)' }
-                ],
                 overlayStats: [{ n: '300%', l: 'Avg ROI' }, { n: '12×', l: 'ROAS' }, { n: '48hr', l: 'Campaign Setup' }, { n: '1M+', l: 'Leads' }]
             },
             {
@@ -4203,11 +4192,14 @@
         let autoT = null;
 
         function handleServiceClick(idx) {
-            if (SVC[idx].name === 'Build Operate Transfer') {
+            const s = SVC[idx];
+            if (s.name === 'Build Operate Transfer') {
                 const ctaEl = document.getElementById('cta');
                 const wrapper = document.getElementById('ctaPageWrapper');
                 if (ctaEl) ctaEl.scrollIntoView({ behavior: 'smooth' });
                 if (wrapper) wrapper.classList.add('cta-show-form');
+            } else if (s.name === 'Digital Marketing' && s.url) {
+                window.location.href = s.url;
             } else {
                 openTechOverlay(idx);
             }

@@ -29,7 +29,7 @@
             // Atom styling (white with primary accent glow)
             ctx.shadowColor = '#01b8fd';
             ctx.shadowBlur = 12; // Tighter shadow to avoid clipping at edges
-            ctx.fillStyle = '#ffffff'; 
+            ctx.fillStyle = '#01b8fd'; 
             ctx.font = 'bold 340px sans-serif'; // Massively increased font size
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
