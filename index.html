@@ -3303,6 +3303,7 @@
                 <a href="index.html" class="nav-link" role="listitem">Home</a>
                 <a href="#approach" class="nav-link" role="listitem">About</a>
                 <a href="#products" class="nav-link" role="listitem">Solutions</a>
+                <a href="digital-marketing.html" class="nav-link" role="listitem">Digital Marketing</a>
                 <a href="#cta" class="nav-link nav-link-cta" role="listitem">Contact</a>
             </div>
             <div class="nav-social">
@@ -3956,7 +3957,7 @@
                 </div>
                 <div class="footer-col">
                     <h4>Technology</h4>
-                    <a href="#approach">Approach</a>
+                    <a href="#pillars">Approach</a>
                     <a href="#services">Services</a>
                     <a href="#products">Products</a>
                     <a href="#process">Process</a>
@@ -4084,19 +4085,7 @@
                 ],
                 overlayStats: [{ n: '95%', l: 'Accuracy' }, { n: '3×', l: 'Revenue Uplift' }, { n: '<50ms', l: 'Inference' }, { n: '10+', l: 'AI Products' }]
             },
-            {
-                icon: '📈', name: 'Digital Marketing',
-                tag: 'Full-funnel growth that drives measurable ROI.',
-                color: '#e67e22', glow: 'rgba(230,126,34,',
-                bg: 'linear-gradient(175deg,#3d1500 0%,#8a3000 50%,#270e00 100%)',
-                url: 'digital-marketing.html',
-                full: 'Full-funnel strategies from organic search dominance to precision paid campaigns on Google, Meta and Instagram that drive real, attributable ROI.',
-                stats: ['300%', '12×', '48hr'], statL: ['Avg ROI', 'ROAS', 'Campaign Setup'],
-                feats: [{ e: '🔍', t: 'SEO Strategy', d: 'Technical, on-page and link building' }, { e: '💰', t: 'Google Ads', d: 'Search, Display and Shopping' }, { e: '📘', t: 'Meta Ads', d: 'Facebook and Instagram funnels' }, { e: '📱', t: 'Social Media', d: 'Content strategy and scheduling' }],
-                tags: ['Google Ads', 'Meta Ads', 'SEMrush', 'Ahrefs', 'HubSpot', 'GA4'],
-                cta: 'Start growing your digital presence.',
-                overlayStats: [{ n: '300%', l: 'Avg ROI' }, { n: '12×', l: 'ROAS' }, { n: '48hr', l: 'Campaign Setup' }, { n: '1M+', l: 'Leads' }]
-            },
+
             {
                 icon: '<img src="https://cdn.simpleicons.org/docker/white" style="width:1em;height:1em;vertical-align:-0.125em;user-select:none;pointer-events:none;-webkit-user-drag:none;" alt="Docker" />', name: 'DevOps & CI/CD',
                 tag: 'Automated pipelines & zero-downtime deploys.',
@@ -4153,14 +4142,14 @@
         /* ══════════════════════════════════════
            GEOMETRY — fan-card layout (unchanged)
         ══════════════════════════════════════ */
-        const SPREAD = 210;
-        const ROT_PER = 18;
+        const SPREAD = 240;
+        const ROT_PER = 22;
         const SC_STEP = 0.12;
         const OP_STEP = 0.16;
         const MAX_VIS = 2;
 
-        let pos = 3;
-        let targetPos = 3;
+        let pos = 2;
+        let targetPos = 2;
         let busy = false;
         let autoT = null;
         const tweenObj = { v: pos };
@@ -4172,8 +4161,6 @@
                 const wrapper = document.getElementById('ctaPageWrapper');
                 if (ctaEl) ctaEl.scrollIntoView({ behavior: 'smooth' });
                 if (wrapper) wrapper.classList.add('cta-show-form');
-            } else if (s.name === 'Digital Marketing' && s.url) {
-                window.location.href = s.url;
             } else {
                 openTechOverlay(idx);
             }
