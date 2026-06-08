@@ -14,6 +14,8 @@
             --accent-primary: #01b8fd;
             --accent-secondary: #9d4edd;
             --border: rgba(255, 255, 255, 0.1);
+            --success: #10b981;
+            --danger: #ef4444;
         }
 
         * {
@@ -60,23 +62,42 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 60vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, #0e0e1a, #040408);
+            z-index: 10000;
         }
 
         .login-box {
-            background-color: var(--bg-secondary);
-            padding: 40px;
-            border-radius: 12px;
+            background: rgba(19, 20, 31, 0.75);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            text-align: center;
+            padding: 45px 40px;
+            border-radius: 16px;
             width: 100%;
-            max-width: 400px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 420px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(1, 184, 253, 0.15);
+            text-align: center;
         }
 
         .login-box h2 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .login-box p.subtitle {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
         }
 
         .form-group {
@@ -84,7 +105,19 @@
             text-align: left;
         }
 
-        input[type="password"] {
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        input[type="password"],
+        input[type="text"],
+        input[type="datetime-local"],
+        select,
+        textarea {
             width: 100%;
             padding: 12px 15px;
             border-radius: 8px;
@@ -96,8 +129,22 @@
             transition: border-color 0.3s ease;
         }
 
-        input[type="password"]:focus {
+        select option {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        input[type="password"]:focus,
+        input[type="text"]:focus,
+        input[type="datetime-local"]:focus,
+        select:focus,
+        textarea:focus {
             border-color: var(--accent-primary);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
         }
 
         .btn {
@@ -111,11 +158,46 @@
             width: 100%;
             font-size: 1rem;
             transition: transform 0.2s ease, opacity 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .btn:hover {
             transform: translateY(-2px);
             opacity: 0.9;
+        }
+
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+            pointer-events: none;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+        }
+
+        .btn-success {
+            background: var(--success);
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            width: auto;
         }
 
         /* Dashboard Section */
@@ -127,12 +209,46 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .dashboard-header h2 {
             font-size: 2rem;
             font-weight: 600;
+        }
+
+        /* Tabs Styling */
+        .tabs-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-primary);
+            background: rgba(1, 184, 253, 0.08);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         .stats-banner {
@@ -149,12 +265,20 @@
             font-weight: 700;
         }
 
+        .action-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
         /* Table Styles */
         .table-container {
             overflow-x: auto;
             background: var(--bg-secondary);
             border-radius: 12px;
             border: 1px solid var(--border);
+            margin-bottom: 30px;
         }
 
         table {
@@ -167,6 +291,7 @@
             padding: 15px 20px;
             text-align: left;
             border-bottom: 1px solid var(--border);
+            vertical-align: middle;
         }
 
         th {
@@ -208,11 +333,76 @@
             font-size: 0.9rem;
         }
 
+        .status-badge {
+            display: inline-flex;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-published { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .status-draft { background: rgba(255, 255, 255, 0.1); color: var(--text-secondary); }
+        .status-pending_review { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+        .status-scheduled { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .status-archived { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
+
+        .thumbnail-preview {
+            width: 80px;
+            height: 45px;
+            object-fit: cover;
+            border-radius: 4px;
+            background: #000;
+            border: 1px solid var(--border);
+        }
+
+        /* Form Layout Styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-section {
+            background: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        .form-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            color: var(--accent-primary);
+        }
+
         .error-message {
             color: #ff4757;
             margin-top: 15px;
             font-size: 0.9rem;
             display: none;
+        }
+
+        .success-banner {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--success);
+            margin-bottom: 20px;
+            display: none;
+            font-weight: 500;
         }
 
         /* Loading Spinner */
@@ -231,6 +421,215 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        .order-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .order-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 2px 8px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.75rem;
+        }
+        .order-btn:hover {
+            background: var(--accent-primary);
+            color: #000;
+        }
+
+        /* Login Screen Overlay */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #0e0e1a, #040408);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        
+        .login-card {
+            background: rgba(19, 20, 31, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            padding: 45px 40px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(1, 184, 253, 0.15);
+            text-align: center;
+        }
+
+        .login-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .login-subtitle {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .login-error {
+            color: var(--danger);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            min-height: 20px;
+            font-weight: 500;
+        }
+
+        /* Search & Filter Row */
+        .search-filter-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .search-box {
+            flex-grow: 1;
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            color: var(--text-secondary);
+        }
+
+        .search-box input {
+            background: transparent !important;
+            border: none !important;
+            color: #fff !important;
+            padding: 10px !important;
+            width: 100%;
+            outline: none !important;
+            font-size: 0.95rem;
+        }
+
+        .category-filter select {
+            width: 220px !important;
+            padding: 10px 15px !important;
+            font-size: 0.95rem;
+            border-radius: 8px !important;
+        }
+
+        /* Upload Drag-and-Drop Area */
+        .drop-zone {
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 25px 15px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+            position: relative;
+        }
+
+        .drop-zone:hover, .drop-zone.dragover {
+            border-color: var(--accent-primary);
+            background: rgba(1, 184, 253, 0.05);
+        }
+
+        .drop-zone-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            pointer-events: none;
+        }
+
+        .drop-zone-preview {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .preview-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-wrapper img, .preview-wrapper video {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .preview-remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--danger);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 15;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+            line-height: 1;
+            padding: 0;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .preview-remove-btn:hover {
+            transform: scale(1.2);
+            background: #ff4d4d;
+        }
+
+        .remove-media-btn {
+            background: var(--danger);
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+            transition: opacity 0.2s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        .remove-media-btn:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
@@ -243,9 +642,10 @@
         <!-- LOGIN SECTION -->
         <div class="login-section" id="loginSection">
             <div class="login-box">
-                <h2>Admin Identity</h2>
+                <h2>🔒 Cloudverse Admin</h2>
+                <p class="subtitle">Enter your secret key to access control systems</p>
                 <form id="loginForm">
-                    <div class="form-group">
+                    <div class="form-group" style="margin-top: 15px;">
                         <input type="password" id="adminKey" placeholder="Enter Secret Key" required>
                     </div>
                     <button type="submit" class="btn" id="loginBtn">Access Records</button>
@@ -258,30 +658,239 @@
         <!-- DASHBOARD SECTION -->
         <div class="dashboard-section" id="dashboardSection">
             <div class="dashboard-header">
-                <h2>Contact Submissions</h2>
-                <button class="btn" style="width: auto;" onclick="logout()">Lock Portal</button>
-            </div>
-            
-            <div class="stats-banner">
-                Total Submissions: <span id="totalCount">0</span>
+                <h2>Admin Dashboard</h2>
+                <button class="btn btn-secondary" style="width: auto;" onclick="logout()">Lock Portal</button>
             </div>
 
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Company</th>
-                            <th>Service</th>
-                            <th>Message</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                        <!-- Populated via Javascript -->
-                    </tbody>
-                </table>
+            <!-- Tab Navigation -->
+            <div class="tabs-nav">
+                <button class="tab-btn active" id="leadsTabBtn" onclick="switchTab('leads')">Contact Leads</button>
+                <button class="tab-btn" id="upcomingTabBtn" onclick="switchTab('upcoming')">Manage Upcoming</button>
+                <button class="tab-btn" id="settingsTabBtn" onclick="switchTab('settings')">System Settings</button>
+            </div>
+
+            <!-- Tab Content: LEADS -->
+            <div class="tab-content active" id="leadsTab">
+                <div class="stats-banner">
+                    Total Submissions: <span id="totalCount">0</span>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Company</th>
+                                <th>Service</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Populated via Javascript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab Content: UPCOMING ITEMS -->
+            <div class="tab-content" id="upcomingTab">
+                <div class="success-banner" id="upcomingSuccess"></div>
+                <div class="action-row">
+                    <button class="btn btn-sm btn-success" onclick="showCreateForm()">➕ Add Upcoming Item</button>
+                    <button class="btn btn-sm btn-secondary" onclick="syncYouTube()">🔄 Sync YouTube Feed</button>
+                    <button class="btn btn-sm btn-danger" id="bulkDeleteBtn" onclick="bulkDeleteUpcoming()" disabled>🗑 Delete Selected (<span id="selectedCount">0</span>)</button>
+                    <div class="loader" id="syncLoader" style="display:inline-block; margin: 0; vertical-align: middle;"></div>
+                </div>
+
+                <div class="search-filter-row">
+                    <div class="search-box">
+                        🔍 <input type="text" id="upcomingSearchInput" placeholder="Search by title or description..." oninput="filterUpcomingItems()">
+                    </div>
+                    <div class="category-filter">
+                        <select id="upcomingCategoryFilter" onchange="filterUpcomingItems()">
+                            <option value="all">All Categories</option>
+                            <option value="Product">Product</option>
+                            <option value="Video">Video</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 40px; text-align: center;"><input type="checkbox" id="selectAllUpcoming" onclick="toggleSelectAllUpcoming(this)"></th>
+                                <th>Order</th>
+                                <th>Media</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Release Date</th>
+                                <th>Status</th>
+                                <th style="text-align: right;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="upcomingTableBody">
+                            <!-- Populated via Javascript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab Content: SYSTEM SETTINGS -->
+            <div class="tab-content" id="settingsTab">
+                <div class="success-banner" id="settingsSuccess"></div>
+                <div class="form-section" style="max-width: 600px;">
+                    <h3>YouTube RSS & Content Workflows</h3>
+                    
+                    <form id="settingsForm" onsubmit="saveSettings(event)">
+                        <div class="form-group">
+                            <label style="font-weight: 600; margin-bottom: 12px; display: block;">YouTube Sync Publishing Mode</label>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal;">
+                                    <input type="radio" name="youtube_auto_publish" value="true" checked>
+                                    <div>
+                                        <strong>Live RSS Sync (Auto-Publish)</strong>
+                                        <div style="font-size: 0.8rem; color: var(--text-secondary);">Newly imported YouTube videos are immediately published to the live grid.</div>
+                                    </div>
+                                </label>
+                                
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: normal;">
+                                    <input type="radio" name="youtube_auto_publish" value="false">
+                                    <div>
+                                        <strong>Approve Before Uploading (Requires Review)</strong>
+                                        <div style="font-size: 0.8rem; color: var(--text-secondary);">Newly imported YouTube videos are marked 'Pending Review' and require manual approval.</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="border-top: 1px solid var(--border); padding-top: 20px;">
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 600;">
+                                <input type="checkbox" id="youtube_sync_enabled" style="width: auto;">
+                                Enable Automatic Background Sync
+                            </label>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-top: 4px; margin-left: 24px;">
+                                Automatically check for new channel videos in the background.
+                            </span>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: auto; margin-top: 20px; padding: 12px 30px;">Save Settings</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Tab Content: CREATE/EDIT FORM -->
+            <div class="tab-content" id="formTab">
+                <div class="dashboard-header" style="margin-bottom: 20px;">
+                    <h3 id="formTitle">Add New Upcoming Item</h3>
+                    <button class="btn btn-secondary btn-sm" onclick="switchTab('upcoming')">← Cancel</button>
+                </div>
+
+                <form id="upcomingForm" enctype="multipart/form-data">
+                    <input type="hidden" id="upcomingId" name="itemId">
+                <input type="hidden" id="removeMediaFlag" name="removeMediaFlag" value="false">
+                <input type="hidden" id="existingGallery" name="existingGallery" value="">
+                    
+                    <div class="form-grid">
+                        <!-- Left Panel: Core Details -->
+                        <div class="form-section">
+                            <h3>Core Content</h3>
+                            
+                            <div class="form-group">
+                                <label for="title">Title *</label>
+                                <input type="text" id="title" name="title" required maxlength="100" placeholder="e.g. Cloudverse 3D Studio Release">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" name="description" placeholder="A brief summary of what's coming..."></textarea>
+                            </div>
+
+                            <div class="form-grid" style="gap: 15px;">
+                                <div class="form-group">
+                                    <label for="category">Category *</label>
+                                    <select id="category" name="category">
+                                        <option value="Product">Product</option>
+                                        <option value="Video">Video</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="release_date">Release Date Label</label>
+                                    <input type="text" id="release_date" name="release_date" placeholder="e.g. Q3 2026 or Coming Soon">
+                                </div>
+                            </div>
+
+                            <div class="form-grid" style="gap: 15px;">
+                                <div class="form-group">
+                                    <label for="status">Publish Status</label>
+                                    <select id="status" name="status" onchange="toggleScheduledField()">
+                                        <option value="published">Published</option>
+                                        <option value="draft">Draft</option>
+                                        <option value="scheduled">Scheduled</option>
+                                        <option value="archived">Archived</option>
+                                        <option value="pending_review">Pending Review</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="scheduledTimeGroup" style="display:none;">
+                                    <label for="scheduled_time">Scheduled Date & Time</label>
+                                    <input type="datetime-local" id="scheduled_time" name="scheduled_time">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Media & SEO -->
+                        <div class="form-section">
+                            <h3>Media & SEO Controls</h3>
+
+                            <div class="form-group">
+                                <label for="media_type">Media Source Type</label>
+                                <select id="media_type" name="media_type" onchange="toggleMediaInputs()">
+                                    <option value="image">Upload Media Files (Images / Videos)</option>
+                                    <option value="youtube">YouTube Embed Link</option>
+                                </select>
+                            </div>
+
+                            <!-- Media Upload Input -->
+                            <div class="form-group" id="fileUploadGroup">
+                                <label>Upload File (Image/Video)</label>
+                                <div id="dropZone" class="drop-zone">
+                                    <span class="drop-zone-text">📁 Drag & Drop or Click to Upload</span>
+                                    <input type="file" id="mediaFile" name="mediaFile" accept="image/*,video/*" multiple style="display: none;">
+                                    <br><button type="button" id="removeMediaBtn" class="remove-media-btn" style="display: none;" onclick="clearSelectedMedia(event)">Remove File</button>
+                                    <div id="dropZonePreview" class="drop-zone-preview" style="display: none;"></div>
+                                </div>
+                            </div>
+
+                            <!-- URL Input (YouTube/External) -->
+                            <div class="form-group" id="mediaUrlGroup" style="display:none;">
+                                <label for="media_url">Media URL (YouTube link / External link)</label>
+                                <input type="text" id="media_url" name="media_url" placeholder="e.g. https://www.youtube.com/watch?v=...">
+                            </div>
+
+                            <!-- SEO Meta Fields -->
+                            <div class="form-group">
+                                <label for="meta_title">SEO Custom Title</label>
+                                <input type="text" id="meta_title" name="meta_title" placeholder="Target meta title tag">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="meta_description">SEO Custom Description</label>
+                                <textarea id="meta_description" name="meta_description" style="min-height: 70px;" placeholder="Target meta description tag"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="og_image">Custom OG Image URL</label>
+                                <input type="text" id="og_image" name="og_image" placeholder="Open Graph sharing image URL">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: auto; padding: 15px 40px; margin-bottom: 40px;" id="saveBtn">Save & Apply Changes</button>
+                    <div class="loader" id="formLoader"></div>
+                </form>
             </div>
         </div>
     </div>
@@ -298,19 +907,37 @@
         const tableBody = document.getElementById('tableBody');
         const totalCount = document.getElementById('totalCount');
 
-        let sessionKey = null;
+        const upcomingTableBody = document.getElementById('upcomingTableBody');
+        const upcomingForm = document.getElementById('upcomingForm');
+        const formLoader = document.getElementById('formLoader');
+        const saveBtn = document.getElementById('saveBtn');
+        const syncLoader = document.getElementById('syncLoader');
+        const upcomingSuccess = document.getElementById('upcomingSuccess');
+
+        let sessionKey = sessionStorage.getItem('admin_session_key') || null;
+        let upcomingItemsList = [];
+        let selectedFiles = [];
+        let existingGalleryList = [];
+
+        // Check if there is an active session on load
+        window.addEventListener('load', async () => {
+            if (sessionKey) {
+                adminKeyInput.value = sessionKey;
+                loginForm.dispatchEvent(new Event('submit'));
+            }
+        });
 
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const key = adminKeyInput.value.trim();
             if(!key) return;
 
-            // UI State loading
             loginBtn.style.display = 'none';
             loginLoader.style.display = 'block';
             errorMessage.style.display = 'none';
 
             try {
+                // Load contact leads first
                 const response = await fetch('/api/admin/contacts', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -320,18 +947,22 @@
                 const data = await response.json();
 
                 if(response.ok && data.success) {
-                    // Success setup
                     sessionKey = key;
+                    sessionStorage.setItem('admin_session_key', key);
                     renderTable(data.contacts);
                     
+                    // Fetch upcoming items list as well
+                    await loadUpcoming();
+
                     loginSection.style.display = 'none';
                     dashboardSection.style.display = 'block';
                 } else {
-                    // Fail
+                    sessionStorage.removeItem('admin_session_key');
                     errorMessage.textContent = data.message || 'Access Denied.';
                     errorMessage.style.display = 'block';
                 }
             } catch (error) {
+                sessionStorage.removeItem('admin_session_key');
                 errorMessage.textContent = 'Server connection failed.';
                 errorMessage.style.display = 'block';
             } finally {
@@ -339,6 +970,56 @@
                 loginLoader.style.display = 'none';
             }
         });
+
+        async function loadUpcoming() {
+            try {
+                const response = await fetch('/api/admin/upcoming/list', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: sessionKey })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    upcomingItemsList = data.items || [];
+                    filterUpcomingItems();
+                }
+            } catch (error) {
+                console.error("Failed to load upcoming items:", error);
+            }
+        }
+
+        function filterUpcomingItems() {
+            const query = document.getElementById('upcomingSearchInput').value.toLowerCase().trim();
+            const cat = document.getElementById('upcomingCategoryFilter').value;
+            
+            const filtered = upcomingItemsList.filter(item => {
+                const matchesQuery = !query || item.title.toLowerCase().includes(query) || (item.description && item.description.toLowerCase().includes(query));
+                const matchesCat = cat === 'all' || item.category === cat;
+                return matchesQuery && matchesCat;
+            });
+            
+            renderUpcomingTable(filtered);
+        }
+
+        function switchTab(tabName) {
+            // Remove active classes
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            if (tabName === 'leads') {
+                document.getElementById('leadsTabBtn').classList.add('active');
+                document.getElementById('leadsTab').classList.add('active');
+            } else if (tabName === 'upcoming') {
+                document.getElementById('upcomingTabBtn').classList.add('active');
+                document.getElementById('upcomingTab').classList.add('active');
+            } else if (tabName === 'settings') {
+                document.getElementById('settingsTabBtn').classList.add('active');
+                document.getElementById('settingsTab').classList.add('active');
+                loadSettings();
+            } else if (tabName === 'form') {
+                document.getElementById('formTab').classList.add('active');
+            }
+        }
 
         function renderTable(contacts) {
             totalCount.textContent = contacts.length;
@@ -363,11 +1044,670 @@
             });
         }
 
+        function renderUpcomingTable(items) {
+            upcomingTableBody.innerHTML = '';
+            
+            // Reset selection state
+            const selectAllCheckbox = document.getElementById('selectAllUpcoming');
+            if (selectAllCheckbox) {
+                selectAllCheckbox.checked = false;
+            }
+            updateSelectedCount();
+
+            if (items.length === 0) {
+                upcomingTableBody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding: 40px;">No upcoming items yet.</td></tr>';
+                return;
+            }
+
+            items.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                
+                // Determine media element preview
+                let mediaPreview = '';
+                if (item.media_type === 'youtube') {
+                    // Extract YT id
+                    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                    const match = item.media_url.match(regExp);
+                    const ytId = (match && match[2].length == 11) ? match[2] : null;
+                    if (ytId) {
+                        mediaPreview = `<img class="thumbnail-preview" src="https://i.ytimg.com/vi/${ytId}/hqdefault.jpg" alt="youtube">`;
+                    } else {
+                        mediaPreview = `<span style="font-size:0.75rem;color:var(--accent-primary)">YouTube</span>`;
+                    }
+                } else if (item.media_type === 'video') {
+                    mediaPreview = `<video class="thumbnail-preview" src="${item.media_url}" muted></video>`;
+                } else if (item.media_url) {
+                    mediaPreview = `<img class="thumbnail-preview" src="${item.media_url}" alt="preview">`;
+                } else {
+                    mediaPreview = `<span style="font-size:0.75rem;color:var(--text-secondary)">No Media</span>`;
+                }
+
+                const scheduledLabel = item.status === 'scheduled' && item.scheduled_time 
+                    ? `<br><small style="color:#3b82f6;">⏱ ${new Date(item.scheduled_time).toLocaleString()}</small>`
+                    : '';
+
+                tr.innerHTML = `
+                    <td style="text-align: center;">
+                        <input type="checkbox" class="upcoming-select" data-id="${item.id}" onclick="updateSelectedCount()">
+                    </td>
+                    <td>
+                        <div class="order-btns">
+                            <button class="order-btn" onclick="moveItem(${index}, -1)" ${index === 0 ? 'disabled' : ''}>▲</button>
+                            <button class="order-btn" onclick="moveItem(${index}, 1)" ${index === items.length - 1 ? 'disabled' : ''}>▼</button>
+                        </div>
+                    </td>
+                    <td>${mediaPreview}</td>
+                    <td>
+                        <b style="font-size:0.95rem;">${item.title}</b>
+                        <br><small style="color:var(--text-secondary); max-width:250px; display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${item.description || 'No description'}</small>
+                    </td>
+                    <td><span class="status-badge" style="background:rgba(255,255,255,0.05); color:#fff;">${item.category}</span></td>
+                    <td><b>${item.release_date || 'Coming Soon'}</b></td>
+                    <td>
+                        <span class="status-badge status-${item.status}">${item.status.replace('_', ' ')}</span>
+                        ${scheduledLabel}
+                    </td>
+                    <td style="text-align: right; white-space: nowrap;">
+                        <button class="btn btn-sm ${item.status === 'published' ? 'btn-secondary' : 'btn-success'}" onclick="toggleStatus(${item.id})">
+                            ${item.status === 'published' ? '👁 Hide' : '👁 Show'}
+                        </button>
+                        <button class="btn btn-sm btn-secondary" onclick="editItem(${item.id})">Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteItem(${item.id})">Delete</button>
+                    </td>
+                `;
+                upcomingTableBody.appendChild(tr);
+            });
+        }
+
+        // Add form display triggers
+        function showCreateForm() {
+            document.getElementById('formTitle').textContent = 'Add New Upcoming Item';
+            upcomingForm.reset();
+            resetDropZone();
+            document.getElementById('upcomingId').value = '';
+            document.getElementById('scheduled_time').value = '';
+            toggleScheduledField();
+            toggleMediaInputs();
+            switchTab('form');
+        }
+
+        function editItem(id) {
+            const item = upcomingItemsList.find(i => i.id === id);
+            if (!item) return;
+
+            document.getElementById('formTitle').textContent = 'Edit Upcoming Item';
+            upcomingForm.reset();
+            resetDropZone();
+
+            // Populate fields
+            document.getElementById('upcomingId').value = item.id;
+            document.getElementById('title').value = item.title;
+            document.getElementById('description').value = item.description || '';
+            document.getElementById('category').value = item.category || 'Product';
+            document.getElementById('release_date').value = item.release_date || '';
+            document.getElementById('status').value = item.status || 'published';
+            
+            if (item.scheduled_time) {
+                // Format datetime-local input value (YYYY-MM-DDThh:mm)
+                const date = new Date(item.scheduled_time);
+                const localISO = new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+                document.getElementById('scheduled_time').value = localISO;
+            }
+
+            let mappedMediaType = item.media_type || 'image';
+            if (mappedMediaType === 'video') mappedMediaType = 'image';
+            document.getElementById('media_type').value = mappedMediaType;
+            if (item.media_type === 'youtube') {
+                document.getElementById('media_url').value = item.media_url || '';
+            } else {
+                document.getElementById('media_url').value = '';
+                
+                // Parse existing gallery if present
+                if (item.gallery) {
+                    try {
+                        existingGalleryList = JSON.parse(item.gallery);
+                    } catch (e) {
+                        existingGalleryList = [];
+                    }
+                } else if (item.media_url) {
+                    existingGalleryList = [{ type: item.media_type || 'image', url: item.media_url }];
+                } else {
+                    existingGalleryList = [];
+                }
+
+                // Update the hidden input value
+                document.getElementById('existingGallery').value = JSON.stringify(existingGalleryList);
+
+                // Render previews of existing files
+                renderGalleryPreviews();
+            }
+
+            document.getElementById('meta_title').value = item.meta_title || '';
+            document.getElementById('meta_description').value = item.meta_description || '';
+            document.getElementById('og_image').value = item.og_image || '';
+
+            toggleScheduledField();
+            toggleMediaInputs();
+            switchTab('form');
+        }
+
+        // Form Submit handler
+        upcomingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            saveBtn.style.display = 'none';
+            formLoader.style.display = 'block';
+
+            const id = document.getElementById('upcomingId').value;
+            const isEdit = id && id.length > 0;
+            const url = isEdit ? `/api/admin/upcoming/update/${id}` : '/api/admin/upcoming/create';
+
+            const formData = new FormData(upcomingForm);
+            formData.delete('mediaFile');
+            selectedFiles.forEach(file => {
+                formData.append('mediaFile', file);
+            });
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'x-admin-key': sessionKey
+                    },
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    showSuccessBanner(isEdit ? "Item updated successfully!" : "Item created successfully!");
+                    await loadUpcoming();
+                    switchTab('upcoming');
+                } else {
+                    alert(data.message || 'Operation failed.');
+                }
+            } catch (error) {
+                console.error("Form submit error:", error);
+                alert("Server error occurred during submission.");
+            } finally {
+                saveBtn.style.display = 'block';
+                formLoader.style.display = 'none';
+            }
+        });
+
+        async function deleteItem(id) {
+            if (!confirm("Are you sure you want to delete this upcoming item?")) return;
+            try {
+                const response = await fetch('/api/admin/upcoming/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: sessionKey, id: id })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    showSuccessBanner("Item deleted successfully!");
+                    await loadUpcoming();
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert("Failed to delete item.");
+            }
+        }
+
+        function toggleSelectAllUpcoming(masterCheckbox) {
+            const checkboxes = document.querySelectorAll('.upcoming-select');
+            checkboxes.forEach(cb => {
+                cb.checked = masterCheckbox.checked;
+            });
+            updateSelectedCount();
+        }
+
+        function updateSelectedCount() {
+            const checkboxes = document.querySelectorAll('.upcoming-select');
+            const checkedBoxes = Array.from(checkboxes).filter(cb => cb.checked);
+            const count = checkedBoxes.length;
+            
+            const bulkBtn = document.getElementById('bulkDeleteBtn');
+            const countSpan = document.getElementById('selectedCount');
+            
+            if (bulkBtn && countSpan) {
+                countSpan.textContent = count;
+                if (count > 0) {
+                    bulkBtn.disabled = false;
+                } else {
+                    bulkBtn.disabled = true;
+                }
+            }
+
+            // Sync master checkbox state
+            const master = document.getElementById('selectAllUpcoming');
+            if (master) {
+                if (checkboxes.length > 0 && count === checkboxes.length) {
+                    master.checked = true;
+                } else {
+                    master.checked = false;
+                }
+            }
+        }
+
+        async function bulkDeleteUpcoming() {
+            const checkedBoxes = Array.from(document.querySelectorAll('.upcoming-select')).filter(cb => cb.checked);
+            const ids = checkedBoxes.map(cb => parseInt(cb.getAttribute('data-id'), 10));
+            
+            if (ids.length === 0) return;
+            
+            if (!confirm(`Are you sure you want to delete the ${ids.length} selected upcoming item(s)?`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/admin/upcoming/bulk-delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: sessionKey, ids: ids })
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    showSuccessBanner("Successfully deleted selected items!");
+                    await loadUpcoming();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Bulk delete error:', error);
+                alert('Connection failed while bulk deleting items.');
+            }
+        }
+
+        async function moveItem(index, direction) {
+            const list = [...upcomingItemsList];
+            const targetIndex = index + direction;
+            if (targetIndex < 0 || targetIndex >= list.length) return;
+
+            // Swap items
+            const temp = list[index];
+            list[index] = list[targetIndex];
+            list[targetIndex] = temp;
+
+            // Extract IDs in new order
+            const ids = list.map(item => item.id);
+
+            try {
+                const response = await fetch('/api/admin/upcoming/reorder', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: sessionKey, ids: ids })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    await loadUpcoming();
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert("Reorder failed.");
+            }
+        }
+
+        async function syncYouTube() {
+            syncLoader.style.display = 'inline-block';
+            upcomingSuccess.style.display = 'none';
+            try {
+                const response = await fetch('/api/admin/upcoming/sync-youtube', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: sessionKey })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    showSuccessBanner(data.message);
+                    await loadUpcoming();
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert("YouTube Sync failed.");
+            } finally {
+                syncLoader.style.display = 'none';
+            }
+        }
+
+        function toggleScheduledField() {
+            const status = document.getElementById('status').value;
+            const group = document.getElementById('scheduledTimeGroup');
+            group.style.display = status === 'scheduled' ? 'block' : 'none';
+        }
+
+        function toggleMediaInputs() {
+            const mediaType = document.getElementById('media_type').value;
+            const fileGroup = document.getElementById('fileUploadGroup');
+            const urlGroup = document.getElementById('mediaUrlGroup');
+
+            if (mediaType === 'youtube') {
+                fileGroup.style.display = 'none';
+                urlGroup.style.display = 'block';
+            } else {
+                fileGroup.style.display = 'block';
+                urlGroup.style.display = 'none';
+            }
+        }
+
+        function showSuccessBanner(message) {
+            upcomingSuccess.textContent = message;
+            upcomingSuccess.style.display = 'block';
+            setTimeout(() => {
+                upcomingSuccess.style.display = 'none';
+            }, 4000);
+        }
+
         function logout() {
             sessionKey = null;
+            sessionStorage.removeItem('admin_session_key');
             adminKeyInput.value = '';
             dashboardSection.style.display = 'none';
             loginSection.style.display = 'flex';
+        }
+
+        // Setup Drag & Drop File Zone
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('mediaFile');
+        const dropZoneText = document.querySelector('.drop-zone-text');
+        const previewContainer = document.getElementById('dropZonePreview');
+
+        if (dropZone && fileInput) {
+            dropZone.addEventListener('click', () => fileInput.click());
+            
+            if (previewContainer) {
+                previewContainer.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('dragover');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                if (e.dataTransfer.files.length > 0) {
+                    const newFiles = Array.from(e.dataTransfer.files);
+                    selectedFiles = selectedFiles.concat(newFiles);
+                    
+                    // Sync fileInput using DataTransfer
+                    const dt = new DataTransfer();
+                    selectedFiles.forEach(file => dt.items.add(file));
+                    fileInput.files = dt.files;
+                    
+                    // Mark remove flag as false since we selected a new file
+                    document.getElementById('removeMediaFlag').value = 'false';
+                    renderGalleryPreviews();
+                }
+            });
+
+            fileInput.addEventListener('change', () => {
+                if (fileInput.files.length > 0) {
+                    const newFiles = Array.from(fileInput.files);
+                    selectedFiles = selectedFiles.concat(newFiles);
+                    
+                    // Sync fileInput using DataTransfer
+                    const dt = new DataTransfer();
+                    selectedFiles.forEach(file => dt.items.add(file));
+                    fileInput.files = dt.files;
+
+                    // Mark remove flag as false since we selected a new file
+                    document.getElementById('removeMediaFlag').value = 'false';
+                    renderGalleryPreviews();
+                }
+            });
+        }
+
+        function renderGalleryPreviews() {
+            previewContainer.innerHTML = '';
+            
+            const totalCount = existingGalleryList.length + selectedFiles.length;
+            if (totalCount === 0) {
+                previewContainer.style.display = 'none';
+                dropZoneText.textContent = '📁 Drag & Drop or Click to Upload';
+                const removeBtn = document.getElementById('removeMediaBtn');
+                if (removeBtn) removeBtn.style.display = 'none';
+                return;
+            }
+
+            previewContainer.style.display = 'flex';
+            dropZoneText.textContent = `${totalCount} file(s) selected`;
+            
+            const removeBtn = document.getElementById('removeMediaBtn');
+            if (removeBtn) removeBtn.style.display = 'inline-block';
+
+            // 1. Render Existing Gallery Items
+            existingGalleryList.forEach((mediaItem, index) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'preview-wrapper';
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.type = 'button';
+                deleteBtn.className = 'preview-remove-btn';
+                deleteBtn.innerHTML = '×';
+                deleteBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    removeExistingGalleryItem(index);
+                };
+                wrapper.appendChild(deleteBtn);
+
+                if (mediaItem.type === 'video') {
+                    const video = document.createElement('video');
+                    video.src = mediaItem.url;
+                    video.muted = true;
+                    video.autoplay = true;
+                    video.loop = true;
+                    wrapper.appendChild(video);
+                } else if (mediaItem.type === 'youtube') {
+                    const div = document.createElement('div');
+                    div.style.color = 'var(--secondary)';
+                    div.style.fontSize = '0.8rem';
+                    div.style.textAlign = 'center';
+                    div.textContent = '📺 YouTube Video';
+                    wrapper.appendChild(div);
+                } else {
+                    const img = document.createElement('img');
+                    img.src = mediaItem.url;
+                    wrapper.appendChild(img);
+                }
+
+                previewContainer.appendChild(wrapper);
+            });
+
+            // 2. Render Newly Selected Files
+            selectedFiles.forEach((file, index) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'preview-wrapper';
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.type = 'button';
+                deleteBtn.className = 'preview-remove-btn';
+                deleteBtn.innerHTML = '×';
+                deleteBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    removeNewSelectedItem(index);
+                };
+                wrapper.appendChild(deleteBtn);
+
+                const reader = new FileReader();
+                if (file.type.startsWith('image/')) {
+                    const img = document.createElement('img');
+                    reader.onload = (e) => {
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                    wrapper.appendChild(img);
+                } else if (file.type.startsWith('video/')) {
+                    const video = document.createElement('video');
+                    video.muted = true;
+                    video.autoplay = true;
+                    video.loop = true;
+                    reader.onload = (e) => {
+                        video.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                    wrapper.appendChild(video);
+                } else {
+                    const div = document.createElement('div');
+                    div.style.color = '#fff';
+                    div.style.fontSize = '0.8rem';
+                    div.textContent = file.name;
+                    wrapper.appendChild(div);
+                }
+
+                previewContainer.appendChild(wrapper);
+            });
+        }
+
+        function removeExistingGalleryItem(index) {
+            existingGalleryList.splice(index, 1);
+            document.getElementById('existingGallery').value = JSON.stringify(existingGalleryList);
+            renderGalleryPreviews();
+        }
+
+        function removeNewSelectedItem(index) {
+            selectedFiles.splice(index, 1);
+            
+            // Sync with fileInput using DataTransfer
+            const dt = new DataTransfer();
+            selectedFiles.forEach(file => dt.items.add(file));
+            fileInput.files = dt.files;
+            
+            renderGalleryPreviews();
+        }
+
+        function clearSelectedMedia(event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            
+            selectedFiles = [];
+            existingGalleryList = [];
+            
+            if (fileInput) fileInput.value = '';
+            document.getElementById('existingGallery').value = '';
+            
+            if (dropZoneText) dropZoneText.textContent = '📁 Drag & Drop or Click to Upload';
+            
+            if (previewContainer) {
+                previewContainer.innerHTML = '';
+                previewContainer.style.display = 'none';
+            }
+            
+            const removeBtn = document.getElementById('removeMediaBtn');
+            if (removeBtn) removeBtn.style.display = 'none';
+            
+            document.getElementById('removeMediaFlag').value = 'true';
+        }
+
+        function resetDropZone() {
+            selectedFiles = [];
+            existingGalleryList = [];
+            
+            if (dropZoneText) dropZoneText.textContent = '📁 Drag & Drop or Click to Upload';
+            if (previewContainer) {
+                previewContainer.innerHTML = '';
+                previewContainer.style.display = 'none';
+            }
+            if (fileInput) fileInput.value = '';
+            
+            const removeBtn = document.getElementById('removeMediaBtn');
+            if (removeBtn) removeBtn.style.display = 'none';
+            
+            document.getElementById('removeMediaFlag').value = 'false';
+            document.getElementById('existingGallery').value = '';
+        }
+
+        async function toggleStatus(id) {
+            try {
+                const response = await fetch('/api/admin/upcoming/toggle-status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: sessionKey, id: id })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    showSuccessBanner(data.message);
+                    await loadUpcoming();
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error("Error toggling status:", error);
+                alert("Failed to toggle status: " + error.message);
+            }
+        }
+
+        async function loadSettings() {
+            try {
+                const response = await fetch('/api/admin/settings/get', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: sessionKey })
+                });
+                const data = await response.json();
+                if (data.success && data.settings) {
+                    const autoPublishVal = data.settings.youtube_auto_publish;
+                    const syncEnabledVal = data.settings.youtube_sync_enabled;
+
+                    const radioTrue = document.querySelector('input[name="youtube_auto_publish"][value="true"]');
+                    const radioFalse = document.querySelector('input[name="youtube_auto_publish"][value="false"]');
+                    if (autoPublishVal === 'true') {
+                        radioTrue.checked = true;
+                    } else if (autoPublishVal === 'false') {
+                        radioFalse.checked = true;
+                    }
+
+                    document.getElementById('youtube_sync_enabled').checked = (syncEnabledVal === 'true');
+                }
+            } catch (error) {
+                console.error("Failed to load settings:", error);
+            }
+        }
+
+        async function saveSettings(e) {
+            e.preventDefault();
+            const autoPublish = document.querySelector('input[name="youtube_auto_publish"]:checked').value;
+            const syncEnabled = document.getElementById('youtube_sync_enabled').checked ? 'true' : 'false';
+
+            try {
+                const response = await fetch('/api/admin/settings/update', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        key: sessionKey,
+                        settings: {
+                            youtube_auto_publish: autoPublish,
+                            youtube_sync_enabled: syncEnabled
+                        }
+                    })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    const banner = document.getElementById('settingsSuccess');
+                    banner.textContent = "Settings saved successfully!";
+                    banner.style.display = 'block';
+                    setTimeout(() => {
+                        banner.style.display = 'none';
+                    }, 3000);
+                } else {
+                    alert(data.message || "Failed to update settings.");
+                }
+            } catch (error) {
+                console.error("Failed to save settings:", error);
+                alert("Failed to save settings.");
+            }
         }
     </script>
 </body>
